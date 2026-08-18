@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-18T00:00:00.000Z",
+  "title": "Design System: Raw Red",
+  "extensions": {
+    "colorMeta": {
+      "rooibos-red": {
+        "role": "primary",
+        "displayName": "Rooibos Red",
+        "canonical": "hsl(8, 56%, 42%)",
+        "tonalRamp": ["#30120D", "#582119", "#7F3024", "#A8402F", "#C95240", "#D77D70", "#E4A9A0", "#F4DBD7"]
+      },
+      "deep-russet": {
+        "role": "primary-deep",
+        "displayName": "Deep Russet",
+        "canonical": "hsl(8, 58%, 31%)",
+        "tonalRamp": []
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "canonical": "hsl(0, 0%, 100%)",
+        "tonalRamp": []
+      },
+      "sand": {
+        "role": "neutral",
+        "displayName": "Warm Sand",
+        "canonical": "hsl(36, 37%, 83%)",
+        "tonalRamp": []
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Steeped Cream",
+        "canonical": "hsl(37, 50%, 93%)",
+        "tonalRamp": ["#2B211E", "#483E3A", "#655C57", "#827973", "#9F978F", "#BCB4AB", "#D9D2C8", "#F6EFE4"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Fireside Ink",
+        "canonical": "hsl(14, 18%, 14%)",
+        "tonalRamp": []
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero statements only, uppercase, poster-scale. One per page." },
+      "headline": { "displayName": "Headline", "purpose": "Section headers." },
+      "title": { "displayName": "Title", "purpose": "Card and subsection headers." },
+      "body": { "displayName": "Body", "purpose": "Product description, story copy, checkout copy. Max 65-75ch." },
+      "label": { "displayName": "Label", "purpose": "Nav, buttons, size-selector, form labels. Uppercase, 0.1em tracking." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-out-quart", "value": "cubic-bezier(0.25, 1, 0.5, 1)", "purpose": "Default easing for all state transitions (hover, focus, selection). No bounce, no elastic." },
+      { "name": "duration-fast", "value": "150ms", "purpose": "Micro-interactions: size-selector selection, input focus." },
+      { "name": "duration-standard", "value": "180ms", "purpose": "Button hover, nav link hover." },
+      { "name": "duration-panel", "value": "260ms", "purpose": "Mobile nav panel, cart drawer open/close (grid-template-rows / transform only, never height)." },
+      { "name": "duration-reveal", "value": "700ms", "purpose": "Staggered fade-up of hero content on first load, 60-180ms delay per element." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main call-to-action: Add to Cart, Checkout, Place Order.",
+      "html": "<button class=\"ds-btn-primary\">Add to Cart</button>",
+      "css": ".ds-btn-primary { background: #A8402F; color: #F6EFE4; font-family: Jost, 'Avenir Next', Futura, 'Century Gothic', 'Trebuchet MS', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.4; padding: 16px 32px; border: none; border-radius: 10px; cursor: pointer; transition: background 180ms cubic-bezier(0.25,1,0.5,1), transform 180ms cubic-bezier(0.25,1,0.5,1); } .ds-btn-primary:hover { background: #7C2D21; } .ds-btn-primary:active { transform: scale(0.97); } .ds-btn-primary:focus-visible { outline: 2px solid #2B211E; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Lower-emphasis actions: Continue Shopping, View Details.",
+      "html": "<button class=\"ds-btn-secondary\">View Details</button>",
+      "css": ".ds-btn-secondary { background: transparent; color: #2B211E; font-family: Jost, 'Avenir Next', Futura, 'Century Gothic', 'Trebuchet MS', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.4; padding: 16px 32px; border: 1px solid #E3D6C2; border-radius: 10px; cursor: pointer; transition: background 180ms cubic-bezier(0.25,1,0.5,1), transform 180ms cubic-bezier(0.25,1,0.5,1); } .ds-btn-secondary:hover { background: #E3D6C2; } .ds-btn-secondary:active { transform: scale(0.97); } .ds-btn-secondary:focus-visible { outline: 2px solid #2B211E; outline-offset: 2px; }"
+    },
+    {
+      "name": "Size Selector",
+      "kind": "custom",
+      "refersTo": "size-selector-option",
+      "description": "Signature component: the 100g/250g/500g pack-size picker. Always three horizontal segments, never a dropdown, minimum 48px touch height. Typically sits inside a solid Sand section, so unselected options are White to pop against it.",
+      "html": "<div class=\"ds-size-selector\" role=\"radiogroup\" aria-label=\"Pack size\"> <button class=\"ds-size-option\" role=\"radio\" aria-checked=\"false\">100g</button> <button class=\"ds-size-option ds-size-option--selected\" role=\"radio\" aria-checked=\"true\">250g</button> <button class=\"ds-size-option\" role=\"radio\" aria-checked=\"false\">500g</button> </div>",
+      "css": ".ds-size-selector { display: flex; gap: 8px; } .ds-size-option { flex: 1; min-height: 48px; background: #FFFFFF; color: #2B211E; border: 1px solid #E3D6C2; border-radius: 10px; font-family: Jost, 'Avenir Next', Futura, 'Century Gothic', 'Trebuchet MS', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 150ms cubic-bezier(0.25,1,0.5,1), border-color 150ms cubic-bezier(0.25,1,0.5,1), color 150ms cubic-bezier(0.25,1,0.5,1), transform 150ms cubic-bezier(0.25,1,0.5,1); } .ds-size-option:hover { border-color: #A8402F; } .ds-size-option:active { transform: scale(0.96); } .ds-size-option--selected, .ds-size-option[aria-checked='true'] { background: #A8402F; color: #F6EFE4; border-color: #A8402F; } .ds-size-option:focus-visible { outline: 2px solid #2B211E; outline-offset: 2px; }"
+    },
+    {
+      "name": "Product Section Block",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "The primary conversion moment: a solid, full-strength Sand section with a White panel nested inside it for the price/CTA area. Flat, shadow-free; contrast comes from real colour, not a tonal blend.",
+      "html": "<section class=\"ds-block\"> <article class=\"ds-block-inner\"> <h3 class=\"ds-card-title\">Raw Red Rooibos</h3> <p class=\"ds-card-body\">Organic, unpasteurised, small-batch.</p> <button class=\"ds-btn-primary\">Add to Cart</button> </article> </section>",
+      "css": ".ds-block { background: #E3D6C2; padding: 32px; border-radius: 16px; } .ds-block-inner { background: #FFFFFF; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 12px; } .ds-card-title { font-family: Jost, 'Avenir Next', Futura, 'Century Gothic', 'Trebuchet MS', sans-serif; font-size: 1.25rem; font-weight: 500; line-height: 1.3; color: #2B211E; margin: 0; } .ds-card-body { font-family: Jost, 'Avenir Next', Futura, 'Century Gothic', 'Trebuchet MS', sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.65; color: #2B211E; margin: 0; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-default",
+      "description": "Checkout/newsletter fields.",
+      "html": "<input class=\"ds-input\" type=\"email\" placeholder=\"you@example.com\" />",
+      "css": ".ds-input { background: #FFFFFF; color: #2B211E; border: 1px solid #E3D6C2; border-radius: 6px; padding: 12px 16px; font-family: Jost, 'Avenir Next', Futura, 'Century Gothic', 'Trebuchet MS', sans-serif; font-size: 1rem; width: 100%; transition: border-color 150ms cubic-bezier(0.25,1,0.5,1); } .ds-input:focus { outline: none; border-color: #A8402F; border-width: 2px; padding: 11px 15px; } .ds-input::placeholder { color: #827973; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Steeped Sun",
+    "overview": "The mark is a red circle: read one way it's a cup of rooibos seen from above, read another it's a sun low on the horizon. Everything in this system takes its cue from that ambiguity, a single warm, saturated color that means something precisely because it's rare. The canvas is White: crisp, bright, and undecorated, so the earth tones (Rooibos Red, Warm Sand, Deep Russet) read as deliberate pops of colour rather than blending into a beige haze. This is a Restrained strategy for the accent combined with solid colour-blocking for the neutrals: Sand appears as a genuine full-strength section background, not a tint. The brand rejects the clinical feel of a wellness-supplement brand, the generic badge-cluttered look of an off-the-shelf Shopify template, and murky blended near-white backgrounds that all read as the same beige.",
+    "keyCharacteristics": [
+      "White is the dominant canvas across the whole site (nav, hero, footer, most body copy)",
+      "Rooibos Red stays rare and dedicated to CTAs, price emphasis, and short accent text",
+      "Warm Sand is used as a genuine full-strength solid colour block for one or two sections per page, never a faded tint",
+      "White panels nest inside Sand sections (and vice versa) for contrast-on-contrast instead of shadows",
+      "Flat surfaces always: no gradients, no drop shadows, no glassmorphism",
+      "A single geometric sans family (Jost, standing in for the licensed Futura PT / Avenir Next) carries the whole system",
+      "Real photography of tea, leaf, and harvest, never a colored block standing in for an image",
+      "A staggered fade-up on first load and scale(0.97) press feedback on every interactive element"
+    ],
+    "rules": [
+      { "name": "The Steeped Sun Rule", "body": "Rooibos Red never exceeds roughly 12% of a screen's surface. If a layout needs more visual weight, add whitespace or a larger photograph before reaching for more red.", "section": "colors" },
+      { "name": "The Solid Block Rule", "body": "When Sand is used as a section or panel background, it runs at full, undiluted strength, never a faded opacity tint. Nest a White panel inside a Sand block (or vice versa) for contrast, rather than reaching for a shadow.", "section": "colors" },
+      { "name": "The Branded Label Rule", "body": "The logo's own extreme tracking (0.33em on the wordmark, 0.42em on its tagline) belongs to the literal brand mark only. Everyday uppercase UI tracks at a legible 0.1em.", "section": "typography" },
+      { "name": "The Flat Sunlight Rule", "body": "No drop shadows, gradients, or soft tonal blending anywhere. Depth and rhythm come from alternating genuine solid colours (White, Sand) section by section.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep Rooibos Red to roughly 10-12% of any screen (the Steeped Sun Rule)",
+      "Do use White as the default canvas and Sand at full strength for accent sections (the Solid Block Rule)",
+      "Do ship real rooibos/tea photography for hero and story sections",
+      "Do reserve the wordmark's extreme letter-spacing for the literal logo and tagline only",
+      "Do keep every interactive target at least 44x44px (48px for the size selector)",
+      "Do maintain WCAG AA contrast for Rooibos Red and Fireside Ink text",
+      "Do execute familiar ecommerce conventions with this system's warmth and craft"
+    ],
+    "donts": [
+      "Don't add box-shadow to cards, buttons, or the nav bar",
+      "Don't use gradients, radial washes, or soft-shading effects anywhere",
+      "Don't use a faded/tinted opacity of Sand as a section background; full strength or not at all",
+      "Don't use border-left / border-right as a colored accent stripe",
+      "Don't use gradient text or decorative glassmorphism panels",
+      "Don't set body copy in all-caps",
+      "Don't default to a generic Shopify-template layout",
+      "Don't use em dashes in interface copy",
+      "Don't use pure black (#000) anywhere; pure White is the deliberate canvas exception"
+    ]
+  }
+}

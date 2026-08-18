@@ -1,0 +1,31 @@
+{
+  "$description": "Raw Red — organic unpasteurised loose rooibos. Design tokens v1, July 2026.",
+  "color": {
+    "rooibos-red": { "value": "#A8402F", "type": "color", "description": "Primary brand colour. Logo circle, accents, sub-line text." },
+    "deep-russet": { "value": "#7C2D21", "type": "color", "description": "Dark accent. Small text on cream, hover states." },
+    "cream":       { "value": "#F6EFE4", "type": "color", "description": "Background. Branch mark and logo reversal on red." },
+    "ink":         { "value": "#2B211E", "type": "color", "description": "Wordmark and body text." },
+    "sand":        { "value": "#E3D6C2", "type": "color", "description": "Hairlines, subtle borders, dividers." }
+  },
+  "typography": {
+    "brand-font-primary":  { "value": "Futura PT", "type": "fontFamily", "description": "Preferred licensed typeface. Avenir Next is an equal alternative." },
+    "brand-font-free":     { "value": "Jost", "type": "fontFamily", "description": "Free alternative on Google Fonts, close match to Futura." },
+    "brand-font-fallback": { "value": "Avenir Next, Futura, Century Gothic, Trebuchet MS, sans-serif", "type": "fontFamily", "description": "Digital fallback stack used in the SVG logo files." },
+    "wordmark": {
+      "case": { "value": "uppercase", "type": "textCase" },
+      "letter-spacing": { "value": "0.33em", "type": "letterSpacing", "description": "10 units at 30px in the master SVG." },
+      "weight": { "value": "400", "type": "fontWeight" }
+    },
+    "subline": {
+      "case": { "value": "uppercase", "type": "textCase" },
+      "letter-spacing": { "value": "0.42em", "type": "letterSpacing", "description": "5 units at 12px in the master SVG." },
+      "color": { "value": "{color.rooibos-red}", "type": "color" }
+    }
+  },
+  "logo": {
+    "primary": { "value": "logos/Logo.svg", "description": "Chosen mark: hand-drawn rooibos branch in cream inside the red circle. Finalized version of the rooibos-branch concept." },
+    "circle-radius-ratio": { "value": "0.39", "description": "Circle radius relative to full logo width (78/200 of half-width)." },
+    "clear-space": { "value": "0.5x circle radius", "description": "Minimum clear space around the mark on all sides." },
+    "minimum-size": { "value": "24px / 8mm", "description": "Below this, use the circle-and-branch mark without wordmark." }
+  }
+}

@@ -1,0 +1,19 @@
+/* Raw Red design tokens — generated from ../design-tokens.json (brand sheet v1, July 2026) */
+
+:root {
+  /* Color */
+  --color-rooibos-red: #A8402F;
+  --color-deep-russet: #7C2D21;
+  --color-cream: #F6EFE4;
+  --color-ink: #2B211E;
+  --color-sand: #E3D6C2;
+
+  /* Typography */
+  --font-brand: "Futura PT", "Avenir Next", "Century Gothic", "Trebuchet MS", sans-serif;
+  --font-brand-free: "Jost", sans-serif;
+
+  --wordmark-letter-spacing: 0.33em;
+  --wordmark-weight: 400;
+  --subline-letter-spacing: 0.42em;
+  --subline-color: var(--color-rooibos-red);
+}
