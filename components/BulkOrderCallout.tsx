@@ -6,7 +6,7 @@ export function BulkOrderCallout() {
   const { openContactSheet } = useContactSheet();
 
   return (
-    <div className="mt-6 flex flex-col gap-4 rounded-lg border border-ink/15 p-6 sm:flex-row sm:items-center sm:justify-between">
+    <div className="mt-10 flex flex-col gap-4 rounded-lg bg-white p-6 sm:flex-row sm:items-center sm:justify-between">
       <div>
         <h3 className="font-sans text-sm font-medium text-ink">
           Ordering 10kg or more?

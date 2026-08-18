@@ -135,8 +135,6 @@ export function ProductSection() {
               : ""}
           </p>
 
-          <BulkOrderCallout />
-
           <dl className="mt-10 flex flex-col gap-5 border-t border-ink/10 pt-8">
             {rawRedRooibos.details.map((detail) => (
               <div key={detail.label}>
@@ -149,6 +147,8 @@ export function ProductSection() {
               </div>
             ))}
           </dl>
+
+          <BulkOrderCallout />
         </div>
       </div>
     </section>
