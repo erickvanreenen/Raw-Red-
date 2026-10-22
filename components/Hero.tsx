@@ -25,7 +25,7 @@ export function Hero() {
             className="t-lead reveal mt-6 max-w-[46ch]"
             style={{ animationDelay: "80ms" }}
           >
-            Organic, unpasteurised rooibos from a small family farm.
+            Unpasteurised rooibos from a small family farm.
             Hand-harvested, sun-dried, and left alone.
           </p>
         </div>

@@ -13,9 +13,9 @@ const albert = Albert_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Raw Rooibos | Organic Unpasteurised Rooibos",
+  title: "Raw Rooibos | Unpasteurised Rooibos",
   description:
-    "Organic, unpasteurised, small-batch rooibos. Steeped raw. Sold direct.",
+    "Unpasteurised, small-batch rooibos. Steeped raw. Sold direct.",
 };
 
 export default function RootLayout({

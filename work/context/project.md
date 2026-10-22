@@ -6,7 +6,7 @@ Skill: 00-governance/context-pack. Written 2026-10-22. Single-stage run of 04-ui
 Erick is unhappy with the current UI of rawrooibos.com. In his words: it "feels stale and olde", he doesn't like the font, he doesn't like how it looks generally, and he still wants it to feel earthy "but that does not mean stale". He also wants the placeholder stock photography replaced with the real farm photos in `Raw Red\Images`.
 
 ## Audience
-Casual repeat buyers who already know the tea and reorder their size (100g, 250g, 500g); first-time visitors who must understand "organic, unpasteurised, small-batch, family farm" quickly. South Africa first (ZAR, local payments planned). Mostly phones. Source: PRODUCT.md.
+Casual repeat buyers who already know the tea and reorder their size (100g, 250g, 500g); first-time visitors who must understand "unpasteurised, small-batch, family farm" quickly. South Africa first (ZAR, local payments planned). Mostly phones. Source: PRODUCT.md.
 
 ## Success criteria
 - Erick's reaction to the page flips from "stale" to "fresh", while staying earthy.

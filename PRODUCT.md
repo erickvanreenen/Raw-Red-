@@ -10,7 +10,7 @@ Primarily casual repeat buyers: people who already know and like Raw Rooibos and
 
 ## Product Purpose
 
-Raw Rooibos is a small D2C storefront selling organic, unpasteurised, loose-leaf rooibos tea. It exists so a two-person, small-batch tea business can sell directly online with a buying experience that feels custom-built and personal, not templated. Success looks like: a first-time visitor understands what makes this rooibos different (raw, unpasteurised, small-batch, family-made) within seconds, and a returning buyer can get from landing to "order placed" in as few steps as possible.
+Raw Rooibos is a small D2C storefront selling unpasteurised, loose-leaf rooibos tea. It exists so a two-person, small-batch tea business can sell directly online with a buying experience that feels custom-built and personal, not templated. Success looks like: a first-time visitor understands what makes this rooibos different (raw, unpasteurised, small-batch, family-made) within seconds, and a returning buyer can get from landing to "order placed" in as few steps as possible.
 
 ## Brand Personality
 

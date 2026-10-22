@@ -23,7 +23,7 @@ export interface Product {
 export const rawRooibos: Product = {
   id: "raw-rooibos",
   name: "Raw Rooibos",
-  tagline: "Organic. Unpasteurised. Steeped raw.",
+  tagline: "Unpasteurised. Steeped raw.",
   description:
     "Hand-harvested on a small family farm and left unpasteurised, so the leaf keeps more of what made it worth picking in the first place. Naturally caffeine-free, low in tannins, and good hot, iced, or steeped strong.",
   sizes: [
@@ -35,7 +35,7 @@ export const rawRooibos: Product = {
     {
       label: "Ingredients",
       value:
-        "100% organic rooibos (Aspalathus linearis). Unpasteurised, no additives, no flavouring.",
+        "100% rooibos (Aspalathus linearis). Unpasteurised, no additives, no flavouring.",
     },
     {
       label: "How to brew",

@@ -17,7 +17,7 @@ export function Footer() {
             </span>
           </div>
           <p className="mt-3 max-w-[36ch] text-[0.9375rem] text-white/80">
-            Organic, unpasteurised rooibos. Family-farmed, hand-packed.
+            Unpasteurised rooibos. Family-farmed, hand-packed.
           </p>
         </div>
 

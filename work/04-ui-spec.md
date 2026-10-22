@@ -9,7 +9,7 @@ Status: G4 passed with risks (2026-10-22). Direction A chosen; font and hero rev
 ### Signals from the brief
 - Erick's words: "stale and olde", dislikes the font, wants "earthy" that is not stale, generally dislikes the look.
 - What reads old on the current site (my read, not tested with users): uppercase tracked headings in a geometric sans; near-flat sand and white with a single accent; stock photos that don't match the product (a grey-blue leaf close-up, and an Asian tea picker for a South African rooibos brand).
-- Product: small-batch organic unpasteurised loose rooibos, direct to consumer; repeat buyers; mostly phones.
+- Product: small-batch unpasteurised loose rooibos, direct to consumer; repeat buyers; mostly phones.
 - Real asset now available: 17 farm photos (fields, red soil, harvest bales, the red leaf drying in the sun, a sunset). 14 are in `public/images/`, metadata stripped.
 
 ### Shortlisted styles (fit, risk)

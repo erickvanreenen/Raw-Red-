@@ -1,6 +1,6 @@
 ---
 name: Raw Rooibos
-description: Organic, unpasteurised, small-batch rooibos, sold direct from the farm.
+description: Unpasteurised, small-batch rooibos, sold direct from the farm.
 colors:
   paper: "#FFFFFF"
   sage: "#EAF0E3"

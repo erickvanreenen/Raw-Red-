@@ -42,7 +42,7 @@ Context: After the first build of direction A, Erick said he did not like the he
 Decision: One family, Albert Sans, weight 500 for headlines. Hero image is a 28px-rounded rectangle with the golden-hour field photo (`farm-golden-hour`).
 Options rejected: Bricolage Grotesque, Figtree (replaced), arch crop and sunset photo; other fonts shown (Manrope, Fraunces, Red Hat Display, Nunito, Instrument Serif) and hero treatments (circle, banner, two photos, valley banner).
 Evidence: `work/ui-hero-options.html`, Erick answers to the pick-list.
-Trade-offs: The photo is mostly sky at 4:3, so it is zoomed 1.45x to show more field; a better-framed hero photo would be an improvement. The hero chip ("Organic - Unpasteurised") was removed with the arch.
+Trade-offs: The photo is mostly sky at 4:3, so it is zoomed 1.45x to show more field; a better-framed hero photo would be an improvement. The hero chip ("Unpasteurised") was removed with the arch.
 Revisit when: new photography is taken.
 
 ## D06 Hero as an edge-to-edge banner
