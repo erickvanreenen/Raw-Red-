@@ -181,7 +181,7 @@ White bar, wordmark "Raw Rooibos" with the placeholder circle-and-branch mark, l
 Slide in from the right, white, 28px rounded left edge, dimmed backdrop, Escape and backdrop close, focus moves in on open (the enquiry sheet focuses the Name field).
 
 ### Photography
-Real farm photos in `public/images/` only (see `work/04-ui-spec.md` for what each shows). Soft rounded corners (28px hero and shop, 20px strip). Every image has descriptive alt text. No stock photos.
+Real farm photos in `public/images/` only (see `work/04-ui-spec.md` for what each shows). The hero is an edge-to-edge banner (no rounding, 21:9 on desktop, 16:9 tablet, 4:3 phone) shown uncropped to include sky, cliff and field, with the headline beneath it and the two buttons inline on the right; the shop photo is 28px rounded and the farm strip 20px. Every image has descriptive alt text. No stock photos.
 
 ## 6. Do's and Don'ts
 

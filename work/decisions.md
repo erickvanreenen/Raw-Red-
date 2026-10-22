@@ -45,6 +45,15 @@ Evidence: `work/ui-hero-options.html`, Erick answers to the pick-list.
 Trade-offs: The photo is mostly sky at 4:3, so it is zoomed 1.45x to show more field; a better-framed hero photo would be an improvement. The hero chip ("Organic - Unpasteurised") was removed with the arch.
 Revisit when: new photography is taken.
 
+## D06 Hero as an edge-to-edge banner
+Date / Decider: 2026-10-22, Erick
+Context: Erick asked for the hero to be an edge-to-edge banner at the top, headline beneath it, call-to-action buttons inline on the right. He also sent the uncropped H2 photo as the look he wanted (my 1.45x zoom had cut off the cliff).
+Decision: Full-bleed banner (21:9 desktop, 16:9 tablet, 4:3 phone) of `farm-golden-hour`, uncropped, under the nav. Below it, headline and lead on the left, Shop and Our story buttons on the right of the same row (stacked on phones).
+Options rejected: Rounded hero beside the headline (previous layout); zoomed crop of the photo.
+Evidence: Erick message and screenshot; checked at desktop and 375px.
+Trade-offs: The banner is tall on desktop (about 540px), so the headline starts below the first screen on short laptops.
+Revisit when: new photography is taken or analytics show low click-through on the hero buttons.
+
 ## Gate G4 Look, 2026-10-22
 Result: proceed with risks
 Passed: A person chose the direction (Erick); every colour pairing passes AA in the (only) light theme.
