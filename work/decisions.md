@@ -54,6 +54,15 @@ Evidence: Erick message and screenshot; checked at desktop and 375px.
 Trade-offs: The banner is tall on desktop (about 540px), so the headline starts below the first screen on short laptops.
 Revisit when: new photography is taken or analytics show low click-through on the hero buttons.
 
+## D07 Compact shop, green buttons, sage canvas with white containers
+Date / Decider: 2026-10-22, Erick
+Context: Erick reviewed the live shop section: the buy box was far too big and created a scroll inside the page scroll (sticky photo beside a tall column). He also asked that brick red be only an accent and a button state colour, not the resting colour of buttons; preferred the green of the footer; and asked for the light green from his reference screenshot to be the site-wide fill with white containers for contrast.
+Decision: (1) Shop restructured: photo and one compact white buy box side by side (about 480px), details and bulk enquiry in white containers beneath; no sticky, no inner scroll; Add to cart sits beside the stepper and shows the total. (2) Primary buttons are Deep Fynbos at rest, Ember on hover, Ember Deep pressed; ember stays as accent only. (3) Page canvas is #EEEFE5 (sampled from his screenshot); all content containers, FAQ rows, forms and the nav bar are white.
+Options rejected: Keeping the sticky photo column; ember as the resting button colour.
+Evidence: Erick message and screenshot; measured box height before (about 900px) and after (478px); contrast of all text colours on #EEEFE5 calculated (ink 13.6, ink-soft 5.65, ember 5.07, deep green 8.28).
+Trade-offs: White containers on #EEEFE5 are a soft contrast (1.16:1, decorative only); controls keep a 3:1 border so nothing relies on that edge. Subtotal is now only in the button label.
+Revisit when: the new logo or photography changes the palette.
+
 ## Gate G4 Look, 2026-10-22
 Result: proceed with risks
 Passed: A person chose the direction (Erick); every colour pairing passes AA in the (only) light theme.

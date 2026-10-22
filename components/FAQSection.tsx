@@ -19,12 +19,12 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <section id="faq" className="bg-paper pb-20 pt-6 lg:pb-28">
+    <section id="faq" className="pb-16 pt-6 lg:pb-24">
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <h2 className="t-headline">Questions people ask before their first order</h2>
-        <div className="mt-8 divide-y divide-line border-y border-line">
+        <div className="mt-8 flex flex-col gap-3">
           {faqs.map((item) => (
-            <details key={item.q} className="group py-1">
+            <details key={item.q} className="group rounded-card bg-paper px-6">
               <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 text-[1.0625rem] font-semibold text-ink marker:content-none">
                 {item.q}
                 <span

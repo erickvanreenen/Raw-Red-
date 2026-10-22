@@ -20,10 +20,10 @@ const farmPhotos = [
 
 export function StorySection() {
   return (
-    <section id="story" className="bg-paper py-16 lg:py-24">
+    <section id="story" className="py-12 lg:py-16">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-10">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-panel">
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-panel lg:aspect-auto lg:min-h-[460px]">
             <Image
               src="/images/bale-in-field.jpg"
               alt="A freshly cut bale of rooibos standing in a woven sack in the field, mountains behind"
@@ -33,7 +33,7 @@ export function StorySection() {
             />
           </div>
 
-          <div>
+          <div className="flex flex-col justify-center rounded-panel bg-paper p-6 sm:p-10">
             <p className="t-label text-ember">Our story</p>
             <h2 className="t-headline mt-3">
               Two sisters, one farm, no shortcuts.
@@ -54,7 +54,7 @@ export function StorySection() {
           </div>
         </div>
 
-        <ul className="mt-14 grid gap-5 sm:grid-cols-3">
+        <ul className="mt-6 grid gap-6 sm:grid-cols-3">
           {farmPhotos.map((photo) => (
             <li key={photo.src}>
               <div className="relative aspect-[4/3] overflow-hidden rounded-card">

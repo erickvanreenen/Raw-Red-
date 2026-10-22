@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section id="top" className="bg-paper">
+    <section id="top">
       {/* Edge-to-edge banner photo */}
       <div className="relative aspect-[4/3] max-h-[70svh] w-full overflow-hidden bg-sage sm:aspect-[16/9] lg:aspect-[21/9]">
         <Image

@@ -16,7 +16,7 @@ export function CheckoutForm() {
 
   if (items.length === 0 && !submitted) {
     return (
-      <div className="mx-auto max-w-xl px-5 py-24 text-center sm:px-8">
+      <div className="mx-auto my-16 max-w-xl rounded-panel bg-paper px-6 py-14 text-center sm:px-8">
         <h1 className="t-title">Your cart is empty</h1>
         <p className="mt-2 text-base text-ink-soft">
           Add a pack of rooibos and it will show up here.
@@ -30,7 +30,7 @@ export function CheckoutForm() {
 
   if (submitted) {
     return (
-      <div className="mx-auto max-w-xl px-5 py-24 text-center sm:px-8">
+      <div className="mx-auto my-16 max-w-xl rounded-panel bg-paper px-6 py-14 text-center sm:px-8">
         <h1 className="t-headline">Thanks, almost there</h1>
         <p className="mx-auto mt-4 max-w-[50ch] text-base leading-[1.65] text-ink-soft">
           Your details are saved. Online payment isn&apos;t connected yet, so
@@ -52,7 +52,7 @@ export function CheckoutForm() {
           setSubmitted(true);
         }}
         noValidate
-        className="order-2 lg:order-1"
+        className="order-2 rounded-panel bg-paper p-6 sm:p-8 lg:order-1"
       >
         <h1 className="t-headline">Checkout</h1>
 
@@ -144,7 +144,7 @@ export function CheckoutForm() {
         </button>
       </form>
 
-      <aside className="order-1 h-fit rounded-panel bg-sage p-6 sm:p-8 lg:order-2">
+      <aside className="order-1 h-fit rounded-panel bg-paper p-6 sm:p-8 lg:order-2">
         <h2 className="t-title text-[1.25rem]">Order summary</h2>
         <ul className="mt-5 flex flex-col gap-3">
           {items.map((item) => (
@@ -162,7 +162,7 @@ export function CheckoutForm() {
             </li>
           ))}
         </ul>
-        <div className="mt-5 flex items-center justify-between border-t border-deep/20 pt-5 text-lg font-semibold text-ink">
+        <div className="mt-5 flex items-center justify-between border-t border-line pt-5 text-lg font-semibold text-ink">
           <span>Subtotal</span>
           <span>{formatPrice(subtotal)}</span>
         </div>

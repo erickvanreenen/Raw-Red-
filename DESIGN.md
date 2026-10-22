@@ -3,7 +3,7 @@ name: Raw Rooibos
 description: Unpasteurised, small-batch rooibos, sold direct from the farm.
 colors:
   paper: "#FFFFFF"
-  sage: "#EAF0E3"
+  sage: "#EEEFE5"
   deep-fynbos: "#2F4B3A"
   ember: "#B03F1C"
   ember-deep: "#8F3217"
@@ -59,14 +59,14 @@ spacing:
   xl: "64px"
 components:
   button-primary:
-    backgroundColor: "{colors.ember}"
+    backgroundColor: "{colors.deep-fynbos}"
     textColor: "{colors.paper}"
     typography: "{typography.body}"
     rounded: "{rounded.pill}"
     padding: "0 28px"
     height: "48px"
   button-primary-hover:
-    backgroundColor: "{colors.ember-deep}"
+    backgroundColor: "{colors.ember}"
   button-secondary:
     backgroundColor: "transparent"
     textColor: "{colors.ink}"
@@ -97,37 +97,37 @@ components:
 
 # Design System: Raw Rooibos
 
-Direction A, "Fynbos Fresh", chosen by Erick on 2026-10-22 (see `work/decisions.md` D03). Supersedes the earlier "Steeped Sun" system and the old brand-sheet palette. Light theme only (D04).
+Direction A, "Fynbos Fresh", chosen by Erick on 2026-10-22 (see `work/decisions.md` D03), refined in D07 (sage canvas, white containers, green buttons). Supersedes the earlier "Steeped Sun" system and the old brand-sheet palette. Light theme only (D04).
 
 ## 1. Overview
 
 **Creative North Star: "Fresh off the farm"**
 
-The plant has two colours, the green of the living bush and the red of the cured leaf, and the site uses both. A white canvas keeps it fresh; fynbos green and sage carry the farm; one warm ember red does the selling. It should feel earthy without feeling old: crisp white, generous space, real photography of the fields, soft pill shapes, and one quiet, modern typeface.
+The plant has two colours, the green of the living bush and the red of the cured leaf, and the site uses both. A soft sage canvas with white containers keeps it fresh; fynbos green carries the farm and the buttons; one warm ember red marks emphasis and state. It should feel earthy without feeling old: crisp white, generous space, real photography of the fields, soft pill shapes, and one quiet, modern typeface.
 
 What it rejects: the uppercase, widely tracked headings of the first version (they read dated), stock photography, gradients and shadows, cluttered Shopify-template conventions, and any "wellness brand" sterility.
 
 **Key Characteristics:**
-- White canvas; sage panels and a fynbos-green footer give colour in blocks, never gradients.
-- One accent for action and emphasis: ember red. Green is the supporting colour, not a second accent.
+- A light sage canvas (#EEEFE5) with white containers on it, and a fynbos-green footer. Colour in blocks, never gradients.
+- Ember red is an accent and a button state colour (hover, pressed), never a resting button fill. Deep green is the resting colour of primary buttons.
 - One typeface family, Albert Sans, at light-to-medium weights with tight tracking for headlines.
 - Pill buttons, 20 to 40px rounded panels; real farm photos with soft corners.
 - Sentence case everywhere. No uppercase labels or tracked small caps.
 
 ## 2. Colors
 
-A white canvas with one warm red and two greens.
+A sage canvas, white containers, deep green buttons, and one warm red for accent and state.
 
 ### Primary
-- **Ember** (#B03F1C): primary buttons, price emphasis, the highlighted word in the hero headline, links on hover. Passes AA on white (5.88:1), sage (5.06:1) and clay (4.79:1).
-- **Ember Deep** (#8F3217): hover and pressed state for Ember.
+- **Ember** (#B03F1C): accent (the highlighted word in the hero headline, the product tagline, the cart count) and the hover state of buttons and links. Never a resting button fill. Passes AA on white (5.88:1), sage (5.07:1) and clay (4.79:1).
+- **Ember Deep** (#8F3217): pressed state of buttons.
 
 ### Secondary
-- **Deep Fynbos** (#2F4B3A): selected size, the footer block. White text on it is 9.6:1.
-- **Sage** (#EAF0E3): the shop panel, cart footer, checkout summary, hover fills.
+- **Deep Fynbos** (#2F4B3A): resting fill of primary buttons, the selected size, the footer block. White text on it is 9.6:1.
+- **Sage** (#EEEFE5): the page canvas (sampled from Erick's reference screenshot); also the cart footer and hover fills inside white containers.
 
 ### Neutral
-- **Paper** (#FFFFFF): the canvas.
+- **Paper** (#FFFFFF): containers on the canvas (buy box, product details, bulk card, story text, FAQ rows, forms, nav bar). White against sage is the main contrast.
 - **Ink** (#1E2420): body and headlines, a green-tinted near-black.
 - **Ink Soft** (#566057): secondary text (6.55:1 on white, 5.64:1 on sage).
 - **Edge** (#73836D): borders of controls (3:1 or better against white and sage).
@@ -135,7 +135,7 @@ A white canvas with one warm red and two greens.
 - **Clay** (#F3E6D6): the occasional warm note panel (checkout payment notice).
 
 ### Named Rules
-**The One Action Colour Rule.** Ember is the only colour that asks for a click or marks emphasis. Green never doubles as a button colour except the selected state of a size choice.
+**The Ember Accent Rule.** Ember marks emphasis and button state (hover, pressed). It is never the resting fill of a button; Deep Fynbos is the resting colour for actions.
 
 **The Contrast Rule.** Any new pairing is calculated before it ships; text needs 4.5:1, control borders 3:1. Light grey control borders are not allowed.
 
@@ -158,15 +158,15 @@ A white canvas with one warm red and two greens.
 
 ## 4. Elevation
 
-Flat. No box-shadows, no gradients, no glass. Depth comes from colour blocks (white against sage, sage against deep green) and generous space. The only overlay is the dimmed backdrop behind the cart and enquiry sheets.
+Flat. No box-shadows, no gradients, no glass. Depth comes from colour: white containers on the sage canvas, deep green for the footer, and generous space. The only overlay is the dimmed backdrop behind the cart and enquiry sheets.
 
 ## 5. Components
 
 ### Buttons
-Pills, 48px minimum height. Primary: Ember with white text, Ember Deep on hover. Secondary: 1.5px Ink outline, Sage fill on hover. Press: scale 0.97 on transform only. The one full-width, 56px primary button is the Add to cart in the buy box.
+Pills, 48px minimum height. Primary: Deep Fynbos with white text, Ember on hover, Ember Deep when pressed. Secondary: 1.5px Ink outline, fills Deep Fynbos on hover. Press: scale 0.97 on transform only. The 56px Add to cart in the buy box sits beside the quantity stepper and shows the live total in its label.
 
 ### Buy Box (signature)
-One white panel on the sage section holding: price for the selected size (large), the Size Selector, Quantity stepper beside a Subtotal, and the Add to cart button. Beneath it sit product details, then the Bulk Order callout (white card). Never split these across separate panels.
+One compact white container (about 480px tall on desktop) holding title, tagline, short description, price for the selected size, the Size Selector, then the Quantity stepper beside the Add to cart button (label: "Add to cart · R total"). A photo beside it fills the same height. Product details (three columns) and the Bulk Order card sit in their own white containers underneath. No sticky elements and no inner scrolling: the page scrolls once.
 
 ### Size Selector
 Three pills, 56px high, label plus price. Unselected: white, 1.5px Edge border. Selected: Deep Fynbos fill with white text. `role=radiogroup`.
@@ -186,8 +186,8 @@ Real farm photos in `public/images/` only (see `work/04-ui-spec.md` for what eac
 ## 6. Do's and Don'ts
 
 ### Do:
-- **Do** keep Ember as the single action colour and check any new colour pairing for contrast first.
-- **Do** use sage and deep green for colour blocks, and white panels inside them.
+- **Do** keep Ember to accents and the hover/pressed state of buttons, and check any new colour pairing for contrast first.
+- **Do** put content in white containers on the sage canvas.
 - **Do** write headlines and labels in sentence case.
 - **Do** use real farm photography with accurate alt text.
 - **Do** keep touch targets at least 44px (48px for primary controls).
@@ -198,6 +198,7 @@ Real farm photos in `public/images/` only (see `work/04-ui-spec.md` for what eac
 - **Don't** use uppercase or tracked small-caps text.
 - **Don't** use stock photography or photos of identifiable people.
 - **Don't** use light grey (Line) as the only edge of an input or button.
+- **Don't** use Ember as the resting fill of a button, or make any container taller than the screen with sticky or nested scrolling.
 - **Don't** use em dashes in interface copy.
 - **Don't** add a second typeface or a second accent colour.
 - **Don't** reintroduce the old names or colours (Raw Red, Jost, sand and terracotta blocks).

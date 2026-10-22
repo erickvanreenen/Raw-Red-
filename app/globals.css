@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colour roles. Direction A "Fynbos Fresh" (decision D03). All text pairings pass AA. */
+  /* Colour roles. Direction A "Fynbos Fresh" (D03), refined in D07. All text pairings pass AA.
+     sage = the page canvas (sampled from Erick reference); paper = white containers on it. */
   --color-paper: #FFFFFF;
-  --color-sage: #EAF0E3;
+  --color-sage: #EEEFE5;
   --color-deep: #2F4B3A;
   --color-ember: #B03F1C;
   --color-ember-deep: #8F3217;
@@ -31,7 +32,7 @@
   }
 
   body {
-    background-color: var(--color-paper);
+    background-color: var(--color-sage);
     color: var(--color-ink);
     font-family: var(--font-sans);
     font-size: 1rem;
@@ -40,7 +41,7 @@
   }
 
   ::selection {
-    background-color: var(--color-sage);
+    background-color: var(--color-line);
     color: var(--color-ink);
   }
 
@@ -88,11 +89,12 @@
   .btn {
     @apply inline-flex min-h-12 items-center justify-center rounded-full px-7 text-base font-semibold transition-[background-color,color,transform] duration-200 ease-out-quart active:scale-[0.97];
   }
+  /* Deep green at rest; ember is a state colour (hover), ember-deep when pressed. */
   .btn-primary {
-    @apply bg-ember text-white hover:bg-ember-deep;
+    @apply bg-deep text-white hover:bg-ember active:bg-ember-deep;
   }
   .btn-secondary {
-    @apply border-[1.5px] border-ink text-ink hover:bg-sage;
+    @apply border-[1.5px] border-ink text-ink hover:border-deep hover:bg-deep hover:text-white;
   }
 }
 
