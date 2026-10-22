@@ -19,24 +19,22 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <section id="faq" className="bg-white py-16 sm:py-24">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <h2 className="font-sans text-2xl font-medium leading-[1.15] text-ink sm:text-3xl">
-          Questions people ask before their first order
-        </h2>
-        <div className="mt-8 divide-y divide-sand border-y border-sand">
+    <section id="faq" className="bg-paper pb-20 pt-6 lg:pb-28">
+      <div className="mx-auto max-w-3xl px-5 sm:px-8">
+        <h2 className="t-headline">Questions people ask before their first order</h2>
+        <div className="mt-8 divide-y divide-line border-y border-line">
           {faqs.map((item) => (
-            <details key={item.q} className="group py-5">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-sans text-base font-medium text-ink marker:content-none">
+            <details key={item.q} className="group py-1">
+              <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 text-[1.0625rem] font-semibold text-ink marker:content-none">
                 {item.q}
                 <span
                   aria-hidden="true"
-                  className="shrink-0 text-lg text-rooibos-red transition-transform duration-200 ease-out-quart group-open:rotate-45"
+                  className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-sage text-xl leading-none text-ember transition-transform duration-200 ease-out-quart group-open:rotate-45"
                 >
                   +
                 </span>
               </summary>
-              <p className="mt-3 max-w-[65ch] text-base leading-[1.65] text-ink/90">
+              <p className="max-w-[60ch] pb-5 text-base leading-[1.65] text-ink-soft">
                 {item.a}
               </p>
             </details>

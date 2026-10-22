@@ -10,7 +10,7 @@ interface SizeSelectorProps {
 
 export function SizeSelector({ sizes, selectedId, onSelect }: SizeSelectorProps) {
   return (
-    <div className="flex gap-2" role="radiogroup" aria-label="Pack size">
+    <div className="grid grid-cols-3 gap-2.5" role="radiogroup" aria-label="Pack size">
       {sizes.map((size) => {
         const selected = size.id === selectedId;
         return (
@@ -20,14 +20,14 @@ export function SizeSelector({ sizes, selectedId, onSelect }: SizeSelectorProps)
             role="radio"
             aria-checked={selected}
             onClick={() => onSelect(size.id)}
-            className={`flex min-h-12 flex-1 flex-col items-center justify-center gap-0.5 rounded-md border px-3 py-3 font-sans text-xs font-medium uppercase tracking-[0.1em] transition-[background-color,border-color,color,transform] duration-150 ease-out-quart active:scale-[0.96] ${
+            className={`flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-full border-[1.5px] px-3 py-2 text-base font-semibold leading-tight transition-[background-color,border-color,color,transform] duration-200 ease-out-quart active:scale-[0.97] ${
               selected
-                ? "border-rooibos-red bg-rooibos-red text-cream"
-                : "border-sand bg-white text-ink hover:border-rooibos-red"
+                ? "border-deep bg-deep text-white"
+                : "border-edge bg-paper text-ink hover:border-deep"
             }`}
           >
             <span>{size.label}</span>
-            <span className="text-[0.7rem] normal-case tracking-normal opacity-80">
+            <span className="text-[0.8125rem] font-medium opacity-90">
               {formatPrice(size.price)}
             </span>
           </button>

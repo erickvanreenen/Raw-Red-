@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raw Rooibos | UI directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600&family=Young+Serif&family=Hanken+Grotesk:wght@400;500;600&family=Gabarito:wght@500..900&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#EEE9E2;font-family:Figtree,system-ui,sans-serif;color:#222}
+img{display:block;max-width:100%}
+button{font:inherit;cursor:pointer}
+
+/* ---------- comparison chrome ---------- */
+.switch{position:sticky;top:0;z-index:50;background:#1B1B1B;color:#fff;display:flex;gap:8px;align-items:center;padding:10px 16px;flex-wrap:wrap}
+.switch b{font:600 13px/1 system-ui;letter-spacing:.02em;margin-right:8px;opacity:.7}
+.switch button{border:1px solid #ffffff55;background:transparent;color:#fff;border-radius:999px;padding:9px 16px;font:500 14px/1 system-ui}
+.switch button[aria-pressed=true]{background:#fff;color:#111;border-color:#fff}
+.view{display:none}
+.view.on{display:block}
+.wrap{max-width:1280px;margin:0 auto;background:#fff}
+.spec{max-width:1280px;margin:0 auto;padding:28px 40px 56px;background:#F7F4EF;font:14px/1.5 system-ui;color:#2a2a2a;display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:32px}
+.spec h4{margin:0 0 10px;font:700 12px/1 system-ui;letter-spacing:.08em;text-transform:uppercase;color:#666}
+.sw{display:flex;gap:8px;flex-wrap:wrap}
+.sw div{width:72px}
+.sw i{display:block;height:44px;border-radius:8px;border:1px solid #0001}
+.sw span{display:block;margin-top:4px;font-size:11px;line-height:1.25;color:#444}
+.spec p{margin:0 0 6px}
+
+/* ---------- shared structure ---------- */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.brand img{width:34px;height:34px}
+.links{display:flex;gap:30px}
+.links a{text-decoration:none;color:inherit;font-weight:500;font-size:15px}
+.nav .r{display:flex;align-items:center;gap:26px}
+.cart{width:44px;height:44px;border-radius:999px;border:0;background:transparent;color:inherit;display:grid;place-items:center}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:36px 40px 72px}
+.hero h1{margin:0}
+.hero p.lead{font-size:19px;line-height:1.55;max-width:46ch;margin:22px 0 0}
+.ctas{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;font-weight:600;font-size:16px;text-decoration:none;border:0}
+.shop{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:64px 40px}
+.shop .photo{aspect-ratio:4/5;overflow:hidden}
+.shop .photo img{width:100%;height:100%;object-fit:cover}
+.box h2{margin:0 0 6px}
+.box .tag{margin:0 0 18px;font-size:15px}
+.price{display:flex;align-items:baseline;gap:10px;margin:10px 0 20px}
+.price b{font-size:44px;line-height:1}
+.sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.sizes button{min-height:56px;font-weight:600;font-size:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;line-height:1.15}
+.sizes small{font-weight:500;font-size:13px;opacity:.85}
+.row{display:flex;align-items:center;justify-content:space-between;margin:20px 0 18px}
+.qty{display:inline-flex;align-items:center}
+.qty button{width:48px;height:48px;border:0;background:transparent;font-size:20px;color:inherit}
+.qty span{min-width:32px;text-align:center;font-weight:600}
+.add{width:100%;min-height:56px;font-weight:700;font-size:17px;border:0}
+.note{margin:14px 0 0;font-size:14px;opacity:.75}
+.lbl{display:block;font-weight:600;font-size:14px;margin:0 0 8px}
+
+/* ================= A  Fynbos Fresh ================= */
+.A{--ink:#1E2420;--ink2:#566057;--deep:#2F4B3A;--sage:#EAF0E3;--clay:#F3E6D6;--ember:#B03F1C;--sun:#E9A23B;font-family:Figtree,system-ui,sans-serif;color:var(--ink);background:#fff}
+.A h1,.A h2,.A .brand span,.A .price b{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+.A .brand span{font-weight:700;font-size:22px;letter-spacing:-.02em}
+.A h1{font-weight:700;font-size:clamp(46px,6.2vw,80px);line-height:1.0;letter-spacing:-.035em}
+.A h1 em{font-style:normal;color:var(--ember)}
+.A .lead{color:var(--ink2)}
+.A .btn{border-radius:999px}
+.A .btn.p{background:var(--ember);color:#fff}
+.A .btn.s{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.A .arch{position:relative;aspect-ratio:4/5;border-radius:999px 999px 28px 28px;overflow:hidden;background:var(--sage)}
+.A .arch img{width:100%;height:100%;object-fit:cover}
+.A .chip{position:absolute;left:20px;bottom:20px;background:#fff;color:var(--ink);border-radius:999px;padding:10px 16px;font-weight:600;font-size:14px;display:flex;gap:8px;align-items:center}
+.A .chip i{width:10px;height:10px;border-radius:50%;background:var(--deep);display:block}
+.A .shopwrap{margin:0 24px 24px;border-radius:40px;background:var(--sage)}
+.A .shop .photo{border-radius:28px}
+.A .box{background:#fff;border-radius:28px;padding:32px}
+.A .box h2{font-weight:700;font-size:36px;letter-spacing:-.03em;line-height:1.05}
+.A .tag{color:var(--ember);font-weight:600}
+.A .price b{font-weight:700;color:var(--ink)}
+.A .price span{color:var(--ink2)}
+.A .sizes button{border-radius:999px;border:1.5px solid #CFD8C8;background:#fff;color:var(--ink)}
+.A .sizes button.on{background:var(--deep);border-color:var(--deep);color:#fff}
+.A .qty{border:1.5px solid #CFD8C8;border-radius:999px}
+.A .add{border-radius:999px;background:var(--ember);color:#fff}
+.A .row b{font-size:20px}
+
+/* ================= B  Clay & Sun ================= */
+.B{--clay:#A93A1F;--cream:#FBF0E1;--brown:#2B1810;--apricot:#F4B25E;--sand:#F1E2CE;--b2:#5E4A3F;font-family:"Hanken Grotesk",system-ui,sans-serif;color:var(--brown);background:var(--cream)}
+.B h1,.B h2,.B .brand span,.B .price b{font-family:"Young Serif",Georgia,serif;font-weight:400}
+.B .top{background:var(--clay);color:var(--cream);border-radius:0 0 56px 56px;overflow:hidden}
+.B .brand span{font-size:24px}
+.B h1{font-size:clamp(50px,6.8vw,96px);line-height:1.0;letter-spacing:-.015em;color:var(--cream)}
+.B .hero{padding-bottom:88px}
+.B .lead{color:#FBF0E1e6}
+.B .btn{border-radius:14px}
+.B .btn.p{background:var(--apricot);color:var(--brown)}
+.B .btn.s{background:transparent;color:var(--cream);box-shadow:inset 0 0 0 2px var(--cream)}
+.B .sunwrap{position:relative;display:grid;place-items:center;aspect-ratio:1/1}
+.B .sunwrap::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--apricot)}
+.B .sunwrap .disc{position:relative;width:86%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;border:10px solid var(--clay)}
+.B .sunwrap .disc img{width:100%;height:100%;object-fit:cover}
+.B .shop .photo{border-radius:28px;aspect-ratio:4/5}
+.B .box{background:#fff;border:2px solid var(--brown);border-radius:22px;padding:32px}
+.B .box h2{font-size:38px;line-height:1.05}
+.B .tag{color:var(--clay);font-weight:600}
+.B .price b{font-size:48px;color:var(--clay)}
+.B .price span{color:var(--b2)}
+.B .sizes button{border-radius:12px;border:2px solid var(--brown);background:#fff;color:var(--brown)}
+.B .sizes button.on{background:var(--brown);color:var(--cream)}
+.B .qty{border:2px solid var(--brown);border-radius:12px}
+.B .add{border-radius:14px;background:var(--clay);color:#fff}
+
+/* ================= C  Rooibos Pop ================= */
+.C{--ink:#1B1512;--tomato:#C23415;--amber:#FFC23C;--leaf:#2E6B3F;--blush:#FDE7DA;--i2:#5B4D45;font-family:Onest,system-ui,sans-serif;color:var(--ink);background:#fff}
+.C h1,.C h2,.C .brand span,.C .price b{font-family:Gabarito,system-ui,sans-serif}
+.C .brand span{font-weight:800;font-size:24px;letter-spacing:-.02em}
+.C h1{font-weight:800;font-size:clamp(52px,7.4vw,108px);line-height:.93;letter-spacing:-.04em}
+.C h1 mark{background:var(--amber);color:var(--ink);padding:0 .14em;border-radius:.18em;display:inline-block;transform:rotate(-1.5deg)}
+.C .lead{color:var(--i2)}
+.C .btn{border-radius:16px;min-height:56px}
+.C .btn.p{background:var(--tomato);color:#fff}
+.C .btn.s{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.C .collage{position:relative;aspect-ratio:1/1}
+.C .collage .a,.C .collage .b{position:absolute;overflow:hidden;border-radius:28px;border:2px solid var(--ink)}
+.C .collage .a{left:0;top:4%;width:72%;height:72%}
+.C .collage .b{right:0;bottom:0;width:50%;height:58%;transform:rotate(3deg)}
+.C .collage img{width:100%;height:100%;object-fit:cover}
+.C .sticker{position:absolute;left:-2%;bottom:6%;width:132px;height:132px;border-radius:50%;background:var(--amber);border:2px solid var(--ink);display:grid;place-items:center;text-align:center;font:800 17px/1.05 Gabarito,sans-serif;transform:rotate(-10deg)}
+.C .shopwrap{background:var(--blush)}
+.C .shop .photo{border-radius:28px;border:2px solid var(--ink)}
+.C .box{background:#fff;border:2px solid var(--ink);border-radius:28px;padding:32px}
+.C .box h2{font-weight:800;font-size:40px;letter-spacing:-.035em;line-height:1}
+.C .tag{color:var(--leaf);font-weight:600}
+.C .price b{font-weight:800;color:var(--ink)}
+.C .price span{color:var(--i2)}
+.C .sizes button{border-radius:16px;border:2px solid var(--ink);background:#fff;color:var(--ink)}
+.C .sizes button.on{background:var(--tomato);border-color:var(--tomato);color:#fff}
+.C .qty{border:2px solid var(--ink);border-radius:16px}
+.C .add{border-radius:16px;background:var(--tomato);color:#fff;min-height:60px}
+
+@media (max-width:900px){
+  .hero,.shop{grid-template-columns:1fr;padding-left:20px;padding-right:20px}
+  .nav{padding:14px 20px}.links{display:none}
+  .spec{grid-template-columns:1fr;padding:24px 20px}
+}
+</style>
+</head>
+<body>
+<div class="switch" role="tablist" aria-label="Direction">
+  <b>RAW ROOIBOS UI DIRECTIONS</b>
+  <button data-v="a" aria-pressed="true">A · Fynbos Fresh</button>
+  <button data-v="b" aria-pressed="false">B · Clay &amp; Sun</button>
+  <button data-v="c" aria-pressed="false">C · Rooibos Pop</button>
+</div>
+
+<!-- ===== A ===== -->
+<section class="view on" id="a">
+ <div class="wrap A">
+  <header class="nav">
+    <a class="brand" href="#"><img src="../public/logomark.svg" alt=""><span>Raw Rooibos</span></a>
+    <div class="r"><nav class="links"><a href="#">Shop</a><a href="#">Our story</a><a href="#">FAQ</a></nav>
+      <button class="cart" aria-label="Cart"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6h15l-1.5 9h-12L6 6Zm0 0L5 3H2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="20" r="1.4" fill="currentColor"/><circle cx="17" cy="20" r="1.4" fill="currentColor"/></svg></button></div>
+  </header>
+  <section class="hero">
+    <div>
+      <h1>Steeped <em>raw</em>, not stripped down.</h1>
+      <p class="lead">Organic, unpasteurised rooibos from a small family farm. Hand-harvested, sun-dried, and left alone.</p>
+      <div class="ctas"><a class="btn p" href="#">Shop the rooibos</a><a class="btn s" href="#">Our story</a></div>
+    </div>
+    <div class="arch"><img src="../public/images/sunset-backlit.jpg" alt="Rooibos bushes lit from behind by the low sun"><div class="chip"><i></i>Organic · Unpasteurised</div></div>
+  </section>
+  <div class="shopwrap"><section class="shop">
+    <div class="photo"><img src="../public/images/rows-red-soil-sky.jpg" alt="Rows of rooibos on red soil under a wide sky" style="aspect-ratio:4/5"></div>
+    <div class="box">
+      <h2>Raw Rooibos</h2><p class="tag">Organic. Unpasteurised. Steeped raw.</p>
+      <div class="price"><b>R 165</b><span>per 250g pack</span></div>
+      <span class="lbl">Pack size</span>
+      <div class="sizes"><button>100g<small>R 85</small></button><button class="on">250g<small>R 165</small></button><button>500g<small>R 295</small></button></div>
+      <div class="row"><div><span class="lbl">Quantity</span><div class="qty"><button>−</button><span>1</span><button>+</button></div></div><div style="text-align:right"><span class="lbl" style="opacity:.6">Subtotal</span><b>R 165</b></div></div>
+      <button class="add">Add to cart</button>
+      <p class="note">Ordering 10kg or more? We offer wholesale pricing.</p>
+    </div>
+  </section></div>
+ </div>
+ <div class="spec">
+  <div><h4>Palette (all pairings pass AA)</h4><div class="sw">
+   <div><i style="background:#fff"></i><span>#FFFFFF canvas</span></div>
+   <div><i style="background:#EAF0E3"></i><span>#EAF0E3 sage wash</span></div>
+   <div><i style="background:#2F4B3A"></i><span>#2F4B3A deep fynbos</span></div>
+   <div><i style="background:#B03F1C"></i><span>#B03F1C ember (action)</span></div>
+   <div><i style="background:#F3E6D6"></i><span>#F3E6D6 clay</span></div>
+   <div><i style="background:#1E2420"></i><span>#1E2420 ink</span></div></div></div>
+  <div><h4>Type</h4><p><b style="font-family:'Bricolage Grotesque'">Bricolage Grotesque</b> headings, 700, tight.</p><p>Figtree for body, 400 and 600.</p><h4 style="margin-top:14px">Shape</h4><p>Pills, arch image, 28 to 40px panels.</p></div>
+  <div><h4>Dials</h4><p>Variance: medium. Motion: responsive. Density: spacious.</p><h4 style="margin-top:14px">Why earthy</h4><p>Green and red are the two colours of the plant itself. Fresh from the green and the white canvas; earthy from the ember and clay.</p></div>
+ </div>
+</section>
+
+<!-- ===== B ===== -->
+<section class="view" id="b">
+ <div class="wrap B">
+  <div class="top">
+   <header class="nav">
+    <a class="brand" href="#"><img src="../public/logomark.svg" alt="" style="filter:none"><span>Raw Rooibos</span></a>
+    <div class="r"><nav class="links"><a href="#">Shop</a><a href="#">Our story</a><a href="#">FAQ</a></nav>
+      <button class="cart" aria-label="Cart"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6h15l-1.5 9h-12L6 6Zm0 0L5 3H2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="20" r="1.4" fill="currentColor"/><circle cx="17" cy="20" r="1.4" fill="currentColor"/></svg></button></div>
+   </header>
+   <section class="hero">
+    <div>
+      <h1>Steeped raw, not stripped down.</h1>
+      <p class="lead">Organic, unpasteurised rooibos from a small family farm. Hand-harvested, sun-dried, and left alone.</p>
+      <div class="ctas"><a class="btn p" href="#">Shop the rooibos</a><a class="btn s" href="#">Our story</a></div>
+    </div>
+    <div class="sunwrap"><div class="disc"><img src="../public/images/drying-yard-red.jpg" alt="Red rooibos leaf drying in the sun on a concrete floor"></div></div>
+   </section>
+  </div>
+  <section class="shop">
+    <div class="photo"><img src="../public/images/bale-in-field.jpg" alt="A freshly cut bale of rooibos standing in a sack in the field"></div>
+    <div class="box">
+      <h2>Raw Rooibos</h2><p class="tag">Organic. Unpasteurised. Steeped raw.</p>
+      <div class="price"><b>R 165</b><span>per 250g pack</span></div>
+      <span class="lbl">Pack size</span>
+      <div class="sizes"><button>100g<small>R 85</small></button><button class="on">250g<small>R 165</small></button><button>500g<small>R 295</small></button></div>
+      <div class="row"><div><span class="lbl">Quantity</span><div class="qty"><button>−</button><span>1</span><button>+</button></div></div><div style="text-align:right"><span class="lbl" style="opacity:.6">Subtotal</span><b style="font-size:20px">R 165</b></div></div>
+      <button class="add">Add to cart</button>
+      <p class="note">Ordering 10kg or more? We offer wholesale pricing.</p>
+    </div>
+  </section>
+ </div>
+ <div class="spec">
+  <div><h4>Palette (all pairings pass AA)</h4><div class="sw">
+   <div><i style="background:#A93A1F"></i><span>#A93A1F clay red</span></div>
+   <div><i style="background:#FBF0E1"></i><span>#FBF0E1 cream</span></div>
+   <div><i style="background:#F4B25E"></i><span>#F4B25E apricot</span></div>
+   <div><i style="background:#2B1810"></i><span>#2B1810 brown ink</span></div>
+   <div><i style="background:#F1E2CE"></i><span>#F1E2CE sand</span></div>
+   <div><i style="background:#fff"></i><span>#FFFFFF cards</span></div></div></div>
+  <div><h4>Type</h4><p><b style="font-family:'Young Serif'">Young Serif</b> headings, one weight, warm.</p><p>Hanken Grotesk for body, 400 and 600.</p><h4 style="margin-top:14px">Shape</h4><p>The sun circle as the hero image; 14 to 22px radii; 2px outlines.</p></div>
+  <div><h4>Dials</h4><p>Variance: high. Motion: choreographed on load. Density: spacious.</p><h4 style="margin-top:14px">Why earthy</h4><p>Commits to the rooibos red the way the plant and the leaf do. Most distinct from the current site; biggest step from white canvas.</p></div>
+ </div>
+</section>
+
+<!-- ===== C ===== -->
+<section class="view" id="c">
+ <div class="wrap C">
+  <header class="nav">
+    <a class="brand" href="#"><img src="../public/logomark.svg" alt=""><span>Raw Rooibos</span></a>
+    <div class="r"><nav class="links"><a href="#">Shop</a><a href="#">Our story</a><a href="#">FAQ</a></nav>
+      <button class="cart" aria-label="Cart"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6h15l-1.5 9h-12L6 6Zm0 0L5 3H2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="20" r="1.4" fill="currentColor"/><circle cx="17" cy="20" r="1.4" fill="currentColor"/></svg></button></div>
+  </header>
+  <section class="hero">
+    <div>
+      <h1>Steeped <mark>raw</mark>, not stripped down.</h1>
+      <p class="lead">Organic, unpasteurised rooibos from a small family farm. Hand-harvested, sun-dried, and left alone.</p>
+      <div class="ctas"><a class="btn p" href="#">Shop the rooibos</a><a class="btn s" href="#">Our story</a></div>
+    </div>
+    <div class="collage">
+      <div class="a"><img src="../public/images/farm-golden-hour.jpg" alt="Rooibos bushes in golden light below a flat-topped cliff"></div>
+      <div class="b"><img src="../public/images/bale-in-field.jpg" alt="A bale of rooibos in a sack"></div>
+      <div class="sticker">Raw &amp;<br>unpasteurised</div>
+    </div>
+  </section>
+  <div class="shopwrap"><section class="shop">
+    <div class="photo"><img src="../public/images/drying-yard-red.jpg" alt="Red rooibos leaf drying in the sun" style="aspect-ratio:4/5"></div>
+    <div class="box">
+      <h2>Raw Rooibos</h2><p class="tag">Organic. Unpasteurised. Steeped raw.</p>
+      <div class="price"><b>R 165</b><span>per 250g pack</span></div>
+      <span class="lbl">Pack size</span>
+      <div class="sizes"><button>100g<small>R 85</small></button><button class="on">250g<small>R 165</small></button><button>500g<small>R 295</small></button></div>
+      <div class="row"><div><span class="lbl">Quantity</span><div class="qty"><button>−</button><span>1</span><button>+</button></div></div><div style="text-align:right"><span class="lbl" style="opacity:.6">Subtotal</span><b style="font-size:20px">R 165</b></div></div>
+      <button class="add">Add to cart</button>
+      <p class="note">Ordering 10kg or more? We offer wholesale pricing.</p>
+    </div>
+  </section></div>
+ </div>
+ <div class="spec">
+  <div><h4>Palette (all pairings pass AA)</h4><div class="sw">
+   <div><i style="background:#fff"></i><span>#FFFFFF canvas</span></div>
+   <div><i style="background:#C23415"></i><span>#C23415 tomato (action)</span></div>
+   <div><i style="background:#FFC23C"></i><span>#FFC23C amber</span></div>
+   <div><i style="background:#2E6B3F"></i><span>#2E6B3F leaf</span></div>
+   <div><i style="background:#FDE7DA"></i><span>#FDE7DA blush</span></div>
+   <div><i style="background:#1B1512"></i><span>#1B1512 ink</span></div></div></div>
+  <div><h4>Type</h4><p><b style="font-family:Gabarito;font-weight:800">Gabarito</b> headings, 800, big and tight.</p><p>Onest for body, 400 and 600.</p><h4 style="margin-top:14px">Shape</h4><p>16 to 28px radii, 2px ink outlines, photo collage, sticker.</p></div>
+  <div><h4>Dials</h4><p>Variance: high. Motion: playful but quick. Density: medium.</p><h4 style="margin-top:14px">Why earthy</h4><p>Warm sun colours (tomato, amber) and the leaf green, with real photos. Loudest and most "snappy"; also the biggest personality risk.</p></div>
+ </div>
+</section>
+
+<script>
+const btns=[...document.querySelectorAll('.switch button')];
+function show(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id===id));
+  btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===id));
+  history.replaceState(null,'','#'+id);
+  scrollTo(0,0);
+}
+btns.forEach(b=>b.addEventListener('click',()=>show(b.dataset.v)));
+const h=location.hash.slice(1); if(['a','b','c'].includes(h)) show(h);
+</script>
+</body>
+</html>

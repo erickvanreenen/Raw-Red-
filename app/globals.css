@@ -1,17 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-rooibos-red: #A8402F;
-  --color-deep-russet: #7C2D21;
-  --color-cream: #F6EFE4;
-  --color-ink: #2B211E;
-  --color-sand: #E3D6C2;
+  /* Colour roles. Direction A "Fynbos Fresh" (decision D03). All text pairings pass AA. */
+  --color-paper: #FFFFFF;
+  --color-sage: #EAF0E3;
+  --color-deep: #2F4B3A;
+  --color-ember: #B03F1C;
+  --color-ember-deep: #8F3217;
+  --color-clay: #F3E6D6;
+  --color-ink: #1E2420;
+  --color-ink-soft: #566057;
+  --color-edge: #73836D;
+  --color-line: #D9E1D3;
 
-  --font-sans: var(--font-jost), "Avenir Next", Futura, "Century Gothic", "Trebuchet MS", sans-serif;
+  --font-display: var(--font-albert), system-ui, sans-serif;
+  --font-sans: var(--font-albert), system-ui, sans-serif;
 
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  --radius-field: 14px;
+  --radius-card: 20px;
+  --radius-panel: 28px;
+  --radius-section: 40px;
 
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -19,16 +27,20 @@
 @layer base {
   html {
     color-scheme: light;
+    scroll-behavior: smooth;
   }
 
   body {
-    background-color: #fff;
+    background-color: var(--color-paper);
     color: var(--color-ink);
     font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
 
   ::selection {
-    background-color: var(--color-sand);
+    background-color: var(--color-sage);
     color: var(--color-ink);
   }
 
@@ -38,7 +50,56 @@
   }
 }
 
+@layer components {
+  /* Type roles (named by role, not size). */
+  .t-display {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(2.75rem, 6.4vw, 5.25rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+  .t-headline {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+  .t-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .t-lead {
+    font-size: 1.1875rem;
+    line-height: 1.55;
+    color: var(--color-ink-soft);
+  }
+  .t-label {
+    font-size: 0.875rem;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  /* Buttons: pills, press feedback on transform only. */
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center rounded-full px-7 text-base font-semibold transition-[background-color,color,transform] duration-200 ease-out-quart active:scale-[0.97];
+  }
+  .btn-primary {
+    @apply bg-ember text-white hover:bg-ember-deep;
+  }
+  .btn-secondary {
+    @apply border-[1.5px] border-ink text-ink hover:bg-sage;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
@@ -59,5 +120,5 @@
 }
 
 .reveal {
-  animation: reveal 0.7s var(--ease-out-quart) both;
+  animation: reveal 0.6s var(--ease-out-quart) both;
 }

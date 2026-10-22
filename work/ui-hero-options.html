@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raw Rooibos | Font and hero options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=Albert+Sans:wght@400..700&family=Fraunces:opsz,wght@9..144,400..700&family=Red+Hat+Display:wght@400..800&family=Nunito:wght@400..900&family=Instrument+Serif&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:#1E2420;font-family:Figtree,system-ui,sans-serif}
+h2{font:700 13px/1 system-ui;letter-spacing:.08em;text-transform:uppercase;color:#566057;margin:0 0 18px}
+.top{position:sticky;top:0;background:#1B1B1B;color:#fff;padding:12px 24px;font:600 13px system-ui;z-index:5}
+section{max-width:1200px;margin:0 auto;padding:40px 24px}
+.fonts{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.tile{border:1.5px solid #D9E1D3;border-radius:24px;padding:28px;background:#fff}
+.tile small{display:block;font:600 13px system-ui;color:#566057;margin-bottom:16px}
+.tile .h{font-size:54px;line-height:1.02;margin:0 0 16px}
+.tile .h em{font-style:normal;color:#B03F1C}
+.tile p{font-size:18px;line-height:1.55;color:#566057;margin:0 0 18px;max-width:44ch}
+.tile .btns{display:flex;gap:10px}
+.tile .b{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:999px;font-weight:600;font-size:16px}
+.tile .b1{background:#B03F1C;color:#fff}.tile .b2{border:1.5px solid #1E2420}
+.heroes{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.hero{border:1.5px solid #D9E1D3;border-radius:24px;padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center;min-height:330px}
+.hero.full{grid-template-columns:1fr}
+.hero small{display:block;font:600 13px system-ui;color:#566057;grid-column:1/-1}
+.hero .t{font:700 34px/1.04 Manrope,sans-serif;letter-spacing:-.025em}
+.hero .t em{font-style:normal;color:#B03F1C}
+.hero img{width:100%;height:100%;object-fit:cover}
+.fr{overflow:hidden;position:relative}
+.arch{border-radius:999px 999px 24px 24px;aspect-ratio:4/5}
+.round{border-radius:24px;aspect-ratio:4/3}
+.circle{border-radius:50%;aspect-ratio:1/1;border:10px solid #F3E6D6}
+.banner{border-radius:28px;aspect-ratio:21/8}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair .fr{border-radius:20px;aspect-ratio:3/4}
+.pair .fr:nth-child(2){margin-top:28px}
+</style>
+</head>
+<body>
+<div class="top">RAW ROOIBOS · FONT AND HERO OPTIONS. Tell me a number from each list (or "none, try again").</div>
+
+<section>
+  <h2>1 · Headline font (the headline is sentence case, no uppercase)</h2>
+  <div class="fonts">
+    <div class="tile"><small>F1 · Manrope 700. Clean, modern, neutral</small>
+      <div class="h" style="font-family:Manrope;font-weight:700;letter-spacing:-.03em">Steeped <em>raw</em>, not stripped down.</div>
+      <p style="font-family:Manrope">Organic, unpasteurised rooibos from a small family farm. Hand-harvested, sun-dried, and left alone.</p>
+      <div class="btns"><span class="b b1" style="font-family:Manrope">Shop the rooibos</span><span class="b b2" style="font-family:Manrope">Our story</span></div></div>
+    <div class="tile"><small>F2 · Albert Sans 500. Light, quiet, humanist</small>
+      <div class="h" style="font-family:'Albert Sans';font-weight:500;letter-spacing:-.035em">Steeped <em>raw</em>, not stripped down.</div>
+      <p style="font-family:'Albert Sans'">Organic, unpasteurised rooibos from a small family farm. Hand-harvested, sun-dried, and left alone.</p>
+      <div class="btns"><span class="b b1" style="font-family:'Albert Sans'">Shop the rooibos</span><span class="b b2" style="font-family:'Albert Sans'">Our story</span></div></div>
+    <div class="tile"><small>F3 · Fraunces 500. Warm soft serif with character</small>
+      <div class="h" style="font-family:Fraunces;font-weight:500;letter-spacing:-.02em">Steeped <em>raw</em>, not stripped down.</div>
+      <p>Organic, unpasteurised rooibos from a small family farm. Hand-harvested, sun-dried, and left alone.</p>
+      <div class="btns"><span class="b b1">Shop the rooibos</span><span class="b b2">Our story</span></div></div>
+    <div class="tile"><small>F4 · Red Hat Display 700. Warm geometric</small>
+      <div class="h" style="font-family:'Red Hat Display';font-weight:700;letter-spacing:-.03em">Steeped <em>raw</em>, not stripped down.</div>
+      <p style="font-family:'Red Hat Display'">Organic, unpasteurised rooibos from a small family farm. Hand-harvested, sun-dried, and left alone.</p>
+      <div class="btns"><span class="b b1" style="font-family:'Red Hat Display'">Shop the rooibos</span><span class="b b2" style="font-family:'Red Hat Display'">Our story</span></div></div>
+    <div class="tile"><small>F5 · Nunito 800. Rounded, friendly, soft</small>
+      <div class="h" style="font-family:Nunito;font-weight:800;letter-spacing:-.025em">Steeped <em>raw</em>, not stripped down.</div>
+      <p style="font-family:Nunito">Organic, unpasteurised rooibos from a small family farm. Hand-harvested, sun-dried, and left alone.</p>
+      <div class="btns"><span class="b b1" style="font-family:Nunito">Shop the rooibos</span><span class="b b2" style="font-family:Nunito">Our story</span></div></div>
+    <div class="tile"><small>F6 · Instrument Serif 400. Elegant, light, editorial</small>
+      <div class="h" style="font-family:'Instrument Serif';font-weight:400;font-size:66px;letter-spacing:-.01em">Steeped <em>raw</em>, not stripped down.</div>
+      <p>Organic, unpasteurised rooibos from a small family farm. Hand-harvested, sun-dried, and left alone.</p>
+      <div class="btns"><span class="b b1">Shop the rooibos</span><span class="b b2">Our story</span></div></div>
+  </div>
+</section>
+
+<section>
+  <h2>2 · Hero image treatment (all use your real photos)</h2>
+  <div class="heroes">
+    <div class="hero"><small>H1 · Arch, sunset (what you saw)</small><div class="t">Steeped <em>raw</em>, not stripped down.</div><div class="fr arch"><img src="../public/images/sunset-backlit.jpg" alt=""></div></div>
+    <div class="hero"><small>H2 · Soft rectangle, golden-hour field (calmer light)</small><div class="t">Steeped <em>raw</em>, not stripped down.</div><div class="fr round"><img src="../public/images/farm-golden-hour.jpg" alt=""></div></div>
+    <div class="hero"><small>H3 · Circle ("the sun"), red leaf drying</small><div class="t">Steeped <em>raw</em>, not stripped down.</div><div class="fr circle"><img src="../public/images/drying-yard-red.jpg" alt=""></div></div>
+    <div class="hero"><small>H4 · Two photos, staggered</small><div class="t">Steeped <em>raw</em>, not stripped down.</div><div class="pair"><div class="fr"><img src="../public/images/bale-in-field.jpg" alt=""></div><div class="fr"><img src="../public/images/rows-red-soil-portrait.jpg" alt=""></div></div></div>
+    <div class="hero full"><small>H5 · Headline on top, wide banner photo below</small><div class="t" style="max-width:20ch">Steeped <em>raw</em>, not stripped down.</div><div class="fr banner"><img src="../public/images/rows-red-soil-sky.jpg" alt="" style="object-position:50% 60%"></div></div>
+    <div class="hero full"><small>H6 · Wide banner, valley view</small><div class="t" style="max-width:20ch">Steeped <em>raw</em>, not stripped down.</div><div class="fr banner"><img src="../public/images/valley-view.jpg" alt="" style="object-position:50% 70%"></div></div>
+  </div>
+</section>
+</body>
+</html>

@@ -22,7 +22,7 @@ None strict. Familiar ecommerce conventions (trust badges, quantity steppers, st
 
 ## Design Principles
 
-- **Warmth over sterility.** Every screen should feel hand-made and personal — grounded in the terracotta/cream/ink palette and the rooibos-branch illustration — never templated or clinical.
+- **Warmth over sterility.** Every screen should feel hand-made and personal — grounded in the farm photography, the green and ember palette, and the rooibos-branch mark — never templated or clinical.
 - **Fast reorder over discovery.** The primary user already knows what they want. Minimize friction from landing to repurchase: clear size/quantity selection, short checkout, no unnecessary steps between "I want my usual" and "paid."
 - **Show the craft, not just badges.** Communicate "unpasteurised, small-batch, family-made" through storytelling, texture, and illustration — not generic stock trust badges or certification icon rows.
 - **Conventions, executed with care.** Keep standard ecommerce patterns (cart, checkout, steppers) recognizable and predictable, but give each one more craft and warmth than a generic template default.
@@ -30,4 +30,4 @@ None strict. Familiar ecommerce conventions (trust badges, quantity steppers, st
 
 ## Accessibility & Inclusion
 
-Standard WCAG AA: solid contrast ratios across the terracotta/cream/ink/sand palette, full keyboard navigation through catalogue → cart → checkout, meaningful alt text on product and lifestyle imagery, and `prefers-reduced-motion` support for any interaction/scroll animation.
+Standard WCAG AA: solid contrast ratios across the white/sage/deep-green/ember palette, full keyboard navigation through catalogue → cart → checkout, meaningful alt text on product and lifestyle imagery, and `prefers-reduced-motion` support for any interaction/scroll animation.

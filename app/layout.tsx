@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Jost } from "next/font/google";
+import { Albert_Sans } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
 import { CartDrawer } from "@/components/CartDrawer";
 import { ContactSheetProvider } from "@/lib/contact-sheet-context";
 import { ContactSheet } from "@/components/ContactSheet";
 
-const jost = Jost({
+const albert = Albert_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-jost",
+  variable: "--font-albert",
   display: "swap",
 });
 
@@ -25,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={jost.variable}>
+    <html lang="en" className={albert.variable}>
       <body>
         <CartProvider>
           <ContactSheetProvider>

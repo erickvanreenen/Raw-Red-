@@ -6,19 +6,17 @@ export function BulkOrderCallout() {
   const { openContactSheet } = useContactSheet();
 
   return (
-    <div className="mt-10 flex flex-col gap-4 rounded-lg bg-white p-6 sm:flex-row sm:items-center sm:justify-between">
+    <div className="mt-8 flex flex-col gap-4 rounded-card bg-paper p-6 sm:flex-row sm:items-center sm:justify-between">
       <div>
-        <h3 className="font-sans text-sm font-medium text-ink">
-          Ordering 10kg or more?
-        </h3>
-        <p className="mt-1 max-w-[45ch] text-sm leading-relaxed text-ink/70">
+        <h3 className="t-title text-[1.25rem]">Ordering 10kg or more?</h3>
+        <p className="mt-1 max-w-[42ch] text-[0.9375rem] leading-relaxed text-ink-soft">
           We offer wholesale pricing for cafés, retailers, and events.
         </p>
       </div>
       <button
         type="button"
         onClick={openContactSheet}
-        className="flex min-h-12 shrink-0 items-center justify-center rounded-md border border-sand px-6 font-sans text-xs font-medium uppercase tracking-[0.1em] text-ink transition-[background-color,transform] duration-180 ease-out-quart hover:bg-sand active:scale-[0.97]"
+        className="btn btn-secondary shrink-0"
       >
         Enquire about bulk orders
       </button>
