@@ -14,7 +14,7 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "Raw Red — Organic Rooibos",
+  title: "Raw Rooibos | Organic Unpasteurised Rooibos",
   description:
     "Organic, unpasteurised, small-batch rooibos. Steeped raw. Sold direct.",
 };

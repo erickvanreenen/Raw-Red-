@@ -6,7 +6,7 @@ export function Footer() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logomark.svg" alt="" width={24} height={24} />
           <span className="font-sans text-xs font-medium uppercase tracking-[0.33em]">
-            Raw Red
+            Raw Rooibos
           </span>
         </div>
 
@@ -15,7 +15,7 @@ export function Footer() {
         </p>
 
         <p className="font-sans text-xs text-ink/60">
-          &copy; {new Date().getFullYear()} Raw Red. All rights reserved.
+          &copy; {new Date().getFullYear()} Raw Rooibos. All rights reserved.
         </p>
       </div>
     </footer>

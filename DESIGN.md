@@ -1,5 +1,5 @@
 ---
-name: Raw Red
+name: Raw Rooibos
 description: Organic, unpasteurised, small-batch rooibos — sold direct.
 colors:
   rooibos-red: "#A8402F"
@@ -85,7 +85,7 @@ components:
     padding: "12px 20px"
 ---
 
-# Design System: Raw Red
+# Design System: Raw Rooibos
 
 ## 1. Overview
 
@@ -217,6 +217,6 @@ Every purchase control lives in a single White panel, never split across separat
 - **Don't** use `border-left` / `border-right` as a colored accent stripe on any card, list item, or callout.
 - **Don't** use gradient text (`background-clip: text`) or decorative glassmorphism panels.
 - **Don't** set body copy in all-caps; caps are reserved for labels, buttons, nav, and the wordmark.
-- **Don't** default to a generic Shopify-template layout — dense badge rows, wishlist/compare icon clusters, stock trust-badge strips — PRODUCT.md explicitly names this as what RawRed should not look like.
+- **Don't** default to a generic Shopify-template layout — dense badge rows, wishlist/compare icon clusters, stock trust-badge strips — PRODUCT.md explicitly names this as what Raw Rooibos should not look like.
 - **Don't** use em dashes in interface copy; use a period, comma, or colon instead.
 - **Don't** use pure black (`#000`) anywhere. Pure White (`#FFFFFF`) is the deliberate exception to the "no pure neutrals" default, per direct brand art direction — it's the system's canvas, not an oversight.

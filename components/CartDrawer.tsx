@@ -77,7 +77,7 @@ export function CartDrawer() {
                 <li key={item.sizeId} className="flex items-center gap-4">
                   <div className="flex-1">
                     <p className="font-sans text-sm font-medium text-ink">
-                      Raw Red Rooibos — {item.label}
+                      Raw Rooibos — {item.label}
                     </p>
                     <p className="mt-1 font-sans text-xs text-ink/70">
                       {formatPrice(item.price)} each

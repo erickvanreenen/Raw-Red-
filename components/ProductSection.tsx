@@ -4,17 +4,17 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { SizeSelector } from "./SizeSelector";
 import { BulkOrderCallout } from "./BulkOrderCallout";
-import { useCart, rawRedRooibos } from "@/lib/cart-context";
+import { useCart, rawRooibos } from "@/lib/cart-context";
 import { formatPrice } from "@/lib/products";
 
 export function ProductSection() {
   const { addItem, lastSizeId } = useCart();
-  const [selectedId, setSelectedId] = useState(rawRedRooibos.sizes[1].id);
+  const [selectedId, setSelectedId] = useState(rawRooibos.sizes[1].id);
   const [quantity, setQuantity] = useState(1);
   const [confirmed, setConfirmed] = useState(false);
 
   useEffect(() => {
-    if (lastSizeId && rawRedRooibos.sizes.some((s) => s.id === lastSizeId)) {
+    if (lastSizeId && rawRooibos.sizes.some((s) => s.id === lastSizeId)) {
       setSelectedId(lastSizeId);
     }
   }, [lastSizeId]);
@@ -25,7 +25,7 @@ export function ProductSection() {
     return () => clearTimeout(timer);
   }, [confirmed]);
 
-  const selectedSize = rawRedRooibos.sizes.find((s) => s.id === selectedId)!;
+  const selectedSize = rawRooibos.sizes.find((s) => s.id === selectedId)!;
 
   function handleAdd() {
     addItem(selectedSize, quantity);
@@ -48,13 +48,13 @@ export function ProductSection() {
 
         <div>
           <h2 className="font-sans text-2xl font-medium leading-[1.15] text-ink sm:text-3xl">
-            {rawRedRooibos.name}
+            {rawRooibos.name}
           </h2>
           <p className="mt-1 font-sans text-xs font-medium uppercase tracking-[0.1em] text-rooibos-red">
-            {rawRedRooibos.tagline}
+            {rawRooibos.tagline}
           </p>
           <p className="mt-5 max-w-[65ch] text-base leading-[1.65] text-ink/90">
-            {rawRedRooibos.description}
+            {rawRooibos.description}
           </p>
 
           {/* Unified buy box: price, size, quantity, and the CTA all live in one block */}
@@ -73,7 +73,7 @@ export function ProductSection() {
                 Pack size
               </span>
               <SizeSelector
-                sizes={rawRedRooibos.sizes}
+                sizes={rawRooibos.sizes}
                 selectedId={selectedId}
                 onSelect={setSelectedId}
               />
@@ -136,7 +136,7 @@ export function ProductSection() {
           </p>
 
           <dl className="mt-10 flex flex-col gap-5 border-t border-ink/10 pt-8">
-            {rawRedRooibos.details.map((detail) => (
+            {rawRooibos.details.map((detail) => (
               <div key={detail.label}>
                 <dt className="font-sans text-xs font-medium uppercase tracking-[0.1em] text-ink">
                   {detail.label}

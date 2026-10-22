@@ -8,7 +8,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { rawRedRooibos, type TeaSize } from "./products";
+import { rawRooibos, type TeaSize } from "./products";
 
 export interface CartItem {
   sizeId: string;
@@ -33,8 +33,8 @@ interface CartContextValue {
 
 const CartContext = createContext<CartContextValue | null>(null);
 
-const STORAGE_KEY = "rawred-cart";
-const LAST_SIZE_KEY = "rawred-last-size";
+const STORAGE_KEY = "rawrooibos-cart";
+const LAST_SIZE_KEY = "rawrooibos-last-size";
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
@@ -133,4 +133,4 @@ export function useCart() {
   return ctx;
 }
 
-export { rawRedRooibos };
+export { rawRooibos };

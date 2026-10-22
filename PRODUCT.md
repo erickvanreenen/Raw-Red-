@@ -6,11 +6,11 @@ brand
 
 ## Users
 
-Primarily casual repeat buyers: people who already know and like RawRed rooibos and come back to reorder their usual size (100g / 250g / 500g) with minimal friction. Secondary: first-time visitors discovering the brand who need to be convinced quickly, without a slow "story-first" scroll getting in the way of a fast purchase decision.
+Primarily casual repeat buyers: people who already know and like Raw Rooibos and come back to reorder their usual size (100g / 250g / 500g) with minimal friction. Secondary: first-time visitors discovering the brand who need to be convinced quickly, without a slow "story-first" scroll getting in the way of a fast purchase decision.
 
 ## Product Purpose
 
-RawRed is a small D2C storefront selling organic, unpasteurised, loose-leaf rooibos tea. It exists so a two-person, small-batch tea business can sell directly online with a buying experience that feels custom-built and personal, not templated. Success looks like: a first-time visitor understands what makes this rooibos different (raw, unpasteurised, small-batch, family-made) within seconds, and a returning buyer can get from landing to "order placed" in as few steps as possible.
+Raw Rooibos is a small D2C storefront selling organic, unpasteurised, loose-leaf rooibos tea. It exists so a two-person, small-batch tea business can sell directly online with a buying experience that feels custom-built and personal, not templated. Success looks like: a first-time visitor understands what makes this rooibos different (raw, unpasteurised, small-batch, family-made) within seconds, and a returning buyer can get from landing to "order placed" in as few steps as possible.
 
 ## Brand Personality
 

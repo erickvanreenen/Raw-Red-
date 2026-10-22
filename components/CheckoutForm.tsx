@@ -46,7 +46,7 @@ export function CheckoutForm() {
           href="/"
           className="mt-6 inline-flex min-h-12 items-center justify-center rounded-md border border-sand px-8 font-sans text-xs font-medium uppercase tracking-[0.1em] text-ink transition-colors duration-180 ease-out-quart hover:bg-sand"
         >
-          Back to Raw Red
+          Back to Raw Rooibos
         </Link>
       </div>
     );
@@ -170,7 +170,7 @@ export function CheckoutForm() {
               className="flex items-center justify-between font-sans text-sm text-ink"
             >
               <span>
-                Raw Red Rooibos — {item.label}{" "}
+                Raw Rooibos — {item.label}{" "}
                 <span className="text-ink/60">× {item.quantity}</span>
               </span>
               <span className="font-medium">

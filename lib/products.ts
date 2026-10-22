@@ -20,9 +20,9 @@ export interface Product {
   bulkContactEmail: string;
 }
 
-export const rawRedRooibos: Product = {
-  id: "raw-red-rooibos",
-  name: "Raw Red Rooibos",
+export const rawRooibos: Product = {
+  id: "raw-rooibos",
+  name: "Raw Rooibos",
   tagline: "Organic. Unpasteurised. Steeped raw.",
   description:
     "Hand-harvested on a small family farm and left unpasteurised, so the leaf keeps more of what made it worth picking in the first place. Naturally caffeine-free, low in tannins, and good hot, iced, or steeped strong.",
@@ -48,7 +48,7 @@ export const rawRedRooibos: Product = {
         "Naturally caffeine-free and low in tannins, so it's gentle enough to drink throughout the day.",
     },
   ],
-  bulkContactEmail: "hello@rawred.co.za",
+  bulkContactEmail: "hello@rawrooibos.com",
 };
 
 export function formatPrice(amount: number): string {

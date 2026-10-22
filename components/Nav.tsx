@@ -34,7 +34,7 @@ export function Nav() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logomark.svg" alt="" width={32} height={32} />
           <span className="font-sans text-sm font-medium uppercase tracking-[0.33em]">
-            Raw Red
+            Raw Rooibos
           </span>
         </a>
 

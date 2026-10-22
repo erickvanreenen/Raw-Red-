@@ -1,5 +1,5 @@
 {
-  "$description": "Raw Red — organic unpasteurised loose rooibos. Design tokens v1, July 2026.",
+  "$description": "Raw Rooibos — organic unpasteurised loose rooibos. Design tokens v1, July 2026.",
   "color": {
     "rooibos-red": { "value": "#A8402F", "type": "color", "description": "Primary brand colour. Logo circle, accents, sub-line text." },
     "deep-russet": { "value": "#7C2D21", "type": "color", "description": "Dark accent. Small text on cream, hover states." },

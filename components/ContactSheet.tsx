@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useContactSheet } from "@/lib/contact-sheet-context";
-import { rawRedRooibos } from "@/lib/products";
+import { rawRooibos } from "@/lib/products";
 
 const inputClasses =
   "min-h-12 w-full rounded-sm border border-sand bg-white px-4 py-3 font-sans text-base text-ink outline-none transition-colors duration-150 ease-out-quart focus:border-2 focus:border-rooibos-red";
@@ -84,10 +84,10 @@ export function ContactSheet() {
                 wholesale pricing and lead times. In a hurry? Email us
                 directly at{" "}
                 <a
-                  href={`mailto:${rawRedRooibos.bulkContactEmail}`}
+                  href={`mailto:${rawRooibos.bulkContactEmail}`}
                   className="text-ink underline decoration-sand underline-offset-2 hover:text-rooibos-red"
                 >
-                  {rawRedRooibos.bulkContactEmail}
+                  {rawRooibos.bulkContactEmail}
                 </a>
                 .
               </p>
