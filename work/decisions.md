@@ -69,3 +69,111 @@ Passed: A person chose the direction (Erick); every colour pairing passes AA in 
 Failed / pending: none. Type at 200 per cent text size was checked after the build: no overflow, nothing clipped.
 Assumed: Light-only is acceptable (D04).
 Decided by: Erick
+
+## D08 Redesign evolves Fynbos Fresh
+Date / Decider: 2026-10-24, Erick
+Context: New brief: a current, responsive redesign of rawrooibos.com delivered as one HTML file, with pepperplane.com as the CTA and UX reference.
+Decision: Evolve the existing Fynbos Fresh direction (green, sage, Albert Sans). Do not reset the look.
+Options rejected: Reset the visual direction from scratch.
+Evidence: Erick's G0 answer.
+Trade-offs: Pepperplane's 12px rectangle buttons clash with the pill shape in D03; to be settled at G4.
+Revisit when: G4 Look.
+
+## Gate G0 Scope, 2026-10-24
+Result: proceed
+Passed: problem stated without a solution; out of scope listed (6 items); platform mapped, redesign placed, ripple owners named (Erick).
+Pending: Erick's answers on pepperplane emphasis, photo embedding, fixed content and bulk priority (questions 2 to 5 of the brief); research runs meanwhile, with assumptions A3, A5 and the bulk priority kept open.
+Assumed: prices and delivery times current (A6).
+Decided by: Erick
+
+## Gate G1 Evidence, 2026-10-24
+Result: proceed
+Passed: each finding in 01-research.md links to a source (S1 to S6); confidence stated; assumptions separate; gaps listed.
+Risks carried: no user evidence (desk research only); F11 food-safety wording rests on a search summary; Carmién not studied.
+Pending: Erick's answers on pepperplane emphasis, photo embedding, fixed content, bulk priority, delivery cost, bulk reply time. Ideation proceeds with these as open assumptions.
+Decided by: Erick
+
+## D09 Concept B: story first, buy bar follows
+Date / Decider: 2026-10-24, Erick
+Context: Three concepts scored in 02-direction.md; A and B each won on different trade-offs (A: speed, delivery visibility, simplest build; B: story prominence, keeps D06 banner). Erick first clicked A, then corrected to B ("concept 1st sorry", confirmed by question).
+Decision: Concept B. Keep the D06 edge-to-edge banner and headline; then the craft steps, the shop, story, bulk, FAQ and a closing CTA. On phones a slim buy bar (size, price, Add) pins to the bottom once the hero has scrolled away; on desktop the header carries a "Shop the rooibos" button.
+Options rejected: A Shop first (shrinks the D06 banner; price before the story). C Two front doors (extra choice for retail buyers; breaks principle 4). Baseline (fails T2 to T4).
+Evidence: 02-direction.md scores; F1 to F3, F6, F7 in 01-research.md.
+Trade-offs: The pinned bar adds build complexity (focus order, screen readers) and may cover content at large text sizes (bet B2, riskiest assumption). Mitigation specified in stage 3: the bar hides while the shop section is on screen and when text is zoomed large.
+Revisit when: the stage 7 walkthrough shows the bar covers content or is dismissed by 2 of 5 people; then fall back to A.
+
+## Gate G2 Direction, 2026-10-24
+Result: proceed
+Passed: three concepts plus baseline explored; criteria fixed before scoring; one direction chosen by Erick (B); success metrics defined.
+Assumed: bet B2 (a pinned bar does not get in the way of reading or zoomed text).
+Decided by: Erick
+
+## Gate G3 Spec, 2026-10-24
+Result: proceed
+Passed: every flow in 03-ux-spec.md lists empty, loading, error, success and edge states; copy uses the agreed vocabulary; AI behaviour not applicable; every action works by keyboard.
+Pending: Erick's answers on the six [confirm] items (craft step "then sifted", delivery cost, quantity cap of 20, FAQ 1 wording, antioxidant line, photo embedding). They stay as labelled placeholders until answered.
+Decided by: Erick
+
+## D10 Buttons: soft rectangle, 12px corners
+Date / Decider: 2026-10-24, Erick
+Context: Pepperplane uses 12px-radius rectangles (F4, F12); Fynbos Fresh used pills (D03). Compared side by side in `work/ui-cta-options.html`.
+Decision: Buttons, pack size options and the quantity stepper use a 12px radius. Containers keep 20 to 28px. Every CTA carries a trailing arrow; secondary CTAs are arrow text with no border. Primary on Deep Fynbos blocks is Paper with Ink text.
+Options rejected: Pill (keeps D03's shape).
+Evidence: Erick's G4 answer; preview checked at 375px and 200% text.
+Trade-offs: Supersedes the pill shape in D03 and DESIGN.md. On phones (under 521px) the quantity stepper takes its own row with Add to cart full width below, a change to D07 for phones only.
+Revisit when: the brand mark is redesigned.
+
+## Gate G4 Look, 2026-10-24
+Result: proceed
+Passed: Erick chose the button shape (option 2); all 14 colour pairings calculated and passing AA (Ember on Deep Fynbos banned at 1.63:1); 200% text at 375px with nothing clipped.
+Assumed: light theme only (D04).
+Decided by: Erick
+
+## D11 Photos sit in an images folder beside the HTML file
+Date / Decider: 2026-10-24, Erick
+Context: G0 question 2: embed photos in one file (about 5 to 6 MB) or ship the HTML with an images folder.
+Decision: Separate `images/` folder alongside the HTML file.
+Options rejected: Embedding as data URIs (heavy single file, slow first load).
+Evidence: Erick's G5 answer.
+Trade-offs: The deliverable is a folder, not one file; sharing means zipping it.
+Revisit when: a single portable file is needed for sharing.
+
+## Gate G5 System, 2026-10-24
+Result: proceed
+Passed: tokens.json and 12 component specs exist before screens; audit verdict "ready with limits" recorded; DESIGN.md and UX.md tested by an independent AI agent; its 13 gaps fixed (content.md added).
+Not done: re-run of the test on the fixed files (stage 6 build exercises them).
+Decided by: Erick
+
+## Gate G6 Taste, 2026-10-24
+Result: proceed
+Passed: screens built from work/05-system only (one noted exception: the buy bar select's arrow image repeats the ink value); every state built and exercised in the browser; pre-delivery check passed at 375, 768, 1280, 1440px and 200% text; taste pass done by Erick.
+Not checked: landscape phone, real devices, screen readers, reduced motion toggled in a browser (stage 7/8).
+Decided by: Erick
+
+## Gate G7 Fixes, 2026-10-24
+Result: proceed
+Accepted: C1 (buy box before photo on phones), C2 (responsive photo sizes), C3 (visible limit message in the cart), C4 (delivery strip inside the header landmark), C7 (complete the UX.md label table), C8 (named data-event hooks for later analytics), C9 (Google Fonts and POPIA, routed to stage 8 compliance-check).
+Rejected: C5, keep the delivery wording in the closing block ("it's reassurance"). C6, keep the header CTA beside the hero CTA ("matches pepperplane").
+Routed deeper: C8 to hand-off; C9 to QA.
+Decided by: Erick
+
+## D12 Skip stage 8 (QA and accessibility)
+Date / Decider: 2026-10-24, Erick
+Context: Critique fixes verified in the browser; stage 8 would run accessibility-audit, cognitive-load-check, compliance-check, design-qa and usability-test-plan.
+Decision: Skip QA for this run.
+Options rejected: Run stage 8 in full.
+Evidence: Erick's message "Skip QA".
+Trade-offs (risks carried, unowned until revisited): no screen-reader or real-device test; landscape phone and reduced motion not checked in a browser; C9 (Google Fonts and POPIA) not assessed; the antioxidant line and the reworded FAQ 1 not checked for compliance; no usability walkthrough, so bets B2 (pinned bar) and the success metric "first-screen understanding" stay untested.
+Revisit when: before the redesign is ported to the live site.
+
+## Gate G8 Ship, 2026-10-24
+Result: skipped by decision D12 (not passed). No critical issues are known, but none were looked for in a QA pass.
+Decided by: Erick
+
+## Gate G9 Next, 2026-10-24
+Result: stop (run complete)
+Passed: attribution stated honestly in 08-measurement.md; next iteration options named (A QA then port, B port now, C subscriptions).
+Not applicable: results against targets (not live, no analytics).
+Decision: Erick ended the run here ("it's a small project") and asked for the final file. No next iteration chosen yet; options A to C stay in 08-measurement.md.
+Carried into the final file: proposed copy for the five unconfirmed items (delivery cost line, cap of 20, "then sifted" left out, FAQ 1 wording, antioxidant line); QA risks from D12.
+Decided by: Erick

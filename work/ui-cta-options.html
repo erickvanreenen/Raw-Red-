@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CTA shape options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#fff;--sage:#EEEFE5;--fynbos:#2F4B3A;--ember:#B03F1C;--ember-deep:#8F3217;--ink:#1E2420;--ink-soft:#566057;--edge:#73836D;--line:#D9E1D3;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--sage);color:var(--ink);font:400 1rem/1.6 "Albert Sans",system-ui,sans-serif}
+.intro{max-width:1200px;margin:0 auto;padding:32px 16px 8px}
+.intro h1{font-weight:500;font-size:1.75rem;letter-spacing:-.02em;margin:0 0 4px}
+.intro p{margin:0;color:var(--ink-soft);max-width:70ch}
+.grid{max-width:1200px;margin:0 auto;padding:16px;display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr))}
+.opt{background:var(--sage);border:1.5px solid var(--edge);border-radius:28px;overflow:hidden}
+.opt>h2{margin:0;padding:16px 20px;background:var(--paper);font-size:1.125rem;font-weight:600;border-bottom:1px solid var(--line)}
+.opt>h2 span{font-weight:400;color:var(--ink-soft)}
+.pill{--r:999px}.rect{--r:12px}
+.strip{background:var(--fynbos);color:var(--paper);font-size:.875rem;text-align:center;padding:8px 16px}
+.head{background:var(--paper);display:flex;align-items:center;gap:16px;padding:10px 20px;font-size:.9375rem}
+.head b{font-weight:600;margin-right:auto}
+.banner{display:block;width:100%;aspect-ratio:21/9;object-fit:cover}
+.hero{padding:24px 20px;display:flex;flex-wrap:wrap;gap:16px 24px;align-items:end;justify-content:space-between}
+.hero h3{margin:0;font-weight:500;font-size:clamp(2rem,4.2vw,2.75rem);line-height:1;letter-spacing:-.035em;max-width:12ch}
+.hero h3 em{font-style:normal;color:var(--ember)}
+.ctas{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 20px 0 24px;border:0;border-radius:var(--r);font:600 1rem/1 "Albert Sans",sans-serif;cursor:pointer;text-decoration:none;transition:background-color .12s,color .12s,transform .12s}
+.btn svg{width:16px;height:16px;flex:none}
+.btn:active{transform:scale(.97)}
+.btn:focus-visible,.link:focus-visible,.size:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.primary{background:var(--fynbos);color:var(--paper)}
+.primary:hover{background:var(--ember)}
+.primary:active{background:var(--ember-deep)}
+.link{display:inline-flex;align-items:center;gap:10px;min-height:48px;color:var(--ink);font-weight:600;text-decoration:none;border-radius:4px}
+.link svg{width:16px;height:16px;transition:transform .12s}
+.link:hover{text-decoration:underline;text-underline-offset:4px}
+.link:hover svg{transform:translateX(3px)}
+.head .btn{min-height:40px;font-size:.9375rem}
+.box{margin:0 20px;background:var(--paper);border-radius:28px;padding:20px}
+.price{font-size:2rem;font-weight:600;letter-spacing:-.03em}
+.price small{font-size:1rem;font-weight:400;color:var(--ink-soft)}
+.label{font-size:.875rem;font-weight:600;margin:12px 0 8px}
+.sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.size{min-height:56px;border:1.5px solid var(--edge);border-radius:var(--r);background:var(--paper);font:600 1rem/1.15 "Albert Sans",sans-serif;color:var(--ink);cursor:pointer}
+.size small{display:block;font-weight:400;font-size:.8125rem;color:var(--ink-soft)}
+.size[aria-checked=true]{background:var(--fynbos);border-color:var(--fynbos);color:var(--paper)}
+.size[aria-checked=true] small{color:var(--sage)}
+.buy{display:flex;gap:8px;margin-top:12px}
+.step{display:flex;align-items:center;border:1.5px solid var(--edge);border-radius:var(--r);min-height:56px}
+.step button{width:44px;height:52px;border:0;background:none;font:500 1.25rem "Albert Sans";color:var(--ink);border-radius:var(--r);cursor:pointer}
+.step span{width:24px;text-align:center;font-weight:600}
+.buy .btn{flex:1;justify-content:center;min-height:56px}
+.note{font-size:.875rem;color:var(--ink-soft);margin:10px 0 0}
+.close{margin:24px 20px 20px;background:var(--fynbos);color:var(--paper);border-radius:28px;padding:28px 24px}
+.close h3{margin:0 0 6px;font-weight:500;font-size:1.75rem;letter-spacing:-.03em;line-height:1.1}
+.close p{margin:0 0 16px;color:var(--sage)}
+.close .primary{background:var(--paper);color:var(--ink)}
+.close .primary:hover{background:var(--sage)}
+.close .link{color:var(--paper)}
+.close .btn:focus-visible,.close .link:focus-visible{outline-color:var(--paper)}
+@media (min-width:521px){.btn,.link{white-space:nowrap}}
+.btn{text-align:center;text-wrap:balance}
+@media (max-width:520px){.head .btn{display:none}.btn{padding-block:12px}.ctas{width:100%;flex-direction:column;align-items:stretch}.ctas .primary{justify-content:center}.ctas .link{justify-content:center}.head .nav{display:none}.buy{flex-wrap:wrap}.buy .step{flex:1;justify-content:space-between}.buy .btn{flex-basis:100%}.box{margin:0 12px;padding:16px}.close{margin:24px 12px 12px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.btn:active{transform:none}}
+</style>
+</head>
+<body>
+<div class="intro">
+<h1>Button shape: pill or soft rectangle?</h1>
+<p>Same tokens, same copy, same layout. Only the corner of buttons, pack sizes and the stepper differs. Hover and tab through the buttons to see their states. Containers keep their 28px corners in both.</p>
+</div>
+<div class="grid">
+<section class="opt pill" aria-labelledby="o1"></section>
+<section class="opt rect" aria-labelledby="o2"></section>
+</div>
+<template id="t">
+<div class="strip">Delivered across South Africa in 2 to 4 working days</div>
+<div class="head"><b>Raw Rooibos</b><span class="nav">Shop · Our story · Bulk orders · FAQ</span><a class="btn primary" href="#">Shop the rooibos<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+<img class="banner" src="../public/images/farm-golden-hour.jpg" alt="Rooibos bushes in golden evening light with a flat-topped cliff behind">
+<div class="hero"><h3>Steeped <em>raw</em>, not stripped down.</h3>
+<div class="ctas"><a class="btn primary" href="#">Shop the rooibos<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="link" href="#">See our story<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+<div class="box">
+<div class="price">R 165 <small>per 250g pack</small></div>
+<div class="label">Pack size</div>
+<div class="sizes" role="radiogroup" aria-label="Pack size"><button class="size" role="radio" aria-checked="false">100g<small>R 85</small></button><button class="size" role="radio" aria-checked="true">250g<small>R 165</small></button><button class="size" role="radio" aria-checked="false">500g<small>R 295</small></button></div>
+<div class="buy"><div class="step"><button aria-label="Decrease quantity">−</button><span>1</span><button aria-label="Increase quantity">+</button></div><button class="btn primary">Add to cart · R 165<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+<p class="note">Delivered in South Africa in 2 to 4 working days. Delivery cost shown at checkout.</p>
+</div>
+<div class="close"><h3>Ready for your next pot?</h3><p>Pick your pack size and we'll get it to you in 2 to 4 working days.</p>
+<div class="ctas"><a class="btn primary" href="#">Shop the rooibos<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="link" href="#">Ask about bulk<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+</template>
+<script>
+const t=document.getElementById('t');
+[['.pill','o1','Option 1: pill','keeps today\'s shape'],['.rect','o2','Option 2: soft rectangle, 12px','pepperplane\'s shape']].forEach(([s,id,a,b])=>{
+  const el=document.querySelector(s);
+  el.innerHTML='<h2 id="'+id+'">'+a+' <span>· '+b+'</span></h2>';
+  el.appendChild(t.content.cloneNode(true));
+});
+document.addEventListener('click',e=>{
+  const s=e.target.closest('.size');
+  if(s){s.parentNode.querySelectorAll('.size').forEach(b=>b.setAttribute('aria-checked',b===s));}
+  if(e.target.closest('a[href="#"]'))e.preventDefault();
+});
+</script>
+</body>
+</html>

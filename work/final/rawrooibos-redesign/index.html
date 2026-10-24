@@ -1,0 +1,1064 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Raw Rooibos | Unpasteurised rooibos from a family farm</title>
+<meta name="description" content="Unpasteurised rooibos from a small family farm. Hand-harvested, sun-dried, and left alone. Delivered across South Africa in 2 to 4 working days.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="images/logomark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" imagesrcset="images/farm-golden-hour-800.jpg 800w, images/farm-golden-hour-lg.jpg 1600w" imagesizes="100vw" fetchpriority="high">
+<style>
+/* Tokens: generated from work/05-system/tokens.json (semantic tier), named --{category}-{name}. */
+:root {
+  color-scheme: light;
+  --font-family: "Albert Sans", system-ui, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  --color-surface-canvas: #EEEFE5;
+  --color-surface-container: #FFFFFF;
+  --color-surface-inverse: #2F4B3A;
+  --color-text-primary: #1E2420;
+  --color-text-secondary: #566057;
+  --color-text-accent: #B03F1C;
+  --color-text-on-inverse: #FFFFFF;
+  --color-text-on-inverse-secondary: #EEEFE5;
+  --color-action-primary: #2F4B3A;
+  --color-action-primary-hover: #B03F1C;
+  --color-action-primary-pressed: #8F3217;
+  --color-action-primary-text: #FFFFFF;
+  --color-action-inverse: #FFFFFF;
+  --color-action-inverse-hover: #EEEFE5;
+  --color-action-inverse-pressed: #D9E1D3;
+  --color-action-inverse-text: #1E2420;
+  --color-border-control: #73836D;
+  --color-border-divider: #D9E1D3;
+  --color-selected: #2F4B3A;
+  --color-focus: #1E2420;
+  --color-focus-on-inverse: #FFFFFF;
+  --color-error: #8F3217;
+  --color-backdrop: rgba(30, 36, 32, 0.5);
+
+  --font-size-display: clamp(2.75rem, 6.4vw, 5.25rem);
+  --font-size-headline: clamp(2rem, 4vw, 3.25rem);
+  --font-size-title: 1.5rem;
+  --font-size-price: 2.5rem;
+  --font-size-lead: 1.1875rem;
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+  --font-size-badge: 0.75rem;
+  --line-height-display: 1;
+  --line-height-headline: 1.05;
+  --line-height-title: 1.15;
+  --line-height-snug: 1.2;
+  --line-height-lead: 1.55;
+  --line-height-body: 1.6;
+  --letter-spacing-display: -0.035em;
+  --letter-spacing-headline: -0.03em;
+  --letter-spacing-title: -0.02em;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-stack-sm: var(--space-3);
+  --space-stack-md: var(--space-6);
+  --space-stack-lg: var(--space-8);
+  --space-container-padding: var(--space-6);
+  --space-gutter: var(--space-4);
+  --space-section-gap: var(--space-16);
+
+  --radius-control: 12px;
+  --radius-card: 20px;
+  --radius-panel: 28px;
+  --radius-badge: 999px;
+
+  --size-target-min: 44px;
+  --size-control-height: 48px;
+  --size-control-height-lg: 56px;
+  --size-content-max: 1200px;
+  --size-measure: 60ch;
+  --size-buy-bar-height: 72px;
+  --size-header-offset: 88px;
+
+  --border-width-control: 1.5px;
+  --border-width-focus: 2px;
+  --border-width-focus-offset: 2px;
+  --motion-nudge: 3px;
+  --duration-fast: 120ms;
+  --duration-exit: 160ms;
+  --duration-enter: 200ms;
+  --easing-out: cubic-bezier(0.25, 1, 0.5, 1);
+  --easing-in: cubic-bezier(0.5, 0, 0.75, 0);
+
+  --button-padding-start: 24px;
+  --button-padding-end: 20px;
+  --button-icon-size: 16px;
+  --button-icon-gap: var(--space-3);
+  --button-press-scale: 0.97;
+}
+@media (min-width: 768px) {
+  :root { --space-gutter: var(--space-6); }
+}
+@media (min-width: 1024px) {
+  :root { --space-gutter: var(--space-12); --space-section-gap: var(--space-24); }
+}
+
+/* Base */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--color-surface-canvas);
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; background: var(--color-border-divider); }
+h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: var(--border-width-focus) solid var(--color-focus); outline-offset: var(--border-width-focus-offset); }
+.on-inverse :focus-visible { outline-color: var(--color-focus-on-inverse); }
+[tabindex="-1"]:focus { outline: none; }
+::selection { background: var(--color-border-divider); color: var(--color-text-primary); }
+.vh { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.wrap { max-width: calc(var(--size-content-max) + 2 * var(--space-gutter)); margin-inline: auto; padding-inline: var(--space-gutter); }
+.icon { width: var(--button-icon-size); height: var(--button-icon-size); flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+section[id] { scroll-margin-top: var(--size-header-offset); }
+
+/* Type roles */
+.t-display { font-size: var(--font-size-display); font-weight: var(--font-weight-medium); line-height: var(--line-height-display); letter-spacing: var(--letter-spacing-display); text-wrap: balance; }
+.t-headline { font-size: var(--font-size-headline); font-weight: var(--font-weight-medium); line-height: var(--line-height-headline); letter-spacing: var(--letter-spacing-headline); text-wrap: balance; }
+.t-title { font-size: var(--font-size-title); font-weight: var(--font-weight-semibold); line-height: var(--line-height-title); letter-spacing: var(--letter-spacing-title); }
+.t-lead { font-size: var(--font-size-lead); line-height: var(--line-height-lead); color: var(--color-text-secondary); }
+.t-small { font-size: var(--font-size-small); }
+.t-label { font-size: var(--font-size-small); font-weight: var(--font-weight-semibold); line-height: var(--line-height-snug); }
+.secondary { color: var(--color-text-secondary); }
+.accent { color: var(--color-text-accent); }
+.measure { max-width: var(--size-measure); }
+
+/* Button (components/button.md) */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--button-icon-gap);
+  min-height: var(--size-control-height);
+  padding: 0 var(--button-padding-end) 0 var(--button-padding-start);
+  border: 0; border-radius: var(--radius-control);
+  font-weight: var(--font-weight-semibold); font-size: var(--font-size-body); line-height: var(--line-height-snug);
+  text-decoration: none; text-align: center; cursor: pointer;
+  transition: background-color var(--duration-fast) var(--easing-out), color var(--duration-fast) var(--easing-out), transform var(--duration-fast) var(--easing-out);
+}
+.btn:active { transform: scale(var(--button-press-scale)); }
+.btn-lg { min-height: var(--size-control-height-lg); }
+.btn-primary { background: var(--color-action-primary); color: var(--color-action-primary-text); }
+.btn-primary:hover { background: var(--color-action-primary-hover); }
+.btn-primary:active { background: var(--color-action-primary-pressed); }
+.on-inverse .btn-primary { background: var(--color-action-inverse); color: var(--color-action-inverse-text); }
+.on-inverse .btn-primary:hover { background: var(--color-action-inverse-hover); }
+.on-inverse .btn-primary:active { background: var(--color-action-inverse-pressed); }
+.link {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--button-icon-gap);
+  min-height: var(--size-control-height); padding: 0 var(--space-1);
+  border: 0; background: none; border-radius: var(--space-1);
+  font-weight: var(--font-weight-semibold); color: var(--color-text-primary); text-decoration: none; cursor: pointer;
+}
+.on-inverse .link { color: var(--color-text-on-inverse); }
+.link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.link .icon { transition: transform var(--duration-fast) var(--easing-out); }
+.link:hover .icon { transform: translateX(var(--motion-nudge)); }
+.link-sm { min-height: var(--size-target-min); }
+@media (min-width: 521px) { .btn, .link { white-space: nowrap; } }
+@media (max-width: 520px) { .btn { padding-block: var(--space-3); text-wrap: balance; } }
+.cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-6); }
+@media (max-width: 520px) { .cta-row { flex-direction: column; align-items: stretch; } }
+
+/* Skip link and delivery strip */
+.skip { position: absolute; left: var(--space-4); top: -100px; z-index: 100; background: var(--color-surface-container); padding: var(--space-3) var(--space-4); border-radius: var(--radius-control); font-weight: var(--font-weight-semibold); }
+.skip:focus { top: var(--space-2); }
+.strip { background: var(--color-surface-inverse); color: var(--color-text-on-inverse); font-size: var(--font-size-small); text-align: center; padding: var(--space-2) var(--space-4); }
+
+/* Header (components/header.md) */
+/* The delivery strip sits inside the header landmark but scrolls away: the header sticks at minus the strip's height. */
+.site-header { position: sticky; top: calc(-1 * var(--strip-height, 0px)); z-index: 20; background: var(--color-surface-container); border-bottom: 1px solid transparent; transition: border-color var(--duration-fast) var(--easing-out); }
+.site-header.is-scrolled { border-bottom-color: var(--color-border-divider); }
+.header-inner { display: flex; align-items: center; gap: var(--space-4); min-height: 64px; }
+.brand { display: inline-flex; align-items: center; gap: var(--space-3); margin-right: auto; min-height: var(--size-target-min); text-decoration: none; font-weight: var(--font-weight-semibold); font-size: 1.125rem; letter-spacing: var(--letter-spacing-title); }
+.brand img { width: 36px; height: 36px; background: none; }
+.nav ul { display: flex; gap: var(--space-1); }
+.nav a { display: inline-flex; align-items: center; min-height: var(--size-target-min); padding: 0 var(--space-3); border-radius: var(--radius-control); text-decoration: none; font-weight: var(--font-weight-medium); }
+.nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.cart-btn { position: relative; display: inline-grid; place-items: center; width: var(--size-target-min); height: var(--size-target-min); border: 0; background: none; border-radius: var(--radius-control); cursor: pointer; }
+.cart-btn .icon { width: 24px; height: 24px; stroke-width: 1.75; }
+.badge { position: absolute; top: 2px; right: 0; min-width: 20px; height: 20px; padding: 0 5px; border-radius: var(--radius-badge); background: var(--color-action-primary-hover); color: var(--color-action-primary-text); font-size: var(--font-size-badge); font-weight: var(--font-weight-semibold); line-height: 20px; text-align: center; }
+.menu-btn { min-height: var(--size-target-min); padding: 0 var(--space-4); border: var(--border-width-control) solid var(--color-border-control); border-radius: var(--radius-control); background: var(--color-surface-container); font-weight: var(--font-weight-semibold); cursor: pointer; }
+.header-cta { display: none; }
+@media (max-width: 767px) {
+  .nav { position: absolute; left: 0; right: 0; top: 100%; background: var(--color-surface-container); border-bottom: 1px solid var(--color-border-divider); padding: var(--space-2) var(--space-gutter) var(--space-4); }
+  .nav:not(.is-open) { display: none; }
+  .nav ul { flex-direction: column; }
+  .nav a { min-height: var(--size-control-height); padding: 0; font-size: 1.125rem; }
+}
+@media (min-width: 768px) {
+  .menu-btn { display: none; }
+  .header-cta { display: inline-flex; }
+  .brand { margin-right: var(--space-4); }
+  .nav { margin-right: auto; }
+}
+
+/* Hero */
+.hero-banner { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 70%; }
+@media (min-width: 768px) { .hero-banner { aspect-ratio: 16 / 9; } }
+/* Desktop: 21:9, but never taller than half the screen, so headline and CTAs share the first screen (T2). */
+@media (min-width: 1024px) { .hero-banner { aspect-ratio: auto; height: min(calc(100vw * 9 / 21), max(320px, 50vh)); } }
+.hero-body { display: grid; gap: var(--space-stack-md); padding-top: var(--space-8); }
+.hero-body h1 em { font-style: normal; color: var(--color-text-accent); }
+.hero-body .t-lead { margin-top: var(--space-4); max-width: 46ch; }
+@media (min-width: 1024px) {
+  .hero-body { grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: var(--space-12); padding-top: var(--space-12); }
+}
+
+/* Sections */
+.section { margin-top: var(--space-section-gap); }
+.section-head { margin-bottom: var(--space-stack-lg); }
+
+/* Craft steps (components/craft-steps.md) */
+.steps { display: grid; gap: var(--space-6); counter-reset: step; }
+.step { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: var(--space-4); align-items: center; }
+.step img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-card); }
+.step h3 { font-size: 1.25rem; font-weight: var(--font-weight-semibold); line-height: var(--line-height-snug); letter-spacing: var(--letter-spacing-title); }
+.step p { margin-top: var(--space-1); color: var(--color-text-secondary); }
+@media (min-width: 768px) {
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); }
+  .step { grid-template-columns: 1fr; align-items: start; gap: var(--space-4); }
+  .step img { aspect-ratio: 4 / 3; }
+}
+@media (min-width: 1024px) { .steps { gap: var(--space-8); } }
+
+/* Shop and buy box (components/buy-box.md) */
+.shop-grid { display: grid; gap: var(--space-4); }
+.shop-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-panel); }
+@media (min-width: 768px) {
+  .shop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); align-items: stretch; }
+  .shop-photo { height: 100%; aspect-ratio: auto; order: -1; }
+}
+@media (min-width: 1024px) { .shop-grid { gap: var(--space-8); } }
+.panel { background: var(--color-surface-container); border-radius: var(--radius-panel); padding: var(--space-container-padding); }
+@media (min-width: 1024px) { .panel { padding: var(--space-8); } }
+.buybox { display: flex; flex-direction: column; gap: var(--space-stack-sm); }
+.buybox .tagline { font-weight: var(--font-weight-semibold); color: var(--color-text-accent); margin-top: calc(-1 * var(--space-2)); }
+.price-row { display: flex; align-items: baseline; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); }
+.price { font-size: var(--font-size-price); font-weight: var(--font-weight-semibold); line-height: 1; letter-spacing: var(--letter-spacing-headline); }
+fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+legend { padding: 0; margin-bottom: var(--space-2); }
+.sizes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); }
+.size { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: var(--size-control-height-lg); padding: var(--space-1) var(--space-2); border: var(--border-width-control) solid var(--color-border-control); border-radius: var(--radius-control); background: var(--color-surface-container); cursor: pointer; text-align: center; line-height: var(--line-height-snug); transition: background-color var(--duration-fast) var(--easing-out), border-color var(--duration-fast) var(--easing-out); }
+.size input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.size-name { font-weight: var(--font-weight-semibold); }
+.size-price { font-size: var(--font-size-small); color: var(--color-text-secondary); }
+.size:hover { border-color: var(--color-text-primary); }
+.size:has(input:checked) { background: var(--color-selected); border-color: var(--color-selected); color: var(--color-text-on-inverse); }
+.size:has(input:checked) .size-price { color: var(--color-text-on-inverse-secondary); }
+.size:has(input:focus-visible) { outline: var(--border-width-focus) solid var(--color-focus); outline-offset: var(--border-width-focus-offset); }
+.delivery-line { font-size: var(--font-size-small); color: var(--color-text-secondary); display: flex; gap: var(--space-2); align-items: flex-start; }
+.delivery-line .icon { margin-top: 2px; }
+.commit { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.commit .btn { flex: 1 1 240px; }
+@media (max-width: 520px) { .commit .stepper { flex-basis: 100%; } .commit .btn { flex-basis: 100%; } }
+
+/* Quantity stepper (components/quantity-stepper.md) */
+.stepper { display: inline-flex; align-items: center; justify-content: space-between; min-height: var(--size-control-height-lg); border: var(--border-width-control) solid var(--color-border-control); border-radius: var(--radius-control); background: var(--color-surface-container); }
+.stepper button { width: var(--size-target-min); height: calc(var(--size-control-height-lg) - 4px); border: 0; background: none; border-radius: var(--radius-control); font-size: 1.25rem; cursor: pointer; }
+.stepper button:hover { background: var(--color-surface-canvas); }
+.stepper output { min-width: 2.5ch; text-align: center; font-weight: var(--font-weight-semibold); font-variant-numeric: tabular-nums; }
+.stepper-md { min-height: var(--size-control-height); }
+.stepper-md button { height: calc(var(--size-control-height) - 4px); }
+.added, .limit { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-3); font-size: var(--font-size-small); }
+.added[hidden], .limit[hidden] { display: none; }
+.added svg.check { width: 18px; height: 18px; color: var(--color-action-primary); }
+
+.details { margin-top: var(--space-4); display: grid; gap: var(--space-6); }
+.details dt { font-weight: var(--font-weight-semibold); margin-bottom: var(--space-1); }
+.details dd { color: var(--color-text-secondary); }
+@media (min-width: 768px) { .details { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: var(--space-6); } }
+@media (min-width: 1024px) { .details { margin-top: var(--space-8); } }
+
+/* Story */
+.story-grid { display: grid; gap: var(--space-4); }
+.story-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-panel); }
+.story-text { display: flex; flex-direction: column; gap: var(--space-4); justify-content: center; }
+.story-text h2 { margin-bottom: var(--space-2); }
+@media (min-width: 768px) {
+  .story-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); }
+  .story-photo { height: 100%; aspect-ratio: auto; min-height: 360px; }
+}
+@media (min-width: 1024px) { .story-grid { grid-template-columns: 5fr 6fr; gap: var(--space-8); } }
+
+/* Bulk block */
+.bulk { display: grid; gap: var(--space-4); }
+.bulk p { color: var(--color-text-secondary); }
+@media (min-width: 768px) { .bulk { grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--space-8); } }
+@media (max-width: 520px) { .bulk .btn { width: 100%; } }
+
+/* FAQ (components/faq-item.md) */
+.faq { max-width: 760px; }
+.faq-list { display: grid; gap: var(--space-3); }
+.faq details { background: var(--color-surface-container); border-radius: var(--radius-card); }
+.faq summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-height: 64px; padding: var(--space-4) var(--space-container-padding); font-weight: var(--font-weight-semibold); cursor: pointer; list-style: none; border-radius: var(--radius-card); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary .pm { flex: none; position: relative; width: 28px; height: 28px; border-radius: var(--radius-badge); background: var(--color-surface-canvas); }
+.faq summary .pm::before, .faq summary .pm::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; background: var(--color-text-accent); transform: translate(-50%, -50%); }
+.faq summary .pm::after { transform: translate(-50%, -50%) rotate(90deg); }
+.faq details[open] .pm::after { display: none; }
+.faq .answer { padding: 0 var(--space-container-padding) var(--space-6); color: var(--color-text-secondary); max-width: var(--size-measure); }
+
+/* Closing block (components/closing-block.md) */
+.closing { background: var(--color-surface-inverse); color: var(--color-text-on-inverse); border-radius: var(--radius-panel); padding: var(--space-8) var(--space-6); display: grid; gap: var(--space-6); }
+.closing p { color: var(--color-text-on-inverse-secondary); margin-top: var(--space-3); max-width: 48ch; }
+@media (min-width: 768px) { .closing { padding: var(--space-12); } }
+@media (min-width: 1024px) { .closing { grid-template-columns: minmax(0, 1fr) auto; align-items: end; padding: var(--space-16); } }
+
+/* Footer */
+.site-footer { margin-top: var(--space-section-gap); background: var(--color-surface-inverse); color: var(--color-text-on-inverse); padding-block: var(--space-12); }
+.footer-grid { display: grid; gap: var(--space-8); }
+.site-footer .brand { margin: 0; }
+.site-footer .brand img { background: none; }
+.footer-tag { color: var(--color-text-on-inverse-secondary); margin-top: var(--space-3); max-width: 32ch; }
+.site-footer nav ul { display: grid; gap: 0; }
+.site-footer nav a, .footer-mail { display: inline-flex; align-items: center; min-height: var(--size-target-min); text-decoration: none; }
+.site-footer nav a:hover, .footer-mail:hover { text-decoration: underline; text-underline-offset: 4px; }
+.footer-legal { color: var(--color-text-on-inverse-secondary); font-size: var(--font-size-small); }
+@media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
+
+/* Buy bar (components/buy-bar.md) */
+.buybar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 15; border-top: 1px solid var(--color-border-control); background: var(--color-surface-inverse); color: var(--color-text-on-inverse); padding: var(--space-3) var(--space-gutter) calc(var(--space-3) + env(safe-area-inset-bottom)); }
+.buybar:not([hidden]) { animation: bar-in var(--duration-enter) var(--easing-out); }
+.buybar-row { display: flex; gap: var(--space-2); align-items: center; }
+.buybar select { flex: 0 0 auto; min-height: var(--size-control-height); padding: 0 var(--space-8) 0 var(--space-3); border: 0; border-radius: var(--radius-control); background: var(--color-surface-container) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%231E2420' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E") no-repeat right 12px center; color: var(--color-text-primary); font-weight: var(--font-weight-semibold); appearance: none; }
+.buybar .btn { flex: 1 1 auto; white-space: nowrap; padding-inline: var(--space-4); }
+.buybar .added { margin-bottom: var(--space-2); color: var(--color-text-on-inverse); }
+.buybar .added svg.check { color: var(--color-text-on-inverse); }
+@media (min-width: 768px) { .buybar { display: none !important; } }
+@keyframes bar-in { from { transform: translateY(100%); } to { transform: none; } }
+
+/* Dialogs (components/cart-drawer.md, components/bulk-dialog.md) */
+dialog { padding: 0; border: 0; color: var(--color-text-primary); background: var(--color-surface-container); max-width: none; max-height: none; }
+dialog::backdrop { background: var(--color-backdrop); }
+.dlg { display: flex; flex-direction: column; height: 100%; }
+.dlg-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-4) var(--space-container-padding); border-bottom: 1px solid var(--color-border-divider); }
+.dlg-body { flex: 1; overflow: auto; padding: var(--space-container-padding); }
+.dlg-foot { padding: var(--space-4) var(--space-container-padding) calc(var(--space-6) + env(safe-area-inset-bottom)); border-top: 1px solid var(--color-border-divider); display: grid; gap: var(--space-3); }
+.close-btn { display: inline-grid; place-items: center; width: var(--size-target-min); height: var(--size-target-min); border: var(--border-width-control) solid var(--color-border-control); border-radius: var(--radius-control); background: var(--color-surface-container); cursor: pointer; }
+.close-btn .icon { width: 20px; height: 20px; }
+.drawer { width: 100vw; height: 100dvh; margin: 0 0 0 auto; }
+@media (min-width: 768px) { .drawer { width: 420px; border-radius: var(--radius-panel) 0 0 var(--radius-panel); } }
+.drawer[open] { animation: drawer-in var(--duration-enter) var(--easing-out); }
+.drawer.is-closing { animation: drawer-out var(--duration-exit) var(--easing-in) forwards; }
+@keyframes drawer-in { from { transform: translateX(100%); } }
+@keyframes drawer-out { to { transform: translateX(100%); } }
+.sheet { width: 100vw; height: 100dvh; margin: 0; }
+@media (min-width: 768px) { .sheet { width: min(560px, calc(100vw - 48px)); height: auto; max-height: calc(100dvh - 48px); margin: auto; border-radius: var(--radius-panel); } }
+.sheet[open] { animation: sheet-in var(--duration-enter) var(--easing-out); }
+.sheet.is-closing { animation: sheet-out var(--duration-exit) var(--easing-in) forwards; }
+@keyframes sheet-in { from { opacity: 0; transform: translateY(12px); } }
+@keyframes sheet-out { to { opacity: 0; transform: translateY(12px); } }
+
+.cart-lines { display: grid; gap: var(--space-6); }
+.line { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-3) var(--space-4); align-items: center; }
+.line-name { font-weight: var(--font-weight-semibold); }
+.line-unit { font-size: var(--font-size-small); color: var(--color-text-secondary); }
+.line-total { font-weight: var(--font-weight-semibold); text-align: right; }
+.line-actions { display: flex; align-items: center; gap: var(--space-4); }
+.line-limit { grid-column: 1 / -1; }
+.text-btn { min-height: var(--size-target-min); padding: 0 var(--space-1); border: 0; background: none; font-size: var(--font-size-small); font-weight: var(--font-weight-semibold); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; border-radius: var(--space-1); }
+.undo { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin-top: var(--space-6); padding: var(--space-2) var(--space-2) var(--space-2) var(--space-4); border-radius: var(--radius-control); background: var(--color-surface-canvas); font-size: var(--font-size-small); }
+.undo[hidden] { display: none; }
+.cart-empty { display: grid; gap: var(--space-4); justify-items: start; padding-top: var(--space-6); }
+.subtotal { display: flex; justify-content: space-between; align-items: baseline; font-weight: var(--font-weight-semibold); font-size: 1.125rem; }
+.note { font-size: var(--font-size-small); color: var(--color-text-secondary); }
+.callout { padding: var(--space-3) var(--space-4); border-radius: var(--radius-control); background: var(--color-surface-canvas); font-size: var(--font-size-small); }
+
+/* Form (components/bulk-dialog.md) */
+.form { display: grid; gap: var(--space-6); }
+.field { display: grid; gap: var(--space-2); }
+.field .hint { font-size: var(--font-size-small); color: var(--color-text-secondary); margin-top: calc(-1 * var(--space-1)); }
+.field input, .field textarea { width: 100%; min-height: var(--size-control-height); padding: var(--space-3) var(--space-4); border: var(--border-width-control) solid var(--color-border-control); border-radius: var(--radius-control); background: var(--color-surface-container); font-size: var(--font-size-body); }
+.field textarea { min-height: 112px; resize: vertical; }
+.field input:focus-visible, .field textarea:focus-visible { border-color: var(--color-focus); }
+.field [aria-invalid="true"] { border-color: var(--color-error); border-width: var(--border-width-focus); }
+.field-error { display: flex; gap: var(--space-2); align-items: flex-start; color: var(--color-error); font-size: var(--font-size-small); font-weight: var(--font-weight-semibold); }
+.field-error[hidden] { display: none; }
+.field-error .icon { margin-top: 1px; }
+.error-summary { border: var(--border-width-focus) solid var(--color-error); border-radius: var(--radius-control); padding: var(--space-4); }
+.error-summary h3 { font-size: var(--font-size-body); font-weight: var(--font-weight-semibold); color: var(--color-error); }
+.error-summary ul { margin-top: var(--space-2); display: grid; gap: var(--space-1); }
+.error-summary a { color: var(--color-error); font-weight: var(--font-weight-semibold); text-underline-offset: 3px; }
+.error-summary[hidden], .state[hidden], .discard[hidden] { display: none; }
+.state { display: grid; gap: var(--space-4); justify-items: start; }
+.discard { display: grid; gap: var(--space-4); }
+.discard .cta-row { gap: var(--space-2) var(--space-4); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .btn:active { transform: none; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2l2.4 10.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 7H6.2"/><circle cx="9" cy="19.5" r="1.25"/><circle cx="17" cy="19.5" r="1.25"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17.5" cy="17.5" r="1.5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.01"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header" id="header">
+  <p class="strip" id="strip">Delivered across South Africa in 2 to 4 working days</p>
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" data-go="top"><img src="images/logomark.svg" alt="" width="36" height="36"><span>Raw Rooibos</span></a>
+    <nav class="nav" id="main-nav" aria-label="Main">
+      <ul>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#story">Our story</a></li>
+        <li><a href="#bulk">Bulk orders</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <button class="cart-btn" type="button" data-open-cart aria-label="Cart, 0 items"><svg class="icon" aria-hidden="true"><use href="#i-cart"/></svg><span class="badge" hidden aria-hidden="true">0</span></button>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <a class="btn btn-primary header-cta" href="#shop" data-event="shop_click" data-source="header">Shop the rooibos<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <img class="hero-banner" src="images/farm-golden-hour-lg.jpg" srcset="images/farm-golden-hour-800.jpg 800w, images/farm-golden-hour-lg.jpg 1600w" sizes="100vw" width="1600" height="1200" fetchpriority="high" decoding="async" alt="Rooibos bushes in golden evening light, a flat-topped cliff on the horizon">
+    <div class="wrap hero-body">
+      <div>
+        <h1 class="t-display" id="hero-title" tabindex="-1">Steeped <em>raw</em>, not stripped down.</h1>
+        <p class="t-lead">Unpasteurised rooibos from a small family farm. Hand-harvested, sun-dried, and left alone.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary btn-lg" href="#shop" data-event="shop_click" data-source="hero">Shop the rooibos<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="link" href="#story" data-event="story_click" data-source="hero">See our story<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="steps-title">
+    <div class="wrap">
+      <h2 class="t-headline section-head" id="steps-title">From the bush to your cup</h2>
+      <ol class="steps">
+        <li class="step">
+          <img src="images/bale-in-field-800.jpg" srcset="images/bale-in-field-400.jpg 400w, images/bale-in-field-800.jpg 800w" sizes="(min-width: 768px) 33vw, 112px" width="800" height="1067" loading="lazy" decoding="async" alt="A freshly cut bale of rooibos in a woven sack in the field, mountains behind">
+          <div><h3>Harvested by hand</h3><p>Cut on our family farm, row by row.</p></div>
+        </li>
+        <li class="step">
+          <img src="images/drying-yard-red-800.jpg" srcset="images/drying-yard-red-400.jpg 400w, images/drying-yard-red-800.jpg 800w" sizes="(min-width: 768px) 33vw, 112px" width="800" height="600" loading="lazy" decoding="async" alt="Red rooibos leaf drying in the sun on a concrete yard">
+          <div><h3>Dried in the sun</h3><p>Left to dry in the open air.</p></div>
+        </li>
+        <li class="step">
+          <img src="images/harvest-shed-800.jpg" srcset="images/harvest-shed-400.jpg 400w, images/harvest-shed-800.jpg 800w" sizes="(min-width: 768px) 33vw, 112px" width="800" height="1067" loading="lazy" decoding="async" alt="Cut rooibos piled in woven sacks inside a shed">
+          <div><h3>Packed by hand</h3><p>Every bag weighed and packed by the two of us.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="shop" aria-labelledby="shop-title">
+    <div class="wrap">
+      <div class="shop-grid">
+        <div class="panel buybox" id="buybox">
+          <h2 class="t-title" id="shop-title" tabindex="-1">Raw Rooibos</h2>
+          <p class="tagline">Unpasteurised. Steeped raw.</p>
+          <p class="secondary">Hand-harvested on a small family farm and left unpasteurised, so the leaf keeps more of what made it worth picking in the first place. Naturally caffeine-free, low in tannins, and good hot, iced, or steeped strong.</p>
+          <p class="price-row"><span class="price" id="price">R 165</span><span class="secondary" id="price-suffix">per 250g pack</span></p>
+          <fieldset>
+            <legend class="t-label">Pack size</legend>
+            <div class="sizes" id="sizes"></div>
+          </fieldset>
+          <p class="delivery-line"><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg><span>Delivered in South Africa in 2 to 4 working days. Delivery cost shown at checkout.</span></p>
+          <div class="commit">
+            <div class="stepper" role="group" aria-label="Quantity">
+              <button type="button" data-step="-1" aria-label="Decrease quantity">−</button>
+              <output id="qty" aria-live="polite">1</output>
+              <button type="button" data-step="1" aria-label="Increase quantity">+</button>
+            </div>
+            <button class="btn btn-primary btn-lg" type="button" id="add" data-event="add_to_cart" data-source="buybox"><span id="add-label">Add to cart · R 165</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+          <p class="limit" id="limit" hidden><span>Need more?</span><button class="link link-sm" type="button" data-open-bulk data-event="bulk_open" data-source="buybox_limit">Ask about bulk<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button></p>
+          <div class="added" id="added" hidden><svg class="icon check" aria-hidden="true"><use href="#i-check"/></svg><span>Added to your cart.</span><button class="link link-sm" type="button" data-open-cart>View cart<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+        </div>
+        <img class="shop-photo" src="images/rows-red-soil-sky-lg.jpg" srcset="images/rows-red-soil-sky-800.jpg 800w, images/rows-red-soil-sky-lg.jpg 1600w" sizes="(min-width: 768px) 50vw, 100vw" width="1600" height="1200" loading="lazy" decoding="async" alt="Rows of rooibos bushes on red soil under a wide sky, a flat-topped cliff in the distance">
+      </div>
+      <dl class="panel details">
+        <div><dt>Ingredients</dt><dd>100% rooibos (Aspalathus linearis). Unpasteurised, no additives, no flavouring.</dd></div>
+        <div><dt>How to brew</dt><dd>One heaped teaspoon per cup. Steep in freshly boiled water for 5 to 7 minutes, strain, and serve hot or over ice.</dd></div>
+        <div><dt>Good to know</dt><dd>Naturally caffeine-free and low in tannins, so it's gentle enough to drink throughout the day.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="story" aria-labelledby="story-title">
+    <div class="wrap story-grid">
+      <img class="story-photo" src="images/field-rows-cliffs-lg.jpg" srcset="images/field-rows-cliffs-800.jpg 800w, images/field-rows-cliffs-lg.jpg 1032w" sizes="(min-width: 1024px) 45vw, (min-width: 768px) 50vw, 100vw" width="1032" height="774" loading="lazy" decoding="async" alt="Rows of rooibos on the farm with a flat-topped cliff behind">
+      <div class="panel story-text">
+        <h2 class="t-headline" id="story-title" tabindex="-1">Two sisters, one farm, no shortcuts.</h2>
+        <p class="measure">Rooibos is usually pasteurised after harvest to extend shelf life and even out the colour. It's a fine process, but it also softens the leaf's natural antioxidants and flattens the flavour into something more uniform. We skip that step. What you get is closer to what came off the bush: a little more variation batch to batch, and a lot more character in the cup.</p>
+        <p class="measure">We're a two-person operation. One of us runs the fields, the other runs everything after the harvest. Every bag is still weighed and packed by hand.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="bulk" aria-labelledby="bulk-title">
+    <div class="wrap">
+      <div class="panel bulk">
+        <div>
+          <h2 class="t-headline" id="bulk-title" tabindex="-1">Ordering 10kg or more?</h2>
+          <p class="measure" style="margin-top: var(--space-3)">We supply cafés, shops and events. Tell us what you need and we'll come back with bulk pricing, usually within a couple of working days.</p>
+        </div>
+        <button class="btn btn-primary btn-lg" type="button" data-open-bulk data-event="bulk_open" data-source="bulk_block">Ask about bulk<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="faq">
+        <h2 class="t-headline section-head" id="faq-title" tabindex="-1">Questions people ask before their first order</h2>
+        <div class="faq-list">
+          <details><summary>What does unpasteurised actually change?<span class="pm" aria-hidden="true"></span></summary><p class="answer">Pasteurising rooibos after harvest is standard practice. It reduces bacteria on the leaf and evens out the colour from batch to batch. We skip that step so the leaf keeps more of its natural character, which is why our batches can vary a little in colour and taste. Always brew it with freshly boiled water.</p></details>
+          <details><summary>Is it caffeine-free?<span class="pm" aria-hidden="true"></span></summary><p class="answer">Yes, naturally, not decaffeinated. Rooibos doesn't contain caffeine to begin with, so it's safe to drink any time of day.</p></details>
+          <details><summary>How should I store it?<span class="pm" aria-hidden="true"></span></summary><p class="answer">Keep it sealed, away from sunlight and heat. It keeps for 18 to 24 months and tastes best in the first year.</p></details>
+          <details><summary>Where do you deliver?<span class="pm" aria-hidden="true"></span></summary><p class="answer">Anywhere in South Africa, usually in 2 to 4 working days. You'll see the delivery cost at checkout, based on your address.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="closing-title">
+    <div class="wrap">
+      <div class="closing on-inverse">
+        <div>
+          <h2 class="t-headline" id="closing-title">Ready for your next pot?</h2>
+          <p>Pick your pack size and we'll get it to you in 2 to 4 working days.</p>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-lg" href="#shop" data-event="shop_click" data-source="closing">Shop the rooibos<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <button class="link" type="button" data-open-bulk data-event="bulk_open" data-source="closing">Ask about bulk<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer on-inverse">
+  <div class="wrap footer-grid">
+    <div>
+      <a class="brand" href="#top" data-go="top"><img src="images/logomark.svg" alt="" width="36" height="36"><span>Raw Rooibos</span></a>
+      <p class="footer-tag">Unpasteurised rooibos. Family-farmed, hand-packed.</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#story">Our story</a></li>
+        <li><a href="#bulk">Bulk orders</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <div>
+      <a class="footer-mail" href="mailto:hello@rawrooibos.com">hello@rawrooibos.com</a>
+      <p class="footer-legal">© 2026 Raw Rooibos. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="vh" role="status" aria-live="polite" id="announcer"></div>
+
+<dialog class="drawer" id="cart" aria-labelledby="cart-title">
+  <div class="dlg">
+    <div class="dlg-head">
+      <h2 class="t-title" id="cart-title">Your cart</h2>
+      <button class="close-btn" type="button" data-close aria-label="Close cart" autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="dlg-body">
+      <ul class="cart-lines" id="cart-lines"></ul>
+      <div class="cart-empty" id="cart-empty" hidden>
+        <p>Your cart is empty.</p>
+        <a class="btn btn-primary" href="#shop">Shop the rooibos<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="undo" id="undo" hidden><span id="undo-text"></span><button class="text-btn" type="button" id="undo-btn">Undo</button></div>
+    </div>
+    <div class="dlg-foot" id="cart-foot">
+      <p class="subtotal"><span>Subtotal</span><span id="subtotal">R 0</span></p>
+      <p class="note">Delivery cost shown at checkout.</p>
+      <button class="btn btn-primary btn-lg" type="button" id="checkout" data-event="checkout_click">Go to checkout<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      <p class="callout" id="checkout-note" role="status" hidden>Checkout isn't connected in this design file.</p>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="bulk-dialog" aria-labelledby="bulk-dialog-title">
+  <div class="dlg">
+    <div class="dlg-head">
+      <h2 class="t-title" id="bulk-dialog-title">Ask about bulk</h2>
+      <button class="close-btn" type="button" data-close aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="dlg-body">
+      <div class="discard" id="discard" hidden>
+        <p class="t-label">Discard your enquiry?</p>
+        <div class="cta-row">
+          <button class="btn btn-primary" type="button" id="keep-writing">Keep writing</button>
+          <button class="link" type="button" id="discard-btn">Discard</button>
+        </div>
+      </div>
+      <form class="form" id="bulk-form" novalidate>
+        <p class="secondary">Tell us what you need and we'll reply with bulk pricing and lead times, usually within a couple of working days.</p>
+        <div class="error-summary" id="summary" tabindex="-1" hidden>
+          <h3 id="summary-title"></h3>
+          <ul id="summary-list"></ul>
+        </div>
+        <div class="state callout" id="failed" role="alert" hidden>
+          <p>We couldn't send that. Check your connection and try again, or email <a href="mailto:hello@rawrooibos.com">hello@rawrooibos.com</a>.</p>
+        </div>
+        <div class="field">
+          <label class="t-label" for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" autofocus aria-describedby="e-name">
+          <p class="field-error" id="e-name" hidden><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg><span></span></p>
+        </div>
+        <div class="field">
+          <label class="t-label" for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" aria-describedby="e-email">
+          <p class="field-error" id="e-email" hidden><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg><span></span></p>
+        </div>
+        <div class="field">
+          <label class="t-label" for="f-business">Business name (optional)</label>
+          <input id="f-business" name="business" type="text" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label class="t-label" for="f-amount">How much do you need?</label>
+          <p class="hint" id="h-amount">Roughly is fine, like 25kg a month</p>
+          <input id="f-amount" name="amount" type="text" aria-describedby="h-amount e-amount">
+          <p class="field-error" id="e-amount" hidden><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg><span></span></p>
+        </div>
+        <div class="field">
+          <label class="t-label" for="f-message">Anything else? (optional)</label>
+          <textarea id="f-message" name="message" rows="4"></textarea>
+        </div>
+        <button class="btn btn-primary btn-lg" type="submit" id="send" data-event="bulk_enquiry_submit"><span id="send-label">Send enquiry</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </form>
+      <div class="state" id="sent" hidden>
+        <h3 class="t-title" id="sent-title" tabindex="-1"></h3>
+        <p class="secondary" id="sent-text"></p>
+        <button class="btn btn-primary" type="button" data-close>Done</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<aside class="buybar on-inverse" id="buybar" aria-label="Quick add" hidden>
+  <div class="added" id="bar-added" hidden><svg class="icon check" aria-hidden="true"><use href="#i-check"/></svg><span>Added to your cart.</span><button class="link link-sm" type="button" data-open-cart>View cart<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+  <div class="buybar-row">
+    <label class="vh" for="bar-pack">Pack size</label>
+    <select id="bar-pack"></select>
+    <button class="btn btn-primary" type="button" id="bar-add" data-event="add_to_cart" data-source="buy_bar"><span id="bar-label">Add to cart · R 165</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+  </div>
+</aside>
+
+<script>
+(() => {
+  // Product data and copy: work/05-system/content.md
+  const PACKS = [
+    { id: "100g", price: 85 },
+    { id: "250g", price: 165 },
+    { id: "500g", price: 295 },
+  ];
+  const MAX_QTY = 20;
+  const fmt = new Intl.NumberFormat("en-ZA", { style: "currency", currency: "ZAR", maximumFractionDigits: 0 });
+  const money = (n) => fmt.format(n);
+  const pack = (id) => PACKS.find((p) => p.id === id);
+  const $ = (s) => document.querySelector(s);
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+
+  const state = { pack: "250g", qty: 1, cart: new Map() };
+
+  // Announcements go to one hidden status region so visible messages are never read twice.
+  const announcer = $("#announcer");
+  function announce(text) {
+    announcer.textContent = "";
+    setTimeout(() => { announcer.textContent = text; }, 30);
+  }
+
+  // Buy box
+  const sizes = $("#sizes");
+  sizes.innerHTML = PACKS.map((p) => `
+    <label class="size"><input type="radio" name="pack" value="${p.id}"${p.id === state.pack ? " checked" : ""}>
+      <span class="size-name">${p.id}</span><span class="size-price">${money(p.price)}</span></label>`).join("");
+  const barPack = $("#bar-pack");
+  barPack.innerHTML = PACKS.map((p) => `<option value="${p.id}">${p.id} · ${money(p.price)}</option>`).join("");
+
+  function renderBuy() {
+    const p = pack(state.pack);
+    $("#price").textContent = money(p.price);
+    $("#price-suffix").textContent = `per ${p.id} pack`;
+    $("#add-label").textContent = `Add to cart · ${money(p.price * state.qty)}`;
+    $("#qty").value = state.qty;
+    $("#limit").hidden = state.qty < MAX_QTY;
+    barPack.value = state.pack;
+    $("#bar-label").textContent = `Add to cart · ${money(p.price)}`;
+    sizes.querySelectorAll("input").forEach((i) => { i.checked = i.value === state.pack; });
+  }
+  sizes.addEventListener("change", (e) => { state.pack = e.target.value; renderBuy(); });
+  barPack.addEventListener("change", () => { state.pack = barPack.value; renderBuy(); });
+
+  document.querySelectorAll("#buybox [data-step]").forEach((b) => b.addEventListener("click", () => {
+    const next = state.qty + Number(b.dataset.step);
+    if (next < 1) { announce("Minimum is 1"); return; }
+    if (next > MAX_QTY) { announce("Need more? Ask about bulk"); $("#limit").hidden = false; return; }
+    state.qty = next;
+    renderBuy();
+    if (state.qty === MAX_QTY) announce("Need more? Ask about bulk");
+  }));
+
+  const timers = new WeakMap();
+  function showAdded(el) {
+    el.hidden = false;
+    clearTimeout(timers.get(el));
+    const hide = () => {
+      if (el.contains(document.activeElement)) {
+        el.addEventListener("focusout", () => setTimeout(hide, 0), { once: true });
+        return;
+      }
+      el.hidden = true;
+      updateBar();
+    };
+    timers.set(el, setTimeout(hide, 4000));
+    updateBar();
+  }
+
+  function addToCart(id, qty, confirmEl) {
+    const current = state.cart.get(id) || 0;
+    const next = Math.min(MAX_QTY, current + qty);
+    state.cart.set(id, next);
+    renderCart();
+    showAdded(confirmEl);
+    announce(next - current < qty
+      ? `Added ${next - current} × ${id}. Need more? Ask about bulk`
+      : `Added ${qty} × ${id} to your cart`);
+  }
+  $("#add").addEventListener("click", () => addToCart(state.pack, state.qty, $("#added")));
+  $("#bar-add").addEventListener("click", () => addToCart(state.pack, 1, $("#bar-added")));
+
+  // Cart
+  const cartBtn = $(".cart-btn");
+  const badge = cartBtn.querySelector(".badge");
+  let lastRemoved = null;
+  let undoTimer;
+
+  function renderCart() {
+    const lines = PACKS.filter((p) => state.cart.get(p.id));
+    const count = lines.reduce((n, p) => n + state.cart.get(p.id), 0);
+    const subtotal = lines.reduce((n, p) => n + state.cart.get(p.id) * p.price, 0);
+    badge.textContent = count;
+    badge.hidden = count === 0;
+    cartBtn.setAttribute("aria-label", `Cart, ${count} item${count === 1 ? "" : "s"}`);
+    $("#cart-lines").innerHTML = lines.map((p) => {
+      const q = state.cart.get(p.id);
+      return `<li class="line">
+        <div><p class="line-name">Raw Rooibos, ${p.id}</p><p class="line-unit">${money(p.price)} each</p></div>
+        <p class="line-total">${money(q * p.price)}</p>
+        <div class="line-actions">
+          <div class="stepper stepper-md" role="group" aria-label="Quantity of ${p.id}">
+            <button type="button" data-act="dec" data-pack="${p.id}" aria-label="Decrease quantity of ${p.id}">−</button>
+            <output aria-live="polite">${q}</output>
+            <button type="button" data-act="inc" data-pack="${p.id}" aria-label="Increase quantity of ${p.id}">+</button>
+          </div>
+          <button class="text-btn" type="button" data-act="remove" data-pack="${p.id}">Remove</button>
+        </div>
+        ${q >= MAX_QTY ? `<p class="limit line-limit"><span>Need more?</span><button class="link link-sm" type="button" data-open-bulk data-event="bulk_open" data-source="cart_limit">Ask about bulk<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button></p>` : ""}
+      </li>`;
+    }).join("");
+    $("#cart-empty").hidden = lines.length > 0;
+    $("#cart-foot").hidden = lines.length === 0;
+    $("#subtotal").textContent = money(subtotal);
+  }
+
+  $("#cart-lines").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-act]");
+    if (!b) return;
+    const id = b.dataset.pack;
+    const q = state.cart.get(id);
+    if (b.dataset.act === "inc") {
+      if (q >= MAX_QTY) { announce("Need more? Ask about bulk"); return; }
+      state.cart.set(id, q + 1);
+    } else if (b.dataset.act === "dec") {
+      if (q <= 1) { announce("Minimum is 1. Use Remove to take it out"); return; }
+      state.cart.set(id, q - 1);
+    } else {
+      lastRemoved = { id, q };
+      state.cart.delete(id);
+      $("#undo-text").textContent = `Removed ${id}.`;
+      $("#undo").hidden = false;
+      clearTimeout(undoTimer);
+      undoTimer = setTimeout(() => { $("#undo").hidden = true; }, 5000);
+      renderCart();
+      $("#undo-btn").focus();
+      announce(`Removed ${id}.`);
+      return;
+    }
+    renderCart();
+    const again = $(`#cart-lines [data-act="${b.dataset.act}"][data-pack="${id}"]`);
+    if (again) again.focus();
+  });
+  $("#undo-btn").addEventListener("click", () => {
+    if (!lastRemoved) return;
+    state.cart.set(lastRemoved.id, lastRemoved.q);
+    announce(`${lastRemoved.id} is back in your cart`);
+    lastRemoved = null;
+    $("#undo").hidden = true;
+    renderCart();
+    const first = $("#cart-lines button");
+    if (first) first.focus();
+  });
+  $("#checkout").addEventListener("click", () => { $("#checkout-note").hidden = false; });
+
+  // Dialogs: native <dialog> for focus trapping and Esc; focus returns to the opener.
+  const cart = $("#cart");
+  const bulk = $("#bulk-dialog");
+  function openDialog(d, opener) {
+    d._opener = opener || document.activeElement;
+    d.showModal();
+    updateBar();
+  }
+  function closeDialog(d) {
+    if (!d.open || d.classList.contains("is-closing")) return;
+    if (reduced.matches) { d.close(); return; }
+    d.classList.add("is-closing");
+    setTimeout(() => { d.classList.remove("is-closing"); d.close(); }, 160);
+  }
+  [cart, bulk].forEach((d) => {
+    d.addEventListener("close", () => {
+      if (d === cart) $("#checkout-note").hidden = true;
+      if (d._opener && document.contains(d._opener) && !d._skipRestore) d._opener.focus();
+      d._skipRestore = false;
+      updateBar();
+    });
+    d.addEventListener("cancel", (e) => { e.preventDefault(); requestClose(d); });
+    d.addEventListener("click", (e) => { if (e.target === d) requestClose(d); });
+    d.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", () => requestClose(d)));
+  });
+  function requestClose(d) {
+    if (d === bulk && bulkHasDraft()) { showDiscard(); return; }
+    closeDialog(d);
+  }
+
+  document.addEventListener("click", (e) => {
+    const openCart = e.target.closest("[data-open-cart]");
+    if (openCart) {
+      if (bulk.open) closeDialog(bulk);
+      renderCart();
+      openDialog(cart, openCart);
+      return;
+    }
+    const openBulk = e.target.closest("[data-open-bulk]");
+    if (openBulk) {
+      if (bulkSent) resetBulk();
+      // From inside the cart: close it first so dialogs never stack; focus later returns to the cart button.
+      if (cart.open) {
+        cart._skipRestore = true;
+        cart.close();
+        openDialog(bulk, cartBtn);
+        return;
+      }
+      openDialog(bulk, openBulk);
+    }
+  });
+
+  // In-page navigation: scroll to the section and move focus to its heading.
+  const header = $("#header");
+  function goTo(id) {
+    const section = document.getElementById(id);
+    if (!section) return;
+    const heading = id === "main" ? section : section.querySelector("h1, h2");
+    section.scrollIntoView({ behavior: reduced.matches ? "auto" : "smooth", block: "start" });
+    if (heading) heading.focus({ preventScroll: true });
+  }
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute("href").slice(1);
+    if (!document.getElementById(id)) return;
+    e.preventDefault();
+    closeMenu();
+    if (cart.open) { cart._skipRestore = true; closeDialog(cart); }
+    goTo(id);
+  });
+
+  // Phone menu
+  const menuBtn = $(".menu-btn");
+  const nav = $("#main-nav");
+  function closeMenu(focusBtn) {
+    if (!nav.classList.contains("is-open")) return;
+    nav.classList.remove("is-open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    if (focusBtn) menuBtn.focus();
+  }
+  menuBtn.addEventListener("click", () => {
+    const open = !nav.classList.contains("is-open");
+    nav.classList.toggle("is-open", open);
+    menuBtn.setAttribute("aria-expanded", String(open));
+    if (open) nav.querySelector("a").focus();
+  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(true); });
+  addEventListener("scroll", () => header.classList.toggle("is-scrolled", scrollY > 8), { passive: true });
+  const strip = $("#strip");
+  function measureStrip() { header.style.setProperty("--strip-height", `${strip.offsetHeight}px`); }
+  measureStrip();
+  addEventListener("resize", measureStrip);
+
+  // Bulk enquiry form
+  const form = $("#bulk-form");
+  const RULES = {
+    name: { el: $("#f-name"), err: $("#e-name"), msg: "Enter your name", ok: (v) => v.length > 0 },
+    email: { el: $("#f-email"), err: $("#e-email"), msg: "Enter an email address like name@yourcafe.co.za", ok: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+    amount: { el: $("#f-amount"), err: $("#e-amount"), msg: "Tell us roughly how much you need", ok: (v) => v.length > 0 },
+  };
+  let bulkSent = false;
+  let sending = false;
+
+  function setError(rule, show) {
+    rule.err.hidden = !show;
+    rule.err.querySelector("span").textContent = show ? rule.msg : "";
+    if (show) rule.el.setAttribute("aria-invalid", "true");
+    else rule.el.removeAttribute("aria-invalid");
+  }
+  function check(rule) {
+    const ok = rule.ok(rule.el.value.trim());
+    setError(rule, !ok);
+    return ok;
+  }
+  // Validate on leaving a field once something was typed, or if it is already flagged.
+  Object.values(RULES).forEach((rule) => {
+    rule.el.addEventListener("blur", () => {
+      if (rule.el.value.trim() || rule.el.getAttribute("aria-invalid")) check(rule);
+    });
+    rule.el.addEventListener("input", () => { if (rule.el.getAttribute("aria-invalid") && rule.ok(rule.el.value.trim())) setError(rule, false); });
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (sending) return;
+    $("#failed").hidden = true;
+    const bad = Object.values(RULES).filter((r) => !check(r));
+    const summary = $("#summary");
+    if (bad.length) {
+      $("#summary-title").textContent = `Check ${bad.length} thing${bad.length === 1 ? "" : "s"} before sending`;
+      $("#summary-list").innerHTML = bad.map((r) => `<li><a href="#${r.el.id}" data-field="${r.el.id}">${r.msg}</a></li>`).join("");
+      summary.hidden = false;
+      summary.focus();
+      return;
+    }
+    summary.hidden = true;
+    sending = true;
+    const send = $("#send");
+    send.setAttribute("aria-busy", "true");
+    $("#send-label").textContent = "Sending…";
+    setTimeout(() => {
+      sending = false;
+      send.removeAttribute("aria-busy");
+      $("#send-label").textContent = "Send enquiry";
+      if (!navigator.onLine) {
+        $("#failed").hidden = false;
+        $("#send-label").textContent = "Try again";
+        return;
+      }
+      bulkSent = true; // Analytics hook for the app port: fire "bulk_enquiry_sent" here.
+      const name = RULES.name.el.value.trim();
+      const email = RULES.email.el.value.trim();
+      form.hidden = true;
+      $("#sent-title").textContent = `Thanks, ${name}.`;
+      $("#sent-text").textContent = `Your enquiry is with us. We'll reply to ${email}, usually within a couple of working days.`;
+      $("#sent").hidden = false;
+      $("#sent-title").focus();
+    }, 1000);
+  });
+  $("#summary-list").addEventListener("click", (e) => {
+    const a = e.target.closest("[data-field]");
+    if (!a) return;
+    e.preventDefault();
+    e.stopPropagation();
+    document.getElementById(a.dataset.field).focus();
+  });
+
+  function bulkHasDraft() {
+    return !bulkSent && [...form.elements].some((el) => el.value && el.value.trim() && el.type !== "submit");
+  }
+  function showDiscard() {
+    form.hidden = true;
+    $("#discard").hidden = false;
+    $("#keep-writing").focus();
+  }
+  $("#keep-writing").addEventListener("click", () => {
+    $("#discard").hidden = true;
+    form.hidden = false;
+    RULES.name.el.focus();
+  });
+  $("#discard-btn").addEventListener("click", () => {
+    resetBulk();
+    closeDialog(bulk);
+  });
+  function resetBulk() {
+    form.reset();
+    Object.values(RULES).forEach((r) => setError(r, false));
+    $("#summary").hidden = true;
+    $("#failed").hidden = true;
+    $("#discard").hidden = true;
+    $("#sent").hidden = true;
+    $("#send-label").textContent = "Send enquiry";
+    form.hidden = false;
+    bulkSent = false;
+  }
+  bulk.addEventListener("close", () => { if (bulkSent) resetBulk(); });
+
+  // Phone buy bar: shown only when the hero and buy box are off screen, no dialog is open,
+  // the screen is tall enough and text isn't enlarged past 150%.
+  const bar = $("#buybar");
+  const hero = $("#top");
+  const box = $("#buybox");
+  const phone = matchMedia("(max-width: 767px)");
+  function updateBar() {
+    const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    const heroRect = hero.getBoundingClientRect();
+    const boxRect = box.getBoundingClientRect();
+    const heroVisible = heroRect.bottom > 0;
+    const boxVisible = boxRect.top < innerHeight && boxRect.bottom > 0;
+    const show = phone.matches && !heroVisible && !boxVisible && !cart.open && !bulk.open
+      && innerHeight >= 520 && rem < 24;
+    if (bar.hidden === show) bar.hidden = !show;
+    document.body.style.paddingBottom = show ? `${bar.offsetHeight}px` : "";
+  }
+  addEventListener("scroll", updateBar, { passive: true });
+  addEventListener("resize", updateBar);
+  phone.addEventListener("change", updateBar);
+
+  renderBuy();
+  renderCart();
+})();
+</script>
+</body>
+</html>
