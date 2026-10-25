@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: "Where do you deliver?",
-    a: "Anywhere in South Africa, usually in 2 to 4 working days. You'll see the delivery cost at checkout, based on your address.",
+    a: "Anywhere in South Africa, usually in 2 to 4 working days. We confirm the delivery cost by email, based on your address, before you pay.",
   },
 ];
 

@@ -67,7 +67,7 @@ export function ProductSection() {
             </fieldset>
             <p className="delivery-line">
               <Icon name="truck" />
-              <span>Delivered in South Africa in 2 to 4 working days. Delivery cost shown at checkout.</span>
+              <span>Delivered in South Africa in 2 to 4 working days. We confirm the delivery cost by email before you pay.</span>
             </p>
             <div className="commit">
               <div className="stepper" role="group" aria-label="Quantity">

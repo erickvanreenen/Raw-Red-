@@ -119,7 +119,7 @@ export function CartDrawer() {
         {items.length > 0 && (
           <div className="dlg-foot">
             <p className="subtotal"><span>Subtotal</span><span>{formatPrice(subtotal)}</span></p>
-            <p className="note">Delivery cost shown at checkout.</p>
+            <p className="note">Delivery cost confirmed by email before you pay.</p>
             <Link className="btn btn-primary btn-lg" href="/checkout" onClick={closeCart} data-event="checkout_click">
               Go to checkout<Icon name="arrow" />
             </Link>

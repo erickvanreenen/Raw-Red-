@@ -27,6 +27,7 @@ interface CartContextValue {
   addItem: (size: TeaSize, quantity: number) => void;
   updateQuantity: (sizeId: string, quantity: number) => void;
   removeItem: (sizeId: string) => void;
+  clearCart: () => void;
   openCart: () => void;
   closeCart: () => void;
 }
@@ -118,6 +119,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         addItem,
         updateQuantity,
         removeItem,
+        clearCart: () => setItems([]),
         openCart: () => setIsOpen(true),
         closeCart: () => setIsOpen(false),
       }}

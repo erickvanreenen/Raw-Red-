@@ -38,7 +38,7 @@ Source of truth for every word on the page. Use these strings exactly; do not wr
 - Price suffix: "per {pack} pack"
 - Legend: "Pack size"
 - Stepper names: "Decrease quantity", "Increase quantity"; limits: "Minimum is 1", "Need more? Ask about bulk" [confirm cap of 20]
-- Delivery line [new]: "Delivered in South Africa in 2 to 4 working days. Delivery cost shown at checkout." [confirm threshold or flat rate]
+- Delivery line [new]: "Delivered in South Africa in 2 to 4 working days. We confirm the delivery cost by email before you pay." [confirm threshold or flat rate]
 - Button: "Add to cart · {price}"
 - Confirmation: "Added to your cart." + "View cart"; announcement: "Added {qty} × {pack} to your cart"
 - Photo: `rows-red-soil-sky.jpg`, alt "Rows of rooibos bushes on red soil under a wide sky, a flat-topped cliff in the distance"
@@ -61,7 +61,7 @@ Source of truth for every word on the page. Use these strings exactly; do not wr
 1. "What does unpasteurised actually change?" / "Pasteurising rooibos after harvest is standard practice. It reduces bacteria on the leaf and evens out the colour from batch to batch. We skip that step so the leaf keeps more of its natural character, which is why our batches can vary a little in colour and taste. Always brew it with freshly boiled water." [confirm]
 2. "Is it caffeine-free?" / "Yes, naturally, not decaffeinated. Rooibos doesn't contain caffeine to begin with, so it's safe to drink any time of day." [keep]
 3. "How should I store it?" / "Keep it sealed, away from sunlight and heat. It keeps for 18 to 24 months and tastes best in the first year."
-4. "Where do you deliver?" / "Anywhere in South Africa, usually in 2 to 4 working days. You'll see the delivery cost at checkout, based on your address."
+4. "Where do you deliver?" / "Anywhere in South Africa, usually in 2 to 4 working days. We confirm the delivery cost by email, based on your address, before you pay."
 
 ## Closing block [new]
 - h2: "Ready for your next pot?"
@@ -74,7 +74,7 @@ Source of truth for every word on the page. Use these strings exactly; do not wr
 - "© 2026 Raw Rooibos. All rights reserved."
 
 ## Cart drawer
-- h2 "Your cart"; close "Close cart"; line name "Raw Rooibos, {pack}"; unit "{price} each"; empty "Your cart is empty." + "Shop the rooibos"; "Remove"; "Removed {pack}. Undo"; "Subtotal"; "Delivery cost shown at checkout."; "Go to checkout"; prototype note "Checkout isn't connected in this design file."
+- h2 "Your cart"; close "Close cart"; line name "Raw Rooibos, {pack}"; unit "{price} each"; empty "Your cart is empty." + "Shop the rooibos"; "Remove"; "Removed {pack}. Undo"; "Subtotal"; "Delivery cost confirmed by email before you pay."; "Go to checkout"; prototype note "Checkout isn't connected in this design file."
 
 ## Bulk dialog
 - h2 "Ask about bulk"; intro "Tell us what you need and we'll reply with bulk pricing and lead times, usually within a couple of working days."

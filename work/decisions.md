@@ -187,3 +187,12 @@ Known gap carried: checkout still sends nothing; it shows "Your details are save
 Options rejected: serving the static HTML file instead of the app (would drop the checkout page); a Vercel preview check before merge (Erick declined).
 Evidence: npm run build passed (types, lint); local production server checked at 375 and 1280px: add to cart, cart undo, Esc and focus return, bulk validation, buy bar rules, checkout render.
 Revisit when: a payment provider or form backend is chosen.
+
+## D14 Orders reach the shop inbox by email
+Date / Decider: 2026-10-25, Erick
+Context: Checkout showed "Your details are saved" but sent nothing, so orders were silently lost (found while porting, D13).
+Decision: Checkout validates the form (error summary, field errors) and "Email my order" opens the customer's email app with the order, subtotal and delivery address filled in, addressed to hello@rawrooibos.com. The confirmation says to press send there; "I've sent it, clear my cart" empties the cart. Delivery-cost wording corrected everywhere to "We confirm the delivery cost by email before you pay", since checkout never showed one.
+Options rejected: a form backend or payment provider (needs a provider decision; later).
+Evidence: Erick's request; build passed; validation checked in the browser. The mailto launch itself was not triggered in testing (it would open the email app on Erick's machine).
+Trade-offs: an order only arrives if the customer presses send; customers without a mail app must email by hand (the address is shown).
+Revisit when: a payment provider is chosen.
