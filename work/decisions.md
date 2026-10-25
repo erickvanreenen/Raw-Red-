@@ -177,3 +177,13 @@ Not applicable: results against targets (not live, no analytics).
 Decision: Erick ended the run here ("it's a small project") and asked for the final file. No next iteration chosen yet; options A to C stay in 08-measurement.md.
 Carried into the final file: proposed copy for the five unconfirmed items (delivery cost line, cap of 20, "then sifted" left out, FAQ 1 wording, antioxidant line); QA risks from D12.
 Decided by: Erick
+
+## D13 Redesign ported into the live Next.js app
+Date / Decider: 2026-10-25, Erick
+Context: Erick asked to replace the live site with the redesign, then to merge straight to main without a preview check ("low risk, want to get it done").
+Decision: Homepage rebuilt in the Next.js app from work/final/rawrooibos-redesign and work/05-system (tokens in app/globals.css; new components for craft steps, bulk block, closing block, buy bar; cart drawer and bulk dialog on native <dialog>). Checkout page kept, restyled by the shared tokens. Albert Sans now served by next/font from the site itself (closes C9: no request to Google). Photos served by next/image at sized versions.
+Change from the design file: the bulk form opens the visitor's email app with the enquiry filled in, addressed to hello@rawrooibos.com, because the site has no backend; the sent message says so ("Almost done… press send there"). The old live form showed "Thanks, we'll be in touch" without sending anything.
+Known gap carried: checkout still sends nothing; it shows "Your details are saved" but no order reaches anyone. Pre-existing, not changed here.
+Options rejected: serving the static HTML file instead of the app (would drop the checkout page); a Vercel preview check before merge (Erick declined).
+Evidence: npm run build passed (types, lint); local production server checked at 375 and 1280px: add to cart, cart undo, Esc and focus return, bulk validation, buy bar rules, checkout render.
+Revisit when: a payment provider or form backend is chosen.

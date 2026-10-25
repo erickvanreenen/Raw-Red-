@@ -1,7 +1,7 @@
 const faqs = [
   {
-    q: "What does \"unpasteurised\" actually change?",
-    a: "Pasteurising rooibos after harvest is standard practice: it kills bacteria and gives every batch a uniform reddish colour. It also mellows the antioxidant content and the flavour. We skip it, so the leaf keeps more of its natural character. Batches can vary slightly in colour and taste for the same reason.",
+    q: "What does unpasteurised actually change?",
+    a: "Pasteurising rooibos after harvest is standard practice. It reduces bacteria on the leaf and evens out the colour from batch to batch. We skip that step so the leaf keeps more of its natural character, which is why our batches can vary a little in colour and taste. Always brew it with freshly boiled water.",
   },
   {
     q: "Is it caffeine-free?",
@@ -9,36 +9,33 @@ const faqs = [
   },
   {
     q: "How should I store it?",
-    a: "Keep it sealed, away from direct sunlight and heat. Loose leaf keeps well for 18-24 months, though the flavour is at its best within the first year.",
+    a: "Keep it sealed, away from sunlight and heat. It keeps for 18 to 24 months and tastes best in the first year.",
   },
   {
-    q: "Where do you ship?",
-    a: "Currently within South Africa. Delivery usually takes 2-4 working days. Shipping costs are calculated at checkout based on your address.",
+    q: "Where do you deliver?",
+    a: "Anywhere in South Africa, usually in 2 to 4 working days. You'll see the delivery cost at checkout, based on your address.",
   },
 ];
 
 export function FAQSection() {
   return (
-    <section id="faq" className="pb-16 pt-6 lg:pb-24">
-      <div className="mx-auto max-w-3xl px-5 sm:px-8">
-        <h2 className="t-headline">Questions people ask before their first order</h2>
-        <div className="mt-8 flex flex-col gap-3">
-          {faqs.map((item) => (
-            <details key={item.q} className="group rounded-card bg-paper px-6">
-              <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 text-[1.0625rem] font-semibold text-ink marker:content-none">
-                {item.q}
-                <span
-                  aria-hidden="true"
-                  className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-sage text-xl leading-none text-ember transition-transform duration-200 ease-out-quart group-open:rotate-45"
-                >
-                  +
-                </span>
-              </summary>
-              <p className="max-w-[60ch] pb-5 text-base leading-[1.65] text-ink-soft">
-                {item.a}
-              </p>
-            </details>
-          ))}
+    <section className="section" id="faq" aria-labelledby="faq-title">
+      <div className="wrap">
+        <div className="faq">
+          <h2 className="t-headline section-head" id="faq-title" tabIndex={-1}>
+            Questions people ask before their first order
+          </h2>
+          <div className="faq-list">
+            {faqs.map((item) => (
+              <details key={item.q}>
+                <summary>
+                  {item.q}
+                  <span className="pm" aria-hidden="true" />
+                </summary>
+                <p className="answer">{item.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </div>
     </section>

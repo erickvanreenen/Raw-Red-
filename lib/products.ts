@@ -40,7 +40,7 @@ export const rawRooibos: Product = {
     {
       label: "How to brew",
       value:
-        "One heaped teaspoon per cup. Steep in freshly boiled water for 5–7 minutes, strain, and serve hot or over ice.",
+        "One heaped teaspoon per cup. Steep in freshly boiled water for 5 to 7 minutes, strain, and serve hot or over ice.",
     },
     {
       label: "Good to know",
@@ -50,6 +50,9 @@ export const rawRooibos: Product = {
   ],
   bulkContactEmail: "hello@rawrooibos.com",
 };
+
+// Most packs of one size per cart line; at 20 × 500g an order reaches the 10kg bulk threshold.
+export const MAX_QTY = 20;
 
 export function formatPrice(amount: number): string {
   return new Intl.NumberFormat("en-ZA", {

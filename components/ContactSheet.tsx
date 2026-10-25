@@ -1,176 +1,272 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { useContactSheet } from "@/lib/contact-sheet-context";
 import { rawRooibos } from "@/lib/products";
+import { useDialog } from "@/lib/ui";
+import { Icon } from "./Icons";
 
-const inputClasses =
-  "min-h-12 w-full rounded-field border-[1.5px] border-edge bg-paper px-4 py-3 text-base text-ink transition-colors duration-150 ease-out-quart focus:border-ember";
+type FieldName = "name" | "email" | "amount";
 
-const labelClasses = "t-label mb-1.5 block";
+const RULES: Record<FieldName, { msg: string; ok: (v: string) => boolean }> = {
+  name: { msg: "Enter your name", ok: (v) => v.length > 0 },
+  email: { msg: "Enter an email address like name@yourcafe.co.za", ok: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+  amount: { msg: "Tell us roughly how much you need", ok: (v) => v.length > 0 },
+};
+const FIELD_IDS: Record<FieldName, string> = { name: "f-name", email: "f-email", amount: "f-amount" };
+const EMPTY = { name: "", email: "", business: "", amount: "", message: "" };
 
+// Bulk enquiry (work/05-system/components/bulk-dialog.md). The site has no backend, so a valid enquiry
+// opens the visitor's email app with everything filled in, addressed to the bulk inbox.
 export function ContactSheet() {
-  const { isOpen, nameInputRef, closeContactSheet } = useContactSheet();
-  const [submitted, setSubmitted] = useState(false);
+  const { isOpen, closeContactSheet } = useContactSheet();
+  const [values, setValues] = useState(EMPTY);
+  const [errors, setErrors] = useState<Partial<Record<FieldName, boolean>>>({});
+  const [summary, setSummary] = useState<FieldName[] | null>(null);
+  const [discarding, setDiscarding] = useState(false);
+  const [sent, setSent] = useState(false);
+  const summaryRef = useRef<HTMLDivElement>(null);
+  const sentRef = useRef<HTMLHeadingElement>(null);
+  const keepRef = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => {
-    if (!isOpen) return;
-    nameInputRef.current?.focus();
-    document.body.style.overflow = "hidden";
-    function onKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") closeContactSheet();
+  const hasDraft = !sent && Object.values(values).some((v) => v.trim());
+
+  function reset() {
+    setValues(EMPTY);
+    setErrors({});
+    setSummary(null);
+    setDiscarding(false);
+    setSent(false);
+  }
+
+  function requestClose() {
+    if (hasDraft) {
+      setDiscarding(true);
+      window.setTimeout(() => keepRef.current?.focus(), 0);
+      return;
     }
-    window.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", onKeyDown);
-    };
-  }, [isOpen, closeContactSheet, nameInputRef]);
+    closeContactSheet();
+    if (sent) window.setTimeout(reset, 200);
+  }
 
-  useEffect(() => {
-    if (!isOpen) setSubmitted(false);
-  }, [isOpen]);
+  const dialogRef = useDialog(isOpen, requestClose, () => document.querySelector<HTMLElement>(".cart-btn"));
+
+  function set(field: keyof typeof EMPTY, value: string) {
+    setValues((v) => ({ ...v, [field]: value }));
+    if (field in RULES && errors[field as FieldName] && RULES[field as FieldName].ok(value.trim())) {
+      setErrors((e) => ({ ...e, [field]: false }));
+    }
+  }
+
+  // Validate on leaving a field once something was typed, or if it is already flagged.
+  function blur(field: FieldName) {
+    const v = values[field].trim();
+    if (v || errors[field]) setErrors((e) => ({ ...e, [field]: !RULES[field].ok(v) }));
+  }
+
+  function submit(e: FormEvent) {
+    e.preventDefault();
+    const bad = (Object.keys(RULES) as FieldName[]).filter((f) => !RULES[f].ok(values[f].trim()));
+    setErrors(Object.fromEntries((Object.keys(RULES) as FieldName[]).map((f) => [f, bad.includes(f)])));
+    if (bad.length) {
+      setSummary(bad);
+      window.setTimeout(() => summaryRef.current?.focus(), 0);
+      return;
+    }
+    setSummary(null);
+    const v = Object.fromEntries(Object.entries(values).map(([k, val]) => [k, val.trim()])) as typeof EMPTY;
+    const body = [
+      `Name: ${v.name}`,
+      `Email: ${v.email}`,
+      v.business && `Business: ${v.business}`,
+      `How much: ${v.amount}`,
+      v.message && `\n${v.message}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+    const subject = `Bulk enquiry from ${v.business || v.name}`;
+    window.location.href = `mailto:${rawRooibos.bulkContactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSent(true);
+    window.setTimeout(() => sentRef.current?.focus(), 0);
+  }
+
+  const describedBy = (field: FieldName, hint?: string) =>
+    [hint, errors[field] ? `e-${field}` : null].filter(Boolean).join(" ") || undefined;
 
   return (
-    <div
-      className={`fixed inset-0 z-50 ${isOpen ? "" : "pointer-events-none"}`}
-      aria-hidden={!isOpen}
-    >
-      <div
-        onClick={closeContactSheet}
-        className={`absolute inset-0 bg-ink/40 transition-opacity duration-200 ease-out-quart ${
-          isOpen ? "opacity-100" : "opacity-0"
-        }`}
-      />
-
-      <aside
-        role="dialog"
-        aria-modal="true"
-        aria-label="Bulk order enquiry"
-        className={`absolute right-0 top-0 flex h-full w-full max-w-md flex-col bg-paper transition-transform duration-300 ease-out-quart sm:rounded-l-panel ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-        {...(isOpen ? {} : { inert: true })}
-      >
-        <div className="flex items-center justify-between px-6 py-5">
-          <h2 className="t-title">Bulk &amp; wholesale enquiry</h2>
-          <button
-            type="button"
-            onClick={closeContactSheet}
-            aria-label="Close"
-            className="flex h-11 w-11 items-center justify-center rounded-full text-ink hover:bg-sage"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-            </svg>
+    <dialog ref={dialogRef} className="sheet" aria-labelledby="bulk-dialog-title">
+      <div className="dlg">
+        <div className="dlg-head">
+          <h2 className="t-title" id="bulk-dialog-title">Ask about bulk</h2>
+          <button type="button" className="close-btn" onClick={requestClose} aria-label="Close">
+            <Icon name="close" />
           </button>
         </div>
-
-        <div className="flex-1 overflow-y-auto px-6 pb-8">
-          {submitted ? (
-            <div className="rounded-panel bg-sage p-6 text-center">
-              <h3 className="t-title">Thanks, we&apos;ll be in touch</h3>
-              <p className="mx-auto mt-3 max-w-[40ch] text-base leading-relaxed text-ink-soft">
-                We usually reply within a couple of working days with
-                wholesale pricing and lead times. In a hurry? Email us
-                directly at{" "}
-                <a
-                  href={`mailto:${rawRooibos.bulkContactEmail}`}
-                  className="font-medium text-ink underline underline-offset-4 hover:text-ember"
+        <div className="dlg-body">
+          {discarding ? (
+            <div className="discard">
+              <p className="t-label">Discard your enquiry?</p>
+              <div className="cta-row">
+                <button
+                  ref={keepRef}
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => {
+                    setDiscarding(false);
+                    window.setTimeout(() => document.getElementById("f-name")?.focus(), 0);
+                  }}
                 >
-                  {rawRooibos.bulkContactEmail}
-                </a>
-                .
+                  Keep writing
+                </button>
+                <button
+                  type="button"
+                  className="link"
+                  onClick={() => {
+                    closeContactSheet();
+                    window.setTimeout(reset, 200);
+                  }}
+                >
+                  Discard
+                </button>
+              </div>
+            </div>
+          ) : sent ? (
+            <div className="state">
+              <h3 className="t-title" ref={sentRef} tabIndex={-1}>Almost done, {values.name.trim()}.</h3>
+              <p className="secondary">
+                Your email app should have opened with your enquiry filled in. Press send there and we&apos;ll
+                reply to {values.email.trim()}, usually within a couple of working days. Nothing opened? Email
+                us at <a href={`mailto:${rawRooibos.bulkContactEmail}`}>{rawRooibos.bulkContactEmail}</a>.
               </p>
+              <button type="button" className="btn btn-primary" onClick={requestClose}>Done</button>
             </div>
           ) : (
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                setSubmitted(true);
-              }}
-              noValidate
-            >
-              <p className="text-base leading-relaxed text-ink-soft">
-                Ordering 10kg or more? Tell us what you need and we&apos;ll
-                come back to you with wholesale pricing.
+            <form className="form" onSubmit={submit} noValidate>
+              <p className="secondary">
+                Tell us what you need and we&apos;ll reply with bulk pricing and lead times, usually within a
+                couple of working days.
               </p>
-
-              <div className="mt-6">
-                <label htmlFor="contact-name" className={labelClasses}>
-                  Name
-                </label>
+              {summary && (
+                <div className="error-summary" ref={summaryRef} tabIndex={-1}>
+                  <h3>Check {summary.length} thing{summary.length === 1 ? "" : "s"} before sending</h3>
+                  <ul>
+                    {summary.map((f) => (
+                      <li key={f}>
+                        <a
+                          href={`#${FIELD_IDS[f]}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById(FIELD_IDS[f])?.focus();
+                          }}
+                        >
+                          {RULES[f].msg}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              <Field id="f-name" label="Your name" error={errors.name ? RULES.name.msg : null} errorId="e-name">
                 <input
-                  id="contact-name"
-                  name="name"
+                  id="f-name"
                   type="text"
-                  required
                   autoComplete="name"
-                  ref={nameInputRef}
-                  className={inputClasses}
+                  autoFocus
+                  value={values.name}
+                  onChange={(e) => set("name", e.target.value)}
+                  onBlur={() => blur("name")}
+                  aria-invalid={errors.name || undefined}
+                  aria-describedby={describedBy("name")}
                 />
-              </div>
-
-              <div className="mt-4">
-                <label htmlFor="contact-email" className={labelClasses}>
-                  Email
-                </label>
+              </Field>
+              <Field id="f-email" label="Email" error={errors.email ? RULES.email.msg : null} errorId="e-email">
                 <input
-                  id="contact-email"
-                  name="email"
+                  id="f-email"
                   type="email"
-                  required
+                  inputMode="email"
                   autoComplete="email"
-                  className={inputClasses}
+                  value={values.email}
+                  onChange={(e) => set("email", e.target.value)}
+                  onBlur={() => blur("email")}
+                  aria-invalid={errors.email || undefined}
+                  aria-describedby={describedBy("email")}
                 />
-              </div>
-
-              <div className="mt-4">
-                <label htmlFor="contact-company" className={labelClasses}>
-                  Company or café (optional)
-                </label>
+              </Field>
+              <Field id="f-business" label="Business name (optional)">
                 <input
-                  id="contact-company"
-                  name="company"
+                  id="f-business"
                   type="text"
                   autoComplete="organization"
-                  className={inputClasses}
+                  value={values.business}
+                  onChange={(e) => set("business", e.target.value)}
                 />
-              </div>
-
-              <div className="mt-4">
-                <label htmlFor="contact-quantity" className={labelClasses}>
-                  Quantity needed
-                </label>
+              </Field>
+              <Field
+                id="f-amount"
+                label="How much do you need?"
+                hint="Roughly is fine, like 25kg a month"
+                error={errors.amount ? RULES.amount.msg : null}
+                errorId="e-amount"
+              >
                 <input
-                  id="contact-quantity"
-                  name="quantity"
+                  id="f-amount"
                   type="text"
-                  required
-                  placeholder="e.g. 25kg per month"
-                  className={inputClasses}
+                  value={values.amount}
+                  onChange={(e) => set("amount", e.target.value)}
+                  onBlur={() => blur("amount")}
+                  aria-invalid={errors.amount || undefined}
+                  aria-describedby={describedBy("amount", "f-amount-hint")}
                 />
-              </div>
-
-              <div className="mt-4">
-                <label htmlFor="contact-message" className={labelClasses}>
-                  Message (optional)
-                </label>
+              </Field>
+              <Field id="f-message" label="Anything else? (optional)">
                 <textarea
-                  id="contact-message"
-                  name="message"
+                  id="f-message"
                   rows={4}
-                  className={`${inputClasses} resize-none`}
+                  value={values.message}
+                  onChange={(e) => set("message", e.target.value)}
                 />
-              </div>
-
-              <button type="submit" className="btn btn-primary mt-6 min-h-14 w-full">
-                Send enquiry
+              </Field>
+              <button
+                type="submit"
+                className="btn btn-primary btn-lg"
+                data-event="bulk_enquiry_submit"
+              >
+                Send enquiry<Icon name="arrow" />
               </button>
             </form>
           )}
         </div>
-      </aside>
+      </div>
+    </dialog>
+  );
+}
+
+function Field({
+  id,
+  label,
+  hint,
+  error,
+  errorId,
+  children,
+}: {
+  id: string;
+  label: string;
+  hint?: string;
+  error?: string | null;
+  errorId?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="field">
+      <label className="t-label" htmlFor={id}>{label}</label>
+      {hint && <p className="hint" id={`${id}-hint`}>{hint}</p>}
+      {children}
+      {error && (
+        <p className="field-error" id={errorId}>
+          <Icon name="alert" />
+          <span>{error}</span>
+        </p>
+      )}
     </div>
   );
 }

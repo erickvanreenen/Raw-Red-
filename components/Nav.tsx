@@ -1,126 +1,102 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCart } from "@/lib/cart-context";
+import { Icon } from "./Icons";
 
 const links = [
-  { href: "/#product", label: "Shop" },
+  { href: "/#shop", label: "Shop" },
   { href: "/#story", label: "Our story" },
+  { href: "/#bulk", label: "Bulk orders" },
   { href: "/#faq", label: "FAQ" },
 ];
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const { itemCount, openCart } = useCart();
+  const headerRef = useRef<HTMLElement>(null);
+  const stripRef = useRef<HTMLParagraphElement>(null);
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     function onScroll() {
       setScrolled(window.scrollY > 8);
     }
+    // The header sticks at minus the strip's height, so the strip scrolls away.
+    function measureStrip() {
+      if (headerRef.current && stripRef.current) {
+        headerRef.current.style.setProperty("--strip-height", `${stripRef.current.offsetHeight}px`);
+      }
+    }
     onScroll();
+    measureStrip();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", measureStrip);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", measureStrip);
+    };
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    navRef.current?.querySelector("a")?.focus();
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        menuBtnRef.current?.focus();
+      }
+    }
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
   return (
-    <header
-      className={`sticky top-0 z-40 bg-paper transition-[border-color] duration-200 ${
-        scrolled ? "border-b border-line" : "border-b border-transparent"
-      }`}
-    >
-      <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-3.5 sm:px-8 lg:px-10">
-        <a href="/#top" className="flex min-h-11 items-center gap-2.5 text-ink">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logomark.svg" alt="" width={34} height={34} />
-          <span className="font-display text-[1.375rem] font-semibold tracking-[-0.02em]">
-            Raw Rooibos
-          </span>
-        </a>
-
-        <div className="flex items-center gap-7">
-          <nav className="hidden items-center gap-7 md:flex" aria-label="Main">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="inline-flex min-h-11 items-center text-[0.9375rem] font-medium text-ink transition-colors duration-150 ease-out-quart hover:text-ember"
-              >
-                {link.label}
-              </a>
-            ))}
+    <>
+      <a className="skip" href="#main">Skip to content</a>
+      <header ref={headerRef} className={`site-header${scrolled ? " is-scrolled" : ""}`}>
+        <p ref={stripRef} className="strip">Delivered across South Africa in 2 to 4 working days</p>
+        <div className="wrap header-inner">
+          <a className="brand" href="/#top">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logomark.svg" alt="" width={36} height={36} />
+            <span>Raw Rooibos</span>
+          </a>
+          <nav ref={navRef} id="main-nav" className={`nav${menuOpen ? " is-open" : ""}`} aria-label="Main">
+            <ul>
+              {links.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
           </nav>
-
-          <div className="flex items-center gap-1">
-            <button
-              type="button"
-              onClick={openCart}
-              aria-label={`Open cart, ${itemCount} item${itemCount === 1 ? "" : "s"}`}
-              className="relative flex h-11 w-11 items-center justify-center rounded-full text-ink transition-colors duration-150 ease-out-quart hover:bg-sage"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M6 6h15l-1.5 9h-12L6 6Zm0 0L5 3H2"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <circle cx="9" cy="20" r="1.4" fill="currentColor" />
-                <circle cx="17" cy="20" r="1.4" fill="currentColor" />
-              </svg>
-              {itemCount > 0 && (
-                <span className="absolute -right-0.5 -top-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-ember px-1 text-[0.7rem] font-semibold text-white">
-                  {itemCount}
-                </span>
-              )}
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setMobileOpen((v) => !v)}
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-menu"
-              aria-label="Toggle menu"
-              className="flex h-11 w-11 items-center justify-center rounded-full text-ink hover:bg-sage md:hidden"
-            >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M4 7h16M4 12h16M4 17h16"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div
-        id="mobile-menu"
-        className="grid overflow-hidden transition-[grid-template-rows] duration-200 ease-out-quart md:hidden"
-        style={{ gridTemplateRows: mobileOpen ? "1fr" : "0fr" }}
-      >
-        <div className="min-h-0">
-          <nav
-            className="flex flex-col border-t border-line px-5 pb-3"
-            aria-label="Mobile"
-            {...(mobileOpen ? {} : { inert: true })}
+          <button
+            type="button"
+            className="cart-btn"
+            onClick={openCart}
+            aria-label={`Cart, ${itemCount} item${itemCount === 1 ? "" : "s"}`}
           >
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="flex min-h-12 items-center text-base font-medium text-ink"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
+            <Icon name="cart" />
+            {itemCount > 0 && <span className="badge" aria-hidden="true">{itemCount}</span>}
+          </button>
+          <button
+            ref={menuBtnRef}
+            type="button"
+            className="menu-btn"
+            aria-expanded={menuOpen}
+            aria-controls="main-nav"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            Menu
+          </button>
+          <a className="btn btn-primary header-cta" href="/#shop" data-event="shop_click" data-source="header">
+            Shop the rooibos<Icon name="arrow" />
+          </a>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }

@@ -6,7 +6,7 @@ export default function CheckoutPage() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main" tabIndex={-1}>
         <CheckoutForm />
       </main>
       <Footer />

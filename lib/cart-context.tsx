@@ -8,7 +8,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { rawRooibos, type TeaSize } from "./products";
+import { MAX_QTY, rawRooibos, type TeaSize } from "./products";
 
 export interface CartItem {
   sizeId: string;
@@ -64,7 +64,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (existing) {
         return prev.map((item) =>
           item.sizeId === size.id
-            ? { ...item, quantity: item.quantity + quantity }
+            ? { ...item, quantity: Math.min(MAX_QTY, item.quantity + quantity) }
             : item
         );
       }
@@ -75,7 +75,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
           label: size.label,
           grams: size.grams,
           price: size.price,
-          quantity,
+          quantity: Math.min(MAX_QTY, quantity),
         },
       ];
     });
@@ -88,7 +88,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       quantity <= 0
         ? prev.filter((item) => item.sizeId !== sizeId)
         : prev.map((item) =>
-            item.sizeId === sizeId ? { ...item, quantity } : item
+            item.sizeId === sizeId ? { ...item, quantity: Math.min(MAX_QTY, quantity) } : item
           )
     );
   }

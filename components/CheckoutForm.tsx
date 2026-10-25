@@ -21,7 +21,7 @@ export function CheckoutForm() {
         <p className="mt-2 text-base text-ink-soft">
           Add a pack of rooibos and it will show up here.
         </p>
-        <Link href="/#product" className="btn btn-primary mt-6">
+        <Link href="/#shop" className="btn btn-primary mt-6">
           Shop the rooibos
         </Link>
       </div>
@@ -37,7 +37,7 @@ export function CheckoutForm() {
           we&apos;ll follow up by email to confirm your order and arrange
           payment.
         </p>
-        <Link href="/" className="btn btn-secondary mt-6">
+        <Link href="/" className="link mt-6">
           Back to Raw Rooibos
         </Link>
       </div>

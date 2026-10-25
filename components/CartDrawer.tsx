@@ -1,134 +1,131 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { useCart } from "@/lib/cart-context";
-import { formatPrice } from "@/lib/products";
+import { useEffect, useRef, useState } from "react";
+import { useCart, type CartItem } from "@/lib/cart-context";
+import { useContactSheet } from "@/lib/contact-sheet-context";
+import { MAX_QTY, formatPrice, rawRooibos } from "@/lib/products";
+import { announce, useDialog } from "@/lib/ui";
+import { Icon } from "./Icons";
 
 export function CartDrawer() {
-  const { items, isOpen, closeCart, updateQuantity, removeItem, subtotal } =
-    useCart();
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const { items, isOpen, subtotal, closeCart, updateQuantity, removeItem, addItem } = useCart();
+  const { openContactSheet } = useContactSheet();
+  const [removed, setRemoved] = useState<CartItem | null>(null);
+  const undoTimer = useRef<number | undefined>(undefined);
+  const undoRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useDialog(isOpen, closeCart, () => document.querySelector<HTMLElement>(".cart-btn"));
 
   useEffect(() => {
-    if (!isOpen) return;
-    closeButtonRef.current?.focus();
-    document.body.style.overflow = "hidden";
-    function onKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") closeCart();
+    if (!isOpen) setRemoved(null);
+  }, [isOpen]);
+  useEffect(() => () => window.clearTimeout(undoTimer.current), []);
+
+  function change(item: CartItem, delta: number) {
+    const next = item.quantity + delta;
+    if (next < 1) {
+      announce("Minimum is 1. Use Remove to take it out");
+      return;
     }
-    window.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", onKeyDown);
-    };
-  }, [isOpen, closeCart]);
+    if (next > MAX_QTY) {
+      announce("Need more? Ask about bulk");
+      return;
+    }
+    updateQuantity(item.sizeId, next);
+  }
+
+  function remove(item: CartItem) {
+    removeItem(item.sizeId);
+    setRemoved(item);
+    announce(`Removed ${item.label}.`);
+    window.clearTimeout(undoTimer.current);
+    undoTimer.current = window.setTimeout(() => setRemoved(null), 5000);
+    window.setTimeout(() => undoRef.current?.focus(), 0);
+  }
+
+  function undo() {
+    if (!removed) return;
+    const size = rawRooibos.sizes.find((s) => s.id === removed.sizeId);
+    if (size) addItem(size, removed.quantity);
+    announce(`${removed.label} is back in your cart`);
+    setRemoved(null);
+  }
+
+  // Close the cart first so dialogs never stack; focus then returns to the cart button.
+  function askAboutBulk() {
+    closeCart();
+    window.setTimeout(openContactSheet, 200);
+  }
 
   return (
-    <div
-      className={`fixed inset-0 z-50 ${isOpen ? "" : "pointer-events-none"}`}
-      aria-hidden={!isOpen}
-    >
-      <div
-        onClick={closeCart}
-        className={`absolute inset-0 bg-ink/40 transition-opacity duration-200 ease-out-quart ${
-          isOpen ? "opacity-100" : "opacity-0"
-        }`}
-      />
-
-      <aside
-        role="dialog"
-        aria-modal="true"
-        aria-label="Cart"
-        className={`absolute right-0 top-0 flex h-full w-full max-w-md flex-col bg-paper transition-transform duration-300 ease-out-quart sm:rounded-l-panel ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-        {...(isOpen ? {} : { inert: true })}
-      >
-        <div className="flex items-center justify-between px-6 py-5">
-          <h2 className="t-title">Your cart</h2>
-          <button
-            ref={closeButtonRef}
-            type="button"
-            onClick={closeCart}
-            aria-label="Close cart"
-            className="flex h-11 w-11 items-center justify-center rounded-full text-ink hover:bg-sage"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-            </svg>
+    <dialog ref={dialogRef} className="drawer" aria-labelledby="cart-title">
+      <div className="dlg">
+        <div className="dlg-head">
+          <h2 className="t-title" id="cart-title">Your cart</h2>
+          <button type="button" className="close-btn" onClick={closeCart} aria-label="Close cart" autoFocus>
+            <Icon name="close" />
           </button>
         </div>
-
-        <div className="flex-1 overflow-y-auto px-6 pb-4">
-          {items.length === 0 ? (
-            <p className="mt-10 text-center text-base text-ink-soft">
-              Your cart is empty.
-            </p>
-          ) : (
-            <ul className="flex flex-col gap-6">
+        <div className="dlg-body">
+          {items.length > 0 ? (
+            <ul className="cart-lines">
               {items.map((item) => (
-                <li key={item.sizeId} className="flex items-start gap-4">
-                  <div className="flex-1">
-                    <p className="text-base font-semibold text-ink">
-                      Raw Rooibos, {item.label}
-                    </p>
-                    <p className="mt-0.5 text-sm text-ink-soft">
-                      {formatPrice(item.price)} each
-                    </p>
-                    <div className="mt-3 flex items-center gap-4">
-                      <div className="inline-flex items-center rounded-full border-[1.5px] border-edge">
-                        <button
-                          type="button"
-                          onClick={() => updateQuantity(item.sizeId, item.quantity - 1)}
-                          aria-label={`Decrease quantity of ${item.label}`}
-                          className="flex h-11 w-11 items-center justify-center rounded-full text-lg text-ink hover:bg-sage"
-                        >
-                          −
-                        </button>
-                        <span className="w-6 text-center text-sm font-semibold tabular-nums">
-                          {item.quantity}
-                        </span>
-                        <button
-                          type="button"
-                          onClick={() => updateQuantity(item.sizeId, item.quantity + 1)}
-                          aria-label={`Increase quantity of ${item.label}`}
-                          className="flex h-11 w-11 items-center justify-center rounded-full text-lg text-ink hover:bg-sage"
-                        >
-                          +
-                        </button>
-                      </div>
+                <li className="line" key={item.sizeId}>
+                  <div>
+                    <p className="line-name">Raw Rooibos, {item.label}</p>
+                    <p className="line-unit">{formatPrice(item.price)} each</p>
+                  </div>
+                  <p className="line-total">{formatPrice(item.price * item.quantity)}</p>
+                  <div className="line-actions">
+                    <div className="stepper stepper-md" role="group" aria-label={`Quantity of ${item.label}`}>
+                      <button type="button" onClick={() => change(item, -1)} aria-label={`Decrease quantity of ${item.label}`}>−</button>
+                      <output aria-live="polite">{item.quantity}</output>
+                      <button type="button" onClick={() => change(item, 1)} aria-label={`Increase quantity of ${item.label}`}>+</button>
+                    </div>
+                    <button type="button" className="text-btn" onClick={() => remove(item)}>Remove</button>
+                  </div>
+                  {item.quantity >= MAX_QTY && (
+                    <p className="limit line-limit">
+                      <span>Need more?</span>
                       <button
                         type="button"
-                        onClick={() => removeItem(item.sizeId)}
-                        className="min-h-11 text-sm font-medium text-ink-soft underline underline-offset-4 hover:text-ember"
+                        className="link link-sm"
+                        data-event="bulk_open"
+                        data-source="cart_limit"
+                        onClick={askAboutBulk}
                       >
-                        Remove
+                        Ask about bulk<Icon name="arrow" />
                       </button>
-                    </div>
-                  </div>
-                  <span className="pt-0.5 text-base font-semibold text-ink">
-                    {formatPrice(item.price * item.quantity)}
-                  </span>
+                    </p>
+                  )}
                 </li>
               ))}
             </ul>
+          ) : (
+            <div className="cart-empty">
+              <p>Your cart is empty.</p>
+              <a className="btn btn-primary" href="/#shop">
+                Shop the rooibos<Icon name="arrow" />
+              </a>
+            </div>
+          )}
+          {removed && (
+            <div className="undo">
+              <span>Removed {removed.label}.</span>
+              <button ref={undoRef} type="button" className="text-btn" onClick={undo}>Undo</button>
+            </div>
           )}
         </div>
-
         {items.length > 0 && (
-          <div className="rounded-t-panel bg-sage px-6 py-6">
-            <div className="flex items-center justify-between text-base text-ink">
-              <span>Subtotal</span>
-              <span className="text-lg font-semibold">{formatPrice(subtotal)}</span>
-            </div>
-            <p className="mt-1 text-sm text-ink-soft">Shipping calculated at checkout.</p>
-            <Link href="/checkout" onClick={closeCart} className="btn btn-primary mt-5 min-h-14 w-full">
-              Checkout
+          <div className="dlg-foot">
+            <p className="subtotal"><span>Subtotal</span><span>{formatPrice(subtotal)}</span></p>
+            <p className="note">Delivery cost shown at checkout.</p>
+            <Link className="btn btn-primary btn-lg" href="/checkout" onClick={closeCart} data-event="checkout_click">
+              Go to checkout<Icon name="arrow" />
             </Link>
           </div>
         )}
-      </aside>
-    </div>
+      </div>
+    </dialog>
   );
 }

@@ -1,145 +1,134 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { SizeSelector } from "./SizeSelector";
-import { BulkOrderCallout } from "./BulkOrderCallout";
-import { useCart, rawRooibos } from "@/lib/cart-context";
-import { formatPrice } from "@/lib/products";
+import { useState } from "react";
+import { useCart } from "@/lib/cart-context";
+import { useContactSheet } from "@/lib/contact-sheet-context";
+import { useAddToCart, usePack } from "@/lib/pack-context";
+import { MAX_QTY, formatPrice, rawRooibos } from "@/lib/products";
+import { announce, useFlash } from "@/lib/ui";
+import { Icon } from "./Icons";
 
 export function ProductSection() {
-  const { addItem, lastSizeId } = useCart();
-  const [selectedId, setSelectedId] = useState(rawRooibos.sizes[1].id);
-  const [quantity, setQuantity] = useState(1);
-  const [confirmed, setConfirmed] = useState(false);
+  const { packId, setPackId } = usePack();
+  const { openCart } = useCart();
+  const { openContactSheet } = useContactSheet();
+  const addToCart = useAddToCart();
+  const added = useFlash();
+  const [qty, setQty] = useState(1);
+  const [limitShown, setLimitShown] = useState(false);
+  const pack = rawRooibos.sizes.find((s) => s.id === packId) ?? rawRooibos.sizes[1];
 
-  useEffect(() => {
-    if (lastSizeId && rawRooibos.sizes.some((s) => s.id === lastSizeId)) {
-      setSelectedId(lastSizeId);
+  function step(delta: number) {
+    const next = qty + delta;
+    if (next < 1) {
+      announce("Minimum is 1");
+      return;
     }
-  }, [lastSizeId]);
-
-  useEffect(() => {
-    if (!confirmed) return;
-    const timer = setTimeout(() => setConfirmed(false), 2000);
-    return () => clearTimeout(timer);
-  }, [confirmed]);
-
-  const selectedSize = rawRooibos.sizes.find((s) => s.id === selectedId)!;
-  const total = selectedSize.price * quantity;
-
-  function handleAdd() {
-    addItem(selectedSize, quantity);
-    setConfirmed(true);
-    setQuantity(1);
+    if (next > MAX_QTY) {
+      setLimitShown(true);
+      announce("Need more? Ask about bulk");
+      return;
+    }
+    setQty(next);
+    setLimitShown(next === MAX_QTY);
+    if (next === MAX_QTY) announce("Need more? Ask about bulk");
   }
 
   return (
-    <section id="product">
-      <div className="mx-auto max-w-[1200px] px-5 py-12 sm:px-8 lg:px-10 lg:py-16">
-        {/* Photo and buy box side by side; the photo fills the box height */}
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-panel lg:aspect-auto lg:min-h-[420px]">
-            <Image
-              src="/images/rows-red-soil-sky.jpg"
-              alt="Rows of rooibos bushes on red soil under a wide sky, a flat-topped cliff in the distance"
-              fill
-              sizes="(min-width: 1024px) 560px, 100vw"
-              className="object-cover"
-            />
-          </div>
-
-          <div className="rounded-panel bg-paper p-6 sm:p-8">
-            <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-medium leading-[1.05] tracking-[-0.03em]">
-              {rawRooibos.name}
-            </h2>
-            <p className="mt-1.5 text-base font-semibold text-ember">
-              {rawRooibos.tagline}
+    <section className="section" id="shop" aria-labelledby="shop-title">
+      <div className="wrap">
+        <div className="shop-grid">
+          <div className="panel buybox" id="buybox">
+            <h2 className="t-title" id="shop-title" tabIndex={-1}>{rawRooibos.name}</h2>
+            <p className="tagline">{rawRooibos.tagline}</p>
+            <p className="secondary">{rawRooibos.description}</p>
+            <p className="price-row">
+              <span className="price">{formatPrice(pack.price)}</span>
+              <span className="secondary">per {pack.label} pack</span>
             </p>
-            <p className="mt-3 text-[0.9375rem] leading-[1.6] text-ink-soft">
-              {rawRooibos.description}
-            </p>
-
-            <div className="mt-5 flex items-baseline gap-2.5">
-              <span className="font-display text-[2.5rem] font-semibold leading-none tracking-[-0.03em]">
-                {formatPrice(selectedSize.price)}
-              </span>
-              <span className="text-base text-ink-soft">
-                per {selectedSize.label} pack
-              </span>
-            </div>
-
-            <div className="mt-4">
-              <span className="t-label mb-2 block">Pack size</span>
-              <SizeSelector
-                sizes={rawRooibos.sizes}
-                selectedId={selectedId}
-                onSelect={setSelectedId}
-              />
-            </div>
-
-            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <div
-                className="inline-flex shrink-0 items-center self-start rounded-full border-[1.5px] border-edge"
-                role="group"
-                aria-label="Quantity"
-              >
-                <button
-                  type="button"
-                  onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                  disabled={quantity <= 1}
-                  aria-label="Decrease quantity"
-                  className="flex h-12 w-12 items-center justify-center rounded-full text-xl text-ink transition-colors duration-150 ease-out-quart hover:bg-sage disabled:opacity-40 disabled:hover:bg-transparent"
-                >
-                  −
-                </button>
-                <span
-                  className="w-8 text-center text-base font-semibold tabular-nums"
-                  aria-live="polite"
-                >
-                  {quantity}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setQuantity((q) => Math.min(9, q + 1))}
-                  aria-label="Increase quantity"
-                  className="flex h-12 w-12 items-center justify-center rounded-full text-xl text-ink transition-colors duration-150 ease-out-quart hover:bg-sage"
-                >
-                  +
-                </button>
+            <fieldset>
+              <legend className="t-label">Pack size</legend>
+              <div className="sizes">
+                {rawRooibos.sizes.map((size) => (
+                  <label className="size" key={size.id}>
+                    <input
+                      type="radio"
+                      name="pack"
+                      value={size.id}
+                      checked={size.id === pack.id}
+                      onChange={() => setPackId(size.id)}
+                    />
+                    <span className="size-name">{size.label}</span>
+                    <span className="size-price">{formatPrice(size.price)}</span>
+                  </label>
+                ))}
               </div>
-
+            </fieldset>
+            <p className="delivery-line">
+              <Icon name="truck" />
+              <span>Delivered in South Africa in 2 to 4 working days. Delivery cost shown at checkout.</span>
+            </p>
+            <div className="commit">
+              <div className="stepper" role="group" aria-label="Quantity">
+                <button type="button" onClick={() => step(-1)} aria-label="Decrease quantity">−</button>
+                <output aria-live="polite">{qty}</output>
+                <button type="button" onClick={() => step(1)} aria-label="Increase quantity">+</button>
+              </div>
               <button
                 type="button"
-                onClick={handleAdd}
-                className="btn btn-primary min-h-14 flex-1 text-[1.0625rem]"
+                className="btn btn-primary btn-lg"
+                data-event="add_to_cart"
+                data-source="buybox"
+                onClick={() => {
+                  if (addToCart(pack.id, qty) > 0) added.show();
+                }}
               >
-                {confirmed ? "Added to cart" : `Add to cart · ${formatPrice(total)}`}
+                Add to cart · {formatPrice(pack.price * qty)}
+                <Icon name="arrow" />
               </button>
             </div>
-            <p className="sr-only" role="status" aria-live="polite">
-              {confirmed
-                ? `Added ${quantity} × ${selectedSize.label} to your cart`
-                : ""}
-            </p>
-          </div>
-        </div>
-
-        {/* Details and bulk enquiry, each in a white container */}
-        <div className="mt-6 grid gap-6 lg:grid-cols-[2fr_1fr]">
-          <dl className="grid gap-6 rounded-panel bg-paper p-6 sm:grid-cols-3 sm:p-8">
-            {rawRooibos.details.map((detail) => (
-              <div key={detail.label}>
-                <dt className="t-label">{detail.label}</dt>
-                <dd className="mt-1.5 text-[0.9375rem] leading-[1.6] text-ink-soft">
-                  {detail.value}
-                </dd>
+            {limitShown && (
+              <p className="limit">
+                <span>Need more?</span>
+                <button
+                  type="button"
+                  className="link link-sm"
+                  data-event="bulk_open"
+                  data-source="buybox_limit"
+                  onClick={openContactSheet}
+                >
+                  Ask about bulk<Icon name="arrow" />
+                </button>
+              </p>
+            )}
+            {added.visible && (
+              <div className="added" ref={added.ref}>
+                <Icon name="check" className="icon check" />
+                <span>Added to your cart.</span>
+                <button type="button" className="link link-sm" onClick={openCart}>
+                  View cart<Icon name="arrow" />
+                </button>
               </div>
-            ))}
-          </dl>
-
-          <BulkOrderCallout />
+            )}
+          </div>
+          <Image
+            className="shop-photo photo"
+            src="/images/rows-red-soil-sky.jpg"
+            width={2000}
+            height={1500}
+            sizes="(min-width: 768px) 50vw, 100vw"
+            alt="Rows of rooibos bushes on red soil under a wide sky, a flat-topped cliff in the distance"
+          />
         </div>
+        <dl className="panel details">
+          {rawRooibos.details.map((detail) => (
+            <div key={detail.label}>
+              <dt>{detail.label}</dt>
+              <dd>{detail.value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );
