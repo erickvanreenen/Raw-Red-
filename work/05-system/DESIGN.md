@@ -1,20 +1,22 @@
 ---
 name: Raw Rooibos
 description: Unpasteurised rooibos from a small family farm, sold direct.
-version: 2026-10-24 redesign (Fynbos Fresh, evolved)
+version: 2026-11-10 lime and olive colourway (D15)
 tokens: tokens.json
 colors:
-  canvas: "#EEEFE5"
-  container: "#FFFFFF"
-  inverse: "#2F4B3A"
-  action: "#2F4B3A"
-  action-hover: "#B03F1C"
-  action-pressed: "#8F3217"
-  accent-text: "#B03F1C"
-  text: "#1E2420"
-  text-secondary: "#566057"
-  border-control: "#73836D"
-  border-divider: "#D9E1D3"
+  canvas: "#F7EEE8"
+  container: "#FFFAF6"
+  inverse: "#5E6537"
+  contrast: "#141310"
+  action: "#CED964"
+  action-text: "#26221D"
+  action-hover: "#26221D"
+  action-pressed: "#141310"
+  accent-text: "#A74B2B"
+  text: "#26221D"
+  text-secondary: "#5C554D"
+  border-control: "#7A7D5E"
+  border-divider: "#DFDAD6"
   note: "#F3E6D6"
 typography:
   family: "Albert Sans, system-ui, sans-serif"
@@ -39,8 +41,8 @@ Skill: 05-ai-design-systems/context-files. Values come from `tokens.json`; this 
 
 ## Hard rules
 1. Use tokens only. No raw hex, sizes or radii in components.
-2. Never put Ember (#B03F1C) on Deep Fynbos (#2F4B3A). It is 1.63:1.
-3. Ember is an accent and a button state (hover, pressed), never a resting button fill.
+2. Lime (#CED964) always carries dark text (#26221D). White on lime is 1.53:1 and is banned.
+3. Rust (#A74B2B) is an accent on light surfaces only, never a button fill. Rust on olive is 1.09:1 and is banned.
 4. One primary button per block. Every CTA has a trailing arrow. Secondary CTAs are arrow text with no border.
 5. Buttons, inputs, pack sizes and the stepper have 12px corners. Containers have 20px (cards) or 28px (panels).
 6. Flat: no gradients, shadows, glass or blur.
@@ -61,7 +63,7 @@ Every photo ships in sized versions with `srcset` and `sizes` (C2): 800px and up
 One icon: the arrow, inline SVG, `viewBox="0 0 24 24"`, path `M5 12h14M13 6l6 6-6 6`, stroke `currentColor`, width 2, round caps and joins, 16px, `aria-hidden="true"`. Cart and menu icons use the same stroke style.
 
 ## Direction
-"Fresh off the farm." The bush is green and the cured leaf is red, so the site uses both: a sage canvas with white containers, Deep Fynbos for actions and for solid dark blocks (delivery strip, closing block, footer, buy bar), and Ember for emphasis. Pepperplane informed the CTAs: short verb-first labels, a solid primary with an arrow, an arrow-text secondary, a closing block that repeats the main action.
+"Fresh off the farm", recoloured from Erick's reference screenshot (D15): a warm cream canvas with warm white containers, an olive strip, footer and buy bar, lime for every primary button and the cart badge, rust for the accent word, and black for button hover and press, the selected pack and the closing block. Pepperplane informed the CTAs: short verb-first labels, a solid primary with an arrow, an arrow-text secondary, a closing block that repeats the main action.
 
 ## Hierarchy
 - One display headline per page (the hero h1).
@@ -87,8 +89,8 @@ Max content width 1200px. Gutters 16px phones, 24px from 768px, 48px from 1024px
 | Questions | `faq-item.md` |
 | End of page | `closing-block.md` |
 
-## Colour pairings (all calculated)
-Ink on white 15.81, ink on sage 13.64, ink soft on white 6.55, ink soft on sage 5.65, white on fynbos 9.60, sage on fynbos 8.28, white on ember 5.88, white on ember deep 7.96, ember on white 5.88, ember on sage 5.07, control border on white 4.04 and on sage 3.49. Banned: ember on fynbos 1.63.
+## Colour pairings (all calculated, 2026-11-10)
+Ink on paper 15.24, ink on cream 13.81, ink soft on paper 7.08, ink soft on cream 6.41, rust on paper 5.50, rust on cream 4.98, white on olive 6.19, cream on olive 5.41, ink on lime 10.33, lime on ink 10.33, lime on black 12.15, white on black 18.58, control border on paper 4.12 and on cream 3.73, error on paper 7.48. Banned: white on lime 1.53, rust on olive 1.09.
 
 ## Anti-patterns
-Content hidden behind animation; two primaries in one block; arrows on navigation anchors or FAQ rows; pills (superseded by D10); ember on dark blocks; light grey as a control's only edge; text by opacity; em dashes in interface copy; a second typeface; "Raw Red", "organic", sand and terracotta blocks.
+Content hidden behind animation; two primaries in one block; arrows on navigation anchors or FAQ rows; pills (superseded by D10); white text on lime; rust on olive; light grey as a control's only edge; text by opacity; em dashes in interface copy; a second typeface; "Raw Red", "organic", sand and terracotta blocks.

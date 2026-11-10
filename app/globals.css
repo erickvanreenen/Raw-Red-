@@ -2,16 +2,16 @@
 
 /* Tailwind theme: kept for the checkout page's utility classes. Values match work/05-system/tokens.json. */
 @theme {
-  --color-paper: #FFFFFF;
-  --color-sage: #EEEFE5;
-  --color-deep: #2F4B3A;
-  --color-ember: #B03F1C;
-  --color-ember-deep: #8F3217;
+  --color-paper: #FFFAF6;
+  --color-sage: #F7EEE8;
+  --color-deep: #5E6537;
+  --color-ember: #A74B2B;
+  --color-ember-deep: #8A3A20;
   --color-clay: #F3E6D6;
-  --color-ink: #1E2420;
-  --color-ink-soft: #566057;
-  --color-edge: #73836D;
-  --color-line: #D9E1D3;
+  --color-ink: #26221D;
+  --color-ink-soft: #5C554D;
+  --color-edge: #7A7D5E;
+  --color-line: #DFDAD6;
 
   --font-display: var(--font-albert), system-ui, sans-serif;
   --font-sans: var(--font-albert), system-ui, sans-serif;
@@ -24,7 +24,8 @@
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Design tokens: generated from work/05-system/tokens.json (semantic tier), named --{category}-{name}. */
+/* Design tokens: generated from work/05-system/tokens.json (semantic tier), named --{category}-{name}.
+   Colourway: lime and olive (D15), from Erick's reference screenshot; black for hover, pressed, selected and the closing block. */
 :root {
   color-scheme: light;
   --font-family: var(--font-albert), system-ui, sans-serif;
@@ -32,29 +33,33 @@
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
 
-  --color-surface-canvas: #EEEFE5;
-  --color-surface-container: #FFFFFF;
-  --color-surface-inverse: #2F4B3A;
-  --color-text-primary: #1E2420;
-  --color-text-secondary: #566057;
-  --color-text-accent: #B03F1C;
+  --color-surface-canvas: #F7EEE8;
+  --color-surface-container: #FFFAF6;
+  --color-surface-inverse: #5E6537;
+  --color-surface-contrast: #141310;
+  --color-text-primary: #26221D;
+  --color-text-secondary: #5C554D;
+  --color-text-accent: #A74B2B;
   --color-text-on-inverse: #FFFFFF;
-  --color-text-on-inverse-secondary: #EEEFE5;
-  --color-action-primary: #2F4B3A;
-  --color-action-primary-hover: #B03F1C;
-  --color-action-primary-pressed: #8F3217;
-  --color-action-primary-text: #FFFFFF;
-  --color-action-inverse: #FFFFFF;
-  --color-action-inverse-hover: #EEEFE5;
-  --color-action-inverse-pressed: #D9E1D3;
-  --color-action-inverse-text: #1E2420;
-  --color-border-control: #73836D;
-  --color-border-divider: #D9E1D3;
-  --color-selected: #2F4B3A;
-  --color-focus: #1E2420;
+  --color-text-on-inverse-secondary: #F7EEE8;
+  --color-action-primary: #CED964;
+  --color-action-primary-hover: #26221D;
+  --color-action-primary-pressed: #141310;
+  --color-action-primary-text: #26221D;
+  --color-action-primary-hover-text: #CED964;
+  --color-badge: #CED964;
+  --color-badge-text: #26221D;
+  --color-action-inverse: #CED964;
+  --color-action-inverse-hover: #FFFFFF;
+  --color-action-inverse-pressed: #F7EEE8;
+  --color-action-inverse-text: #26221D;
+  --color-border-control: #7A7D5E;
+  --color-border-divider: #DFDAD6;
+  --color-selected: #26221D;
+  --color-focus: #26221D;
   --color-focus-on-inverse: #FFFFFF;
-  --color-error: #8F3217;
-  --color-backdrop: rgba(30, 36, 32, 0.5);
+  --color-error: #8A3A20;
+  --color-backdrop: rgba(20, 19, 16, 0.55);
 
   --font-size-display: clamp(2.75rem, 6.4vw, 5.25rem);
   --font-size-headline: clamp(2rem, 4vw, 3.25rem);
@@ -173,11 +178,11 @@
   .btn:active { transform: scale(var(--button-press-scale)); }
   .btn-lg { min-height: var(--size-control-height-lg); }
   .btn-primary { background: var(--color-action-primary); color: var(--color-action-primary-text); }
-  .btn-primary:hover { background: var(--color-action-primary-hover); }
-  .btn-primary:active { background: var(--color-action-primary-pressed); }
+  .btn-primary:hover { background: var(--color-action-primary-hover); color: var(--color-action-primary-hover-text); }
+  .btn-primary:active { background: var(--color-action-primary-pressed); color: var(--color-action-primary-hover-text); }
   .on-inverse .btn-primary { background: var(--color-action-inverse); color: var(--color-action-inverse-text); }
-  .on-inverse .btn-primary:hover { background: var(--color-action-inverse-hover); }
-  .on-inverse .btn-primary:active { background: var(--color-action-inverse-pressed); }
+  .on-inverse .btn-primary:hover { background: var(--color-action-inverse-hover); color: var(--color-action-inverse-text); }
+  .on-inverse .btn-primary:active { background: var(--color-action-inverse-pressed); color: var(--color-action-inverse-text); }
   .link {
     display: inline-flex; align-items: center; justify-content: center; gap: var(--button-icon-gap);
     min-height: var(--size-control-height); padding: 0 var(--space-1);
@@ -210,7 +215,7 @@
   .nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
   .cart-btn { position: relative; display: inline-grid; place-items: center; width: var(--size-target-min); height: var(--size-target-min); border: 0; background: none; border-radius: var(--radius-control); cursor: pointer; color: inherit; }
   .cart-btn .icon { width: 24px; height: 24px; stroke-width: 1.75; }
-  .badge { position: absolute; top: 2px; right: 0; min-width: 20px; height: 20px; padding: 0 5px; border-radius: var(--radius-badge); background: var(--color-action-primary-hover); color: var(--color-action-primary-text); font-size: var(--font-size-badge); font-weight: var(--font-weight-semibold); line-height: 20px; text-align: center; }
+  .badge { position: absolute; top: 2px; right: 0; min-width: 20px; height: 20px; padding: 0 5px; border-radius: var(--radius-badge); background: var(--color-badge); color: var(--color-badge-text); font-size: var(--font-size-badge); font-weight: var(--font-weight-semibold); line-height: 20px; text-align: center; }
   .menu-btn { min-height: var(--size-target-min); padding: 0 var(--space-4); border: var(--border-width-control) solid var(--color-border-control); border-radius: var(--radius-control); background: var(--color-surface-container); font-weight: var(--font-weight-semibold); cursor: pointer; color: inherit; }
   .header-cta { display: none; }
   @media (max-width: 767px) {
@@ -296,7 +301,7 @@
   .stepper-md { min-height: var(--size-control-height); }
   .stepper-md button { height: calc(var(--size-control-height) - 4px); }
   .added, .limit { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-3); font-size: var(--font-size-small); margin: 0; }
-  .added .check { width: 18px; height: 18px; color: var(--color-action-primary); }
+  .added .check { width: 18px; height: 18px; color: var(--color-text-primary); }
 
   .details { margin: var(--space-4) 0 0; display: grid; gap: var(--space-6); }
   .details dt { font-weight: var(--font-weight-semibold); margin-bottom: var(--space-1); }
@@ -336,7 +341,7 @@
   .faq .answer { margin: 0; padding: 0 var(--space-container-padding) var(--space-6); color: var(--color-text-secondary); max-width: var(--size-measure); }
 
   /* Closing block (components/closing-block.md) */
-  .closing { background: var(--color-surface-inverse); color: var(--color-text-on-inverse); border-radius: var(--radius-panel); padding: var(--space-8) var(--space-6); display: grid; gap: var(--space-6); }
+  .closing { background: var(--color-surface-contrast); color: var(--color-text-on-inverse); border-radius: var(--radius-panel); padding: var(--space-8) var(--space-6); display: grid; gap: var(--space-6); }
   .closing h2 { margin: 0; }
   .closing p { color: var(--color-text-on-inverse-secondary); margin: var(--space-3) 0 0; max-width: 48ch; }
   @media (min-width: 768px) { .closing { padding: var(--space-12); } }
@@ -357,7 +362,7 @@
   .buybar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 15; border-top: 1px solid var(--color-border-control); background: var(--color-surface-inverse); color: var(--color-text-on-inverse); padding: var(--space-3) var(--space-gutter) calc(var(--space-3) + env(safe-area-inset-bottom)); }
   .buybar:not([hidden]) { animation: bar-in var(--duration-enter) var(--easing-out); }
   .buybar-row { display: flex; gap: var(--space-2); align-items: center; }
-  .buybar select { flex: 0 0 auto; min-height: var(--size-control-height); padding: 0 var(--space-8) 0 var(--space-3); border: 0; border-radius: var(--radius-control); background: var(--color-surface-container) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%231E2420' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E") no-repeat right 12px center; color: var(--color-text-primary); font-weight: var(--font-weight-semibold); appearance: none; }
+  .buybar select { flex: 0 0 auto; min-height: var(--size-control-height); padding: 0 var(--space-8) 0 var(--space-3); border: 0; border-radius: var(--radius-control); background: var(--color-surface-container) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2326221D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E") no-repeat right 12px center; color: var(--color-text-primary); font-weight: var(--font-weight-semibold); appearance: none; }
   .buybar .btn { flex: 1 1 auto; white-space: nowrap; padding-inline: var(--space-4); }
   .buybar .added { margin-bottom: var(--space-2); color: var(--color-text-on-inverse); }
   .buybar .added .check { color: var(--color-text-on-inverse); }

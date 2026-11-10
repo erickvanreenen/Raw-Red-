@@ -196,3 +196,13 @@ Options rejected: a form backend or payment provider (needs a provider decision;
 Evidence: Erick's request; build passed; validation checked in the browser. The mailto launch itself was not triggered in testing (it would open the email app on Erick's machine).
 Trade-offs: an order only arrives if the customer presses send; customers without a mail app must email by hand (the address is shown).
 Revisit when: a payment provider is chosen.
+
+## D15 Lime and olive colourway
+Date / Decider: 2026-11-10, Erick
+Context: Erick supplied a screenshot of the site recoloured and asked for that colourway across the site, with black allowed. Fallback set first: tag fallback-2026-11-10.
+Decision: Colours sampled from the screenshot: canvas #F7EEE8, containers and header #FFFAF6, strip/footer/buy bar olive #5E6537, primary buttons and cart badge lime #CED964 with ink #26221D text, accent rust #A74B2B, secondary text #5C554D. Black #141310 added for button press, with ink #26221D on hover (lime text), the selected pack size (ink) and the closing block.
+Deviation from the screenshot: control borders use #7A7D5E, not the screenshot's #9C9E80, which is 2.66:1 against the 3:1 controls need.
+Options rejected: keeping Deep Fynbos and ember (superseded).
+Evidence: pixel sampling of the screenshot; all pairings calculated (DESIGN.md); build passed; checked at 375px.
+Trade-offs: lime buttons on cream have a soft edge (1.34:1); the dark label identifies them, which is what WCAG asks of buttons. Supersedes the colour parts of D03 and D07.
+Revisit when: the logo is redesigned (its circle is still the older red).
