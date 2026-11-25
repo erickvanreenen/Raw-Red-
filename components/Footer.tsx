@@ -14,7 +14,7 @@ export function Footer() {
         <div>
           <a className="brand" href="/#top">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logomark.svg" alt="" width={36} height={36} />
+            <img src="/logomark.svg" alt="" width={43} height={43} />
             <span>Raw Rooibos</span>
           </a>
           <p className="footer-tag">Unpasteurised rooibos. Family-farmed, hand-packed.</p>
