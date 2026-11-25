@@ -15,12 +15,9 @@ export function Hero() {
       />
       <div className="wrap hero-body">
         <div>
-          <h1 className="t-display" id="hero-title" tabIndex={-1}>
-            Steeped <em>raw</em>, not stripped down.
+          <h1 className="t-headline" id="hero-title" tabIndex={-1}>
+            <em>Unpasteurised rooibos</em> from a small family farm. Hand-harvested, sun-dried, and left alone.
           </h1>
-          <p className="t-lead">
-            Unpasteurised rooibos from a small family farm. Hand-harvested, sun-dried, and left alone.
-          </p>
         </div>
         <div className="cta-row">
           <a className="btn btn-primary btn-lg" href="/#shop" data-event="shop_click" data-source="hero">

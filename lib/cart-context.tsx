@@ -46,7 +46,20 @@ export function CartProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
-      if (raw) setItems(JSON.parse(raw));
+      if (raw) {
+        // A saved cart may hold sizes or prices that have since changed: keep only sizes still on
+        // sale and take their current label, weight and price.
+        const saved = JSON.parse(raw) as CartItem[];
+        setItems(
+          saved.flatMap((item) => {
+            const size = rawRooibos.sizes.find((s) => s.id === item.sizeId);
+            const quantity = Math.min(MAX_QTY, Math.max(0, Math.floor(Number(item.quantity) || 0)));
+            return size && quantity > 0
+              ? [{ sizeId: size.id, label: size.label, grams: size.grams, price: size.price, quantity }]
+              : [];
+          })
+        );
+      }
       setLastSizeId(window.localStorage.getItem(LAST_SIZE_KEY));
     } catch {
       // localStorage unavailable (private browsing, etc.) — cart just won't persist

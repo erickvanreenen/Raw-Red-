@@ -13,7 +13,6 @@ export interface ProductDetail {
 export interface Product {
   id: string;
   name: string;
-  tagline: string;
   description: string;
   sizes: TeaSize[];
   details: ProductDetail[];
@@ -22,14 +21,12 @@ export interface Product {
 
 export const rawRooibos: Product = {
   id: "raw-rooibos",
-  name: "Raw Rooibos",
-  tagline: "Unpasteurised. Steeped raw.",
+  name: "Raw Rooibos Tea",
   description:
     "Hand-harvested on a small family farm and left unpasteurised, so the leaf keeps more of what made it worth picking in the first place. Naturally caffeine-free, low in tannins, and good hot, iced, or steeped strong.",
   sizes: [
-    { id: "100g", label: "100g", grams: 100, price: 85 },
-    { id: "250g", label: "250g", grams: 250, price: 165 },
-    { id: "500g", label: "500g", grams: 500, price: 295 },
+    { id: "100g", label: "100g", grams: 100, price: 55 },
+    { id: "250g", label: "250g", grams: 250, price: 110 },
   ],
   details: [
     {
@@ -51,7 +48,7 @@ export const rawRooibos: Product = {
   bulkContactEmail: "hello@rawrooibos.com",
 };
 
-// Most packs of one size per cart line; at 20 × 500g an order reaches the 10kg bulk threshold.
+// Most packs of one size per cart line; orders of 10kg or more go through the bulk enquiry instead.
 export const MAX_QTY = 20;
 
 export function formatPrice(amount: number): string {

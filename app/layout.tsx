@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Albert_Sans } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
 import { CartDrawer } from "@/components/CartDrawer";
@@ -9,11 +9,11 @@ import { PackProvider } from "@/lib/pack-context";
 import { InPageNav } from "@/components/InPageNav";
 import { IconSprite } from "@/components/Icons";
 
-// next/font serves Albert Sans from this site, so visitors' browsers make no request to Google.
-const albert = Albert_Sans({
+// next/font serves Outfit from this site, so visitors' browsers make no request to Google.
+const outfit = Outfit({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  variable: "--font-albert",
+  variable: "--font-outfit",
   display: "swap",
 });
 
@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-ZA" className={albert.variable}>
+    <html lang="en-ZA" className={outfit.variable}>
       <body>
         <IconSprite />
         <CartProvider>
