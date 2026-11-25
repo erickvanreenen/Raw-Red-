@@ -206,3 +206,12 @@ Options rejected: keeping Deep Fynbos and ember (superseded).
 Evidence: pixel sampling of the screenshot; all pairings calculated (DESIGN.md); build passed; checked at 375px.
 Trade-offs: lime buttons on cream have a soft edge (1.34:1); the dark label identifies them, which is what WCAG asks of buttons. Supersedes the colour parts of D03 and D07.
 Revisit when: the logo is redesigned (its circle is still the older red).
+
+## D16 Paystack for payment, Bob Go for delivery (proposed, awaiting Erick)
+Date / Decider: 2026-11-25, proposed by Claude; Erick to confirm
+Context: Erick wants real orders: live delivery prices, online payment, and courier booking. He asked to compare Paystack (a friend uses it) and Stitch.
+Decision: Paystack (card 2.9% + R1, Instant EFT and Capitec Pay 2%, free payouts after 2 working days) and Bob Go (live courier prices at checkout; paid orders queued in Bob Go for Erick to book). Checkout: address, then live delivery options, then Paystack's hosted page. The webhook verifies the payment server-side and creates the Bob Go order, then emails the shop and the customer (Resend). Without keys, checkout keeps the D14 email flow. Detail and setup checklist: work/09-payments-delivery.md.
+Options rejected: Stitch Express (no Instant EFT, R2 per payout); auto-booking the courier after payment (later, once the flow is trusted); a database (Paystack and Bob Go hold the order record; Bob Go refuses duplicate order numbers).
+Evidence: provider pricing and API docs (sources in 09); production build passed; demo mode clicked through end to end (quote, pay, order email, Bob Go payload, cart cleared); forged price, changed cart and changed address refused; webhook signature checked (good signature accepted, tampered body refused). Not yet tested against real Paystack test keys or the Bob Go sandbox.
+Trade-offs: Erick books each courier by hand in Bob Go; delivery prices round up to the whole rand; pack weights and sizes are estimates until Erick measures them.
+Revisit when: the first real orders arrive, or volume justifies auto-booking or a Bob Go paid plan.
