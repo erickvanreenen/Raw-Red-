@@ -115,7 +115,7 @@ Set these for **Preview** first, with test keys. See `.env.example` for the form
 - Booking the courier automatically after payment (now: one click in Bob Go).
 - Pickup-point delivery (Pargo/locker) options.
 - Refunds from the site (do them in the Paystack dashboard).
-- A local "demo mode" exists for trying the flow without accounts: set `CHECKOUT_DEMO=1` (never works on the live site).
+- Demo mode (pretend payments and delivery prices) for trying the flow without accounts: on automatically for Vercel previews that have no Paystack key, or set `CHECKOUT_DEMO=1` locally. It never runs on the live site, and adding a Paystack test key to Preview turns it off.
 
 ## Sources
 - Paystack pricing: https://paystack.com/za/pricing

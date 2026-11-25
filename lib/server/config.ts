@@ -5,8 +5,14 @@
 const env = (name: string) => process.env[name]?.trim() || undefined;
 
 // Demo mode fakes Paystack, Bob Go and email so the whole flow can be clicked through without any accounts.
-// It can never switch on in production, even if the variable is set there by mistake.
-export const isDemo = () => env("CHECKOUT_DEMO") === "1" && process.env.VERCEL_ENV !== "production";
+// On: CHECKOUT_DEMO=1, or a Vercel preview that has no Paystack key yet (so previews can be clicked through
+// before the accounts exist; adding a test key turns it off). Off: CHECKOUT_DEMO=0. Never in production.
+export const isDemo = () => {
+  if (process.env.VERCEL_ENV === "production") return false;
+  const flag = env("CHECKOUT_DEMO");
+  if (flag) return flag === "1";
+  return process.env.VERCEL_ENV === "preview" && !env("PAYSTACK_SECRET_KEY");
+};
 
 export function siteUrl() {
   const explicit = env("SITE_URL");
