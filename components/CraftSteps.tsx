@@ -8,6 +8,8 @@ const steps = [
     width: 1200,
     height: 1600,
     alt: "A freshly cut bale of rooibos in a woven sack in the field, mountains behind",
+    // Keeps the top of the bush and the whole sack in the square crop.
+    position: "50% 22%",
   },
   {
     title: "Dried in the sun",
@@ -42,6 +44,7 @@ export function CraftSteps() {
                 height={step.height}
                 sizes="(min-width: 768px) 33vw, 112px"
                 alt={step.alt}
+                style={"position" in step ? { objectPosition: step.position } : undefined}
               />
               <div>
                 <h3>{step.title}</h3>
