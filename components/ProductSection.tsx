@@ -41,7 +41,6 @@ export function ProductSection() {
         <div className="shop-grid">
           <div className="panel buybox" id="buybox">
             <h2 className="t-title" id="shop-title" tabIndex={-1}>{rawRooibos.name}</h2>
-            <p className="tagline">{rawRooibos.tagline}</p>
             <p className="secondary">{rawRooibos.description}</p>
             <p className="price-row">
               <span className="price">{formatPrice(pack.price)}</span>

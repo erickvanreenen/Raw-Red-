@@ -6,7 +6,7 @@ brand
 
 ## Users
 
-Primarily casual repeat buyers: people who already know and like Raw Rooibos and come back to reorder their usual size (100g / 250g / 500g) with minimal friction. Secondary: first-time visitors discovering the brand who need to be convinced quickly, without a slow "story-first" scroll getting in the way of a fast purchase decision.
+Primarily casual repeat buyers: people who already know and like Raw Rooibos and come back to reorder their usual size (100g / 250g) with minimal friction. Secondary: first-time visitors discovering the brand who need to be convinced quickly, without a slow "story-first" scroll getting in the way of a fast purchase decision.
 
 ## Product Purpose
 
