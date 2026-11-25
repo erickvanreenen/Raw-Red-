@@ -209,7 +209,7 @@
   .site-header.is-scrolled { border-bottom-color: var(--color-border-divider); }
   .header-inner { display: flex; align-items: center; gap: var(--space-4); min-height: 64px; }
   .brand { display: inline-flex; align-items: center; gap: var(--space-3); margin-right: auto; min-height: var(--size-target-min); text-decoration: none; font-weight: var(--font-weight-semibold); font-size: 1.125rem; letter-spacing: var(--letter-spacing-title); color: inherit; }
-  .brand img { width: 36px; height: 36px; }
+  .brand img { width: 43px; height: 43px; }
   .nav ul { display: flex; gap: var(--space-1); margin: 0; padding: 0; list-style: none; }
   .nav a { display: inline-flex; align-items: center; min-height: var(--size-target-min); padding: 0 var(--space-3); border-radius: var(--radius-control); text-decoration: none; font-weight: var(--font-weight-medium); color: inherit; }
   .nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
