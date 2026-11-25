@@ -156,7 +156,7 @@ export function CheckoutForm({ online, demo = false }: { online: boolean; demo?:
 
   function emailOrder(v: Record<FieldName, string>) {
     const lines = items.map(
-      (item) => `${item.quantity} × Raw Rooibos ${item.label} (${formatPrice(item.price)} each) = ${formatPrice(item.price * item.quantity)}`
+      (item) => `${item.quantity} × ${rawRooibos.name} ${item.label} (${formatPrice(item.price)} each) = ${formatPrice(item.price * item.quantity)}`
     );
     const body = [
       "Order",
@@ -382,7 +382,7 @@ export function CheckoutForm({ online, demo = false }: { online: boolean; demo?:
           {items.map((item) => (
             <li key={item.sizeId} className="flex items-center justify-between gap-4 text-base text-ink">
               <span>
-                Raw Rooibos, {item.label} <span className="text-ink-soft">× {item.quantity}</span>
+                {rawRooibos.name}, {item.label} <span className="text-ink-soft">× {item.quantity}</span>
               </span>
               <span className="font-semibold">{formatPrice(item.price * item.quantity)}</span>
             </li>

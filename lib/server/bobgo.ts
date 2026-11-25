@@ -1,6 +1,7 @@
 // Server-only. Bob Go: live delivery prices at checkout, and an order in the Bob Go dashboard once paid.
 // Docs: https://developer.bobgo.co.za (rates-at-checkout, orders). Sandbox and live differ only by URL and key.
-import { PACK_PARCEL, type DeliveryAddress } from "@/lib/shipping";
+import { rawRooibos } from "@/lib/products";
+import { parcelFor, type DeliveryAddress } from "@/lib/shipping";
 import { bobgo, isDemo } from "./config";
 import type { ChosenDelivery, OrderLine } from "./order";
 
@@ -32,8 +33,8 @@ const deliveryAddress = (a: DeliveryAddress) => ({
 
 const items = (lines: OrderLine[]) =>
   lines.map((l) => {
-    const p = PACK_PARCEL[l.sizeId];
-    return { description: `Raw Rooibos ${l.label}`, sku: `raw-rooibos-${l.sizeId}`, price: l.price, quantity: l.quantity,
+    const p = parcelFor(l.sizeId, l.grams);
+    return { description: `${rawRooibos.name} ${l.label}`, sku: `raw-rooibos-${l.sizeId}`, price: l.price, quantity: l.quantity,
       length_cm: p.lengthCm, width_cm: p.widthCm, height_cm: p.heightCm, weight_kg: p.weightKg };
   });
 
@@ -98,8 +99,8 @@ export async function createBobGoOrder(reference: string, address: DeliveryAddre
     buyer_selected_shipping_cost: delivery.price,
     delivery_address: deliveryAddress(address),
     order_items: lines.map((l) => {
-      const p = PACK_PARCEL[l.sizeId];
-      return { description: `Raw Rooibos ${l.label}`, sku: `raw-rooibos-${l.sizeId}`, unit_price: l.price, qty: l.quantity,
+      const p = parcelFor(l.sizeId, l.grams);
+      return { description: `${rawRooibos.name} ${l.label}`, sku: `raw-rooibos-${l.sizeId}`, unit_price: l.price, qty: l.quantity,
         unit_weight_kg: p.weightKg, unit_length_cm: p.lengthCm, unit_width_cm: p.widthCm, unit_height_cm: p.heightCm };
     }),
   };

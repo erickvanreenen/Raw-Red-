@@ -1,6 +1,6 @@
 // Server-only. What happens once Paystack confirms a payment: check it, queue it in Bob Go, tell the shop and
 // the customer. Safe to run more than once for the same payment (webhook retries).
-import { formatPrice } from "@/lib/products";
+import { formatPrice, rawRooibos } from "@/lib/products";
 import { PROVINCES } from "@/lib/shipping";
 import { createBobGoOrder } from "./bobgo";
 import { email } from "./config";
@@ -37,7 +37,7 @@ function orderText(tx: PaidTransaction, lines: OrderLine[], subtotal: number, to
   return [
     `Order ${tx.reference}`,
     "",
-    ...lines.map((l) => `${l.quantity} × Raw Rooibos ${l.label} = ${formatPrice(l.price * l.quantity)}`),
+    ...lines.map((l) => `${l.quantity} × ${rawRooibos.name} ${l.label} = ${formatPrice(l.price * l.quantity)}`),
     `Subtotal: ${formatPrice(subtotal)}`,
     `Delivery (${d.name}): ${formatPrice(d.price)}`,
     `Total paid: ${formatPrice(total)}`,

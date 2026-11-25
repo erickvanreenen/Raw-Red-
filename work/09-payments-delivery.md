@@ -16,12 +16,12 @@ Why Paystack over Stitch:
 
 Where Stitch would win: quicker payouts (instant, for R10), Pay Later, and Apple/Google Pay. None matter much for a R85 to R295 tea order.
 
-### Fees on a typical order (R415 of tea + R99 delivery = R514)
+### Fees on a typical order (R275 of tea + R99 delivery = R374)
 
 | | Card | Instant EFT / Capitec Pay |
 |---|---|---|
-| Paystack | 2.9% + R1 = R15.91, + 15% VAT on the fee = **R18.29** | 2% = R10.28 + VAT = **R11.82** |
-| Stitch Express | 2.95% = R15.16 + VAT = **R17.44**, plus R2 per payout | Capitec Pay 2%; no Instant EFT |
+| Paystack | 2.9% + R1 = R11.85, + 15% VAT on the fee = **R13.62** | 2% = R7.48 + VAT = **R8.60** |
+| Stitch Express | 2.95% = R11.03 + VAT = **R12.69**, plus R2 per payout | Capitec Pay 2%; no Instant EFT |
 
 Fees are on Paystack's and Stitch's own pricing pages, excluding VAT. Neither has a monthly fee.
 
@@ -84,7 +84,7 @@ You need to do these yourself (accounts, ID documents, keys). I can't open accou
 - [ ] Sign up at sandbox.bobgo.co.za (the free test account). Settings > API keys: create a key.
 - [ ] Check rates at checkout is switched on for the manual sales channel (if quotes come back "401", this is why).
 - [ ] Sign up at bobgo.co.za (the real account) and add your collection address and a prepaid balance when you're ready to go live.
-- [ ] Weigh and measure one packed 100g, 250g and 500g pouch and send me the numbers. The current ones in `lib/shipping.ts` are guesses.
+- [ ] Weigh and measure one packed 100g and 250g pouch and send me the numbers. The current ones in `lib/shipping.ts` are guesses.
 
 ### 3. Email (optional, recommended, about 10 minutes)
 - [ ] Sign up at resend.com (free up to 3,000 emails a month), add rawrooibos.com, and add the DNS records it shows (wherever the domain is managed).

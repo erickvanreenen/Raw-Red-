@@ -19,7 +19,6 @@ export type ProvinceCode = (typeof PROVINCES)[number]["code"];
 export const PACK_PARCEL: Record<string, { weightKg: number; lengthCm: number; widthCm: number; heightCm: number }> = {
   "100g": { weightKg: 0.15, lengthCm: 18, widthCm: 12, heightCm: 5 },
   "250g": { weightKg: 0.32, lengthCm: 22, widthCm: 15, heightCm: 6 },
-  "500g": { weightKg: 0.6, lengthCm: 26, widthCm: 18, heightCm: 8 },
 };
 
 export interface DeliveryAddress {
@@ -43,4 +42,10 @@ export interface DeliveryOption {
   minDate: string | null;
   maxDate: string | null;
   token: string;
+}
+
+// A pack size without measurements (e.g. a new size added to the shop) still gets a rough parcel, so quotes
+// keep working; add real numbers to PACK_PARCEL when the size is added.
+export function parcelFor(sizeId: string, grams: number) {
+  return PACK_PARCEL[sizeId] ?? { weightKg: Math.round(grams * 1.3) / 1000, lengthCm: 26, widthCm: 18, heightCm: 8 };
 }
