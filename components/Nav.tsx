@@ -61,7 +61,7 @@ export function Nav() {
         <div className="wrap header-inner">
           <a className="brand" href="/#top">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logomark.svg" alt="" width={43} height={43} />
+            <img src="/logomark.svg" alt="" width={36} height={36} />
             <span>Raw Rooibos</span>
           </a>
           <nav ref={navRef} id="main-nav" className={`nav${menuOpen ? " is-open" : ""}`} aria-label="Main">
